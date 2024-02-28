@@ -1,4 +1,0 @@
-OS_Config.c:16:6:EXTI0_IRQHandler	8	static
-OS_Config.c:23:6:EXTI0	8	static
-OS_Config.c:27:6:EXTI1	8	static
-OS_Config.c:31:6:EXTI2	8	static

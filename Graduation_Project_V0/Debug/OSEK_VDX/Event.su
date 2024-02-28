@@ -1,4 +1,0 @@
-Event.c:13:12:SetEvent	24	static,ignoring_inline_asm
-Event.c:67:12:ClearEvent	24	static,ignoring_inline_asm
-Event.c:96:12:GetEvent	24	static,ignoring_inline_asm
-Event.c:133:12:WaitEvent	24	static,ignoring_inline_asm

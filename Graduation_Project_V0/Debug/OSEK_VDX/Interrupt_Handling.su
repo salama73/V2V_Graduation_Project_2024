@@ -1,5 +1,0 @@
-Interrupt_Handling.c:25:6:OS_CAT2_ISR	16	static
-Interrupt_Handling.c:59:6:EnableAllInterrupts	24	static,ignoring_inline_asm
-Interrupt_Handling.c:92:6:DisableAllInterrupts	24	static,ignoring_inline_asm
-Interrupt_Handling.c:135:6:SuspendAllInterrupts	24	static,ignoring_inline_asm
-Interrupt_Handling.c:162:6:ResumeAllInterrupts	24	static,ignoring_inline_asm

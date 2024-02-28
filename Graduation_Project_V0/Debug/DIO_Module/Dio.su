@@ -1,5 +1,0 @@
-Dio.c:35:15:Dio_ReadChannel	24	static
-Dio.c:113:6:Dio_WriteChannel	24	static
-Dio.c:261:19:Dio_ReadPort	24	static
-Dio.c:313:6:Dio_WritePort	32	static
-Dio.c:478:6:Dio_GetVersionInfo	16	static
