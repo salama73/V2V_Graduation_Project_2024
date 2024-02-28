@@ -1,0 +1,4 @@
+Rte_BSW_SWC.c:29:6:Rte_IWrite_BSW_SWC_BSW_SWC_Runnable_PP_LED_Warning_LED_Warning	16	static
+Rte_BSW_SWC.c:34:11:Rte_IWriteRef_BSW_SWC_BSW_SWC_Runnable_PP_LED_Warning_LED_Warning	4	static
+Rte_BSW_SWC.c:38:6:Rte_IWrite_BSW_SWC_BSW_SWC_Runnable_PP_Motor_Speed_Motor_Speed	16	static
+Rte_BSW_SWC.c:43:11:Rte_IWriteRef_BSW_SWC_BSW_SWC_Runnable_PP_Motor_Speed_Motor_Speed	4	static
