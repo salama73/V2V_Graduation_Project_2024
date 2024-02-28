@@ -1,0 +1,6 @@
+main.c:55:6:MCAL_CAN_Mailbox_0_Empty_Callback	8	static
+main.c:59:6:CanIf_TxConfirmation	16	static
+main.c:78:6:CanIf_ControllerModeIndication	16	static
+main.c:83:6:COM_Send_Data	16	static
+main.c:106:6:delay_ms	24	static
+main.c:116:5:main	32	static
