@@ -1,0 +1,6 @@
+Rte_Main_SWC.c:33:17:Rte_IRead_Main_SWC_Main_SWC_Runnable_RP_CAN_Frame_CAN_Frame	4	static
+Rte_Main_SWC.c:37:16:Rte_Call_Main_SWC_RP_Call_BSW_Call_Subsystem	24	static
+Rte_Main_SWC.c:46:16:Rte_Call_Main_SWC_RP_Call_EEBL_Call_Subsystem	24	static
+Rte_Main_SWC.c:55:16:Rte_Call_Main_SWC_RP_Call_DNPW_Call_Subsystem	24	static
+Rte_Main_SWC.c:64:16:Rte_Call_Main_SWC_RP_Call_FCW_Call_Subsystem	24	static
+Rte_Main_SWC.c:73:16:Rte_Call_Main_SWC_RP_Call_IMA_Call_Subsystem	24	static
