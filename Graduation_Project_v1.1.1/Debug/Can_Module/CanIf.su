@@ -1,0 +1,2 @@
+CanIf.c:28:6:CanIf_TxConfirmation	16	static
+CanIf.c:33:6:CanIf_ControllerModeIndication	16	static

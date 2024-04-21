@@ -1,0 +1,7 @@
+Port.c:40:8:get_position	24	static
+Port.c:63:8:get_Index	24	static
+Port.c:87:6:Port_Init	40	static
+Port.c:272:6:Port_SetPinDirection	32	static
+Port.c:375:6:Port_RefreshPortDirection	4	static
+Port.c:391:6:Port_GetVersionInfo	16	static
+Port.c:428:6:Port_SetPinMode	32	static

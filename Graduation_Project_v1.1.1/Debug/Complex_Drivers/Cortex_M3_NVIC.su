@@ -1,0 +1,6 @@
+Cortex_M3_NVIC.c:8:6:MCAL_NVIC_Enable_IRQ	16	static
+Cortex_M3_NVIC.c:56:6:MCAL_NVIC_Disable_IRQ	16	static
+Cortex_M3_NVIC.c:104:11:MCAL_NVIC_Get_State_IRQ	24	static
+Cortex_M3_NVIC.c:211:6:MCAL_Set_Pending_IRQ	16	static
+Cortex_M3_NVIC.c:261:6:MCAL_Clear_Pending_IRQ	16	static
+Cortex_M3_NVIC.c:311:6:MCAL_Set_Priority_IRQ	24	static

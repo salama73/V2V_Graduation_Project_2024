@@ -1,0 +1,3236 @@
+
+Graduation_Project_V0.axf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .isr_vector   00000130  08000000  08000000  00010000  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         00001358  08000130  08000130  00010130  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .rodata       00000140  08001488  08001488  00011488  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .ARM.extab    00000000  080015c8  080015c8  00020084  2**0
+                  CONTENTS
+  4 .ARM          00000000  080015c8  080015c8  00020084  2**0
+                  CONTENTS
+  5 .preinit_array 00000000  080015c8  080015c8  00020084  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .init_array   00000004  080015c8  080015c8  000115c8  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  7 .fini_array   00000004  080015cc  080015cc  000115cc  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  8 .data         00000084  20000000  080015d0  00020000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  9 .bss          00000310  20000084  08001654  00020084  2**2
+                  ALLOC
+ 10 ._user_heap_stack 00000604  20000394  08001654  00020394  2**0
+                  ALLOC
+ 11 .ARM.attributes 00000029  00000000  00000000  00020084  2**0
+                  CONTENTS, READONLY
+ 12 .debug_info   00003d5b  00000000  00000000  000200ad  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_abbrev 00000e32  00000000  00000000  00023e08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_aranges 00000298  00000000  00000000  00024c40  2**3
+                  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_ranges 000001e0  00000000  00000000  00024ed8  2**3
+                  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_macro  00003191  00000000  00000000  000250b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 17 .debug_line   00001ce6  00000000  00000000  00028249  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 18 .debug_str    00012b18  00000000  00000000  00029f2f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 19 .comment      0000007b  00000000  00000000  0003ca47  2**0
+                  CONTENTS, READONLY
+ 20 .debug_frame  00000764  00000000  00000000  0003cac4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+08000130 <__do_global_dtors_aux>:
+ 8000130:	b510      	push	{r4, lr}
+ 8000132:	4c05      	ldr	r4, [pc, #20]	; (8000148 <__do_global_dtors_aux+0x18>)
+ 8000134:	7823      	ldrb	r3, [r4, #0]
+ 8000136:	b933      	cbnz	r3, 8000146 <__do_global_dtors_aux+0x16>
+ 8000138:	4b04      	ldr	r3, [pc, #16]	; (800014c <__do_global_dtors_aux+0x1c>)
+ 800013a:	b113      	cbz	r3, 8000142 <__do_global_dtors_aux+0x12>
+ 800013c:	4804      	ldr	r0, [pc, #16]	; (8000150 <__do_global_dtors_aux+0x20>)
+ 800013e:	f3af 8000 	nop.w
+ 8000142:	2301      	movs	r3, #1
+ 8000144:	7023      	strb	r3, [r4, #0]
+ 8000146:	bd10      	pop	{r4, pc}
+ 8000148:	20000084 	.word	0x20000084
+ 800014c:	00000000 	.word	0x00000000
+ 8000150:	08001470 	.word	0x08001470
+
+08000154 <frame_dummy>:
+ 8000154:	b508      	push	{r3, lr}
+ 8000156:	4b03      	ldr	r3, [pc, #12]	; (8000164 <frame_dummy+0x10>)
+ 8000158:	b11b      	cbz	r3, 8000162 <frame_dummy+0xe>
+ 800015a:	4903      	ldr	r1, [pc, #12]	; (8000168 <frame_dummy+0x14>)
+ 800015c:	4803      	ldr	r0, [pc, #12]	; (800016c <frame_dummy+0x18>)
+ 800015e:	f3af 8000 	nop.w
+ 8000162:	bd08      	pop	{r3, pc}
+ 8000164:	00000000 	.word	0x00000000
+ 8000168:	20000088 	.word	0x20000088
+ 800016c:	08001470 	.word	0x08001470
+
+08000170 <__aeabi_f2uiz>:
+ 8000170:	0042      	lsls	r2, r0, #1
+ 8000172:	d20e      	bcs.n	8000192 <__aeabi_f2uiz+0x22>
+ 8000174:	f1b2 4ffe 	cmp.w	r2, #2130706432	; 0x7f000000
+ 8000178:	d30b      	bcc.n	8000192 <__aeabi_f2uiz+0x22>
+ 800017a:	f04f 039e 	mov.w	r3, #158	; 0x9e
+ 800017e:	ebb3 6212 	subs.w	r2, r3, r2, lsr #24
+ 8000182:	d409      	bmi.n	8000198 <__aeabi_f2uiz+0x28>
+ 8000184:	ea4f 2300 	mov.w	r3, r0, lsl #8
+ 8000188:	f043 4300 	orr.w	r3, r3, #2147483648	; 0x80000000
+ 800018c:	fa23 f002 	lsr.w	r0, r3, r2
+ 8000190:	4770      	bx	lr
+ 8000192:	f04f 0000 	mov.w	r0, #0
+ 8000196:	4770      	bx	lr
+ 8000198:	f112 0f61 	cmn.w	r2, #97	; 0x61
+ 800019c:	d101      	bne.n	80001a2 <__aeabi_f2uiz+0x32>
+ 800019e:	0242      	lsls	r2, r0, #9
+ 80001a0:	d102      	bne.n	80001a8 <__aeabi_f2uiz+0x38>
+ 80001a2:	f04f 30ff 	mov.w	r0, #4294967295
+ 80001a6:	4770      	bx	lr
+ 80001a8:	f04f 0000 	mov.w	r0, #0
+ 80001ac:	4770      	bx	lr
+ 80001ae:	bf00      	nop
+
+080001b0 <Can_Init>:
+ * Parameters (out)  	: None
+ * Return value     	: None
+ * Description       	: This function initializes the module.
+ */
+void Can_Init (const Can_ConfigType* Config)
+{
+ 80001b0:	b580      	push	{r7, lr}
+ 80001b2:	b088      	sub	sp, #32
+ 80001b4:	af00      	add	r7, sp, #0
+ 80001b6:	6078      	str	r0, [r7, #4]
+	uint32 CAN_BTR_temp=0;
+ 80001b8:	2300      	movs	r3, #0
+ 80001ba:	61bb      	str	r3, [r7, #24]
+	uint32 Prescaler=0;
+ 80001bc:	2300      	movs	r3, #0
+ 80001be:	617b      	str	r3, [r7, #20]
+	uint32 BaudRate=0;
+ 80001c0:	2300      	movs	r3, #0
+ 80001c2:	613b      	str	r3, [r7, #16]
+	uint32 Bits_Timing=0;
+ 80001c4:	2300      	movs	r3, #0
+ 80001c6:	60fb      	str	r3, [r7, #12]
+	#if(CanDevErrorDetect==STD_ON)
+		if(NULL_PTR==Config)
+ 80001c8:	687b      	ldr	r3, [r7, #4]
+ 80001ca:	2b00      	cmp	r3, #0
+ 80001cc:	d105      	bne.n	80001da <Can_Init+0x2a>
+			Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_Init_ID,CAN_E_PARAM_POINTER);
+ 80001ce:	2301      	movs	r3, #1
+ 80001d0:	2200      	movs	r2, #0
+ 80001d2:	2100      	movs	r1, #0
+ 80001d4:	200b      	movs	r0, #11
+ 80001d6:	f000 fca3 	bl	8000b20 <Det_ReportError>
+		/*
+		 [SWS_Can_00174] [ If development error detection for the Can module is enabled:
+		  The function Can_Init shall raise the error CAN_E_TRANSITION if the driver is not in
+		  state CAN_UNINIT ]
+		 */
+		if(CanDriverState!=CAN_UNINIT)
+ 80001da:	4b67      	ldr	r3, [pc, #412]	; (8000378 <Can_Init+0x1c8>)
+ 80001dc:	781b      	ldrb	r3, [r3, #0]
+ 80001de:	2b00      	cmp	r3, #0
+ 80001e0:	d005      	beq.n	80001ee <Can_Init+0x3e>
+			Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_Init_ID,CAN_E_TRANSITION);
+ 80001e2:	2306      	movs	r3, #6
+ 80001e4:	2200      	movs	r2, #0
+ 80001e6:	2100      	movs	r1, #0
+ 80001e8:	200b      	movs	r0, #11
+ 80001ea:	f000 fc99 	bl	8000b20 <Det_ReportError>
+		/*
+		 [SWS_Can_00408] [ If development error detection for the Can module is enabled:
+		  The function Can_Init shall raise the error CAN_E_TRANSITION if the CAN
+		  controllers are not in state UNINIT]
+		*/
+		if(Can_Controller_State!=CAN_CS_UNINIT)
+ 80001ee:	4b63      	ldr	r3, [pc, #396]	; (800037c <Can_Init+0x1cc>)
+ 80001f0:	781b      	ldrb	r3, [r3, #0]
+ 80001f2:	2b00      	cmp	r3, #0
+ 80001f4:	d005      	beq.n	8000202 <Can_Init+0x52>
+			Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_Init_ID,CAN_E_TRANSITION);
+ 80001f6:	2306      	movs	r3, #6
+ 80001f8:	2200      	movs	r2, #0
+ 80001fa:	2100      	movs	r1, #0
+ 80001fc:	200b      	movs	r0, #11
+ 80001fe:	f000 fc8f 	bl	8000b20 <Det_ReportError>
+	#endif
+	/*
+	 The Can module configuration defines the global CAN HW Unit settings and
+	 references to the default CAN controller configuration sets.
+	 */
+	CAN_HW_Unit_settings=*Config;
+ 8000202:	4a5f      	ldr	r2, [pc, #380]	; (8000380 <Can_Init+0x1d0>)
+ 8000204:	687b      	ldr	r3, [r7, #4]
+ 8000206:	4610      	mov	r0, r2
+ 8000208:	4619      	mov	r1, r3
+ 800020a:	237c      	movs	r3, #124	; 0x7c
+ 800020c:	461a      	mov	r2, r3
+ 800020e:	f001 f923 	bl	8001458 <memcpy>
+	//CAN controller is used in the configuration.
+	if(TRUE==Config->CanConfigSet.CanController.CanControllerActivation)
+ 8000212:	687b      	ldr	r3, [r7, #4]
+ 8000214:	785b      	ldrb	r3, [r3, #1]
+ 8000216:	2b01      	cmp	r3, #1
+ 8000218:	f040 8095 	bne.w	8000346 <Can_Init+0x196>
+	{
+		// Enable Can peripheral clock
+		RCC_CAN_CLK_Enable();
+ 800021c:	4b59      	ldr	r3, [pc, #356]	; (8000384 <Can_Init+0x1d4>)
+ 800021e:	69db      	ldr	r3, [r3, #28]
+ 8000220:	4a58      	ldr	r2, [pc, #352]	; (8000384 <Can_Init+0x1d4>)
+ 8000222:	f043 7300 	orr.w	r3, r3, #33554432	; 0x2000000
+ 8000226:	61d3      	str	r3, [r2, #28]
+		//Software sets this bit to request the CAN hardware to enter initialization mode.
+		CAN_MCR &=~(1<<1);
+ 8000228:	4b57      	ldr	r3, [pc, #348]	; (8000388 <Can_Init+0x1d8>)
+ 800022a:	681b      	ldr	r3, [r3, #0]
+ 800022c:	4a56      	ldr	r2, [pc, #344]	; (8000388 <Can_Init+0x1d8>)
+ 800022e:	f023 0302 	bic.w	r3, r3, #2
+ 8000232:	6013      	str	r3, [r2, #0]
+		CAN_MCR |=(1<<0);
+ 8000234:	4b54      	ldr	r3, [pc, #336]	; (8000388 <Can_Init+0x1d8>)
+ 8000236:	681b      	ldr	r3, [r3, #0]
+ 8000238:	4a53      	ldr	r2, [pc, #332]	; (8000388 <Can_Init+0x1d8>)
+ 800023a:	f043 0301 	orr.w	r3, r3, #1
+ 800023e:	6013      	str	r3, [r2, #0]
+		//CAN bit timing register (baud Rate)
+		CAN_BTR_temp=CAN_BTR;
+ 8000240:	4b52      	ldr	r3, [pc, #328]	; (800038c <Can_Init+0x1dc>)
+ 8000242:	681b      	ldr	r3, [r3, #0]
+ 8000244:	61bb      	str	r3, [r7, #24]
+		CAN_BTR_temp &=0XC0000000;
+ 8000246:	69bb      	ldr	r3, [r7, #24]
+ 8000248:	f003 4340 	and.w	r3, r3, #3221225472	; 0xc0000000
+ 800024c:	61bb      	str	r3, [r7, #24]
+		//set Prescaler
+		Bits_Timing=Config->CanConfigSet.CanController.CanControllerDefaultBaudrate->CanControllerPropSeg;
+ 800024e:	687b      	ldr	r3, [r7, #4]
+ 8000250:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 8000252:	88db      	ldrh	r3, [r3, #6]
+ 8000254:	60fb      	str	r3, [r7, #12]
+		Bits_Timing+=Config->CanConfigSet.CanController.CanControllerDefaultBaudrate->CanControllerSeg1;
+ 8000256:	687b      	ldr	r3, [r7, #4]
+ 8000258:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 800025a:	7a1b      	ldrb	r3, [r3, #8]
+ 800025c:	461a      	mov	r2, r3
+ 800025e:	68fb      	ldr	r3, [r7, #12]
+ 8000260:	4413      	add	r3, r2
+ 8000262:	60fb      	str	r3, [r7, #12]
+		Bits_Timing+=Config->CanConfigSet.CanController.CanControllerDefaultBaudrate->CanControllerSeg2;
+ 8000264:	687b      	ldr	r3, [r7, #4]
+ 8000266:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 8000268:	7a5b      	ldrb	r3, [r3, #9]
+ 800026a:	461a      	mov	r2, r3
+ 800026c:	68fb      	ldr	r3, [r7, #12]
+ 800026e:	4413      	add	r3, r2
+ 8000270:	60fb      	str	r3, [r7, #12]
+		BaudRate=Config->CanConfigSet.CanController.CanControllerDefaultBaudrate->CanControllerBaudRate;
+ 8000272:	687b      	ldr	r3, [r7, #4]
+ 8000274:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 8000276:	681b      	ldr	r3, [r3, #0]
+ 8000278:	4618      	mov	r0, r3
+ 800027a:	f7ff ff79 	bl	8000170 <__aeabi_f2uiz>
+ 800027e:	4603      	mov	r3, r0
+ 8000280:	613b      	str	r3, [r7, #16]
+		Prescaler=(8000000)/(Bits_Timing*1000*BaudRate);
+ 8000282:	68fb      	ldr	r3, [r7, #12]
+ 8000284:	693a      	ldr	r2, [r7, #16]
+ 8000286:	fb02 f303 	mul.w	r3, r2, r3
+ 800028a:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+ 800028e:	fb02 f303 	mul.w	r3, r2, r3
+ 8000292:	4a3f      	ldr	r2, [pc, #252]	; (8000390 <Can_Init+0x1e0>)
+ 8000294:	fbb2 f3f3 	udiv	r3, r2, r3
+ 8000298:	617b      	str	r3, [r7, #20]
+		CAN_BTR_temp |=(Prescaler-1)<<0;
+ 800029a:	697b      	ldr	r3, [r7, #20]
+ 800029c:	3b01      	subs	r3, #1
+ 800029e:	69ba      	ldr	r2, [r7, #24]
+ 80002a0:	4313      	orrs	r3, r2
+ 80002a2:	61bb      	str	r3, [r7, #24]
+		//set TimeSeg1
+		CAN_BTR_temp |=(Config->CanConfigSet.CanController.CanControllerDefaultBaudrate->CanControllerSeg1-1)<<16;
+ 80002a4:	687b      	ldr	r3, [r7, #4]
+ 80002a6:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 80002a8:	7a1b      	ldrb	r3, [r3, #8]
+ 80002aa:	3b01      	subs	r3, #1
+ 80002ac:	041b      	lsls	r3, r3, #16
+ 80002ae:	461a      	mov	r2, r3
+ 80002b0:	69bb      	ldr	r3, [r7, #24]
+ 80002b2:	4313      	orrs	r3, r2
+ 80002b4:	61bb      	str	r3, [r7, #24]
+		//set TimeSeg2
+		CAN_BTR_temp |=(Config->CanConfigSet.CanController.CanControllerDefaultBaudrate->CanControllerSeg2-1)<<20;
+ 80002b6:	687b      	ldr	r3, [r7, #4]
+ 80002b8:	6a9b      	ldr	r3, [r3, #40]	; 0x28
+ 80002ba:	7a5b      	ldrb	r3, [r3, #9]
+ 80002bc:	3b01      	subs	r3, #1
+ 80002be:	051b      	lsls	r3, r3, #20
+ 80002c0:	461a      	mov	r2, r3
+ 80002c2:	69bb      	ldr	r3, [r7, #24]
+ 80002c4:	4313      	orrs	r3, r2
+ 80002c6:	61bb      	str	r3, [r7, #24]
+		CAN_BTR=CAN_BTR_temp;
+ 80002c8:	4a30      	ldr	r2, [pc, #192]	; (800038c <Can_Init+0x1dc>)
+ 80002ca:	69bb      	ldr	r3, [r7, #24]
+ 80002cc:	6013      	str	r3, [r2, #0]
+		//CAN_BTR |=(1<<31);
+		//CAN_BTR |=(1<<30);
+		/*
+		 enable Transmit interrupt
+		 */
+		CAN_IER |=(1<<0);
+ 80002ce:	4b31      	ldr	r3, [pc, #196]	; (8000394 <Can_Init+0x1e4>)
+ 80002d0:	681b      	ldr	r3, [r3, #0]
+ 80002d2:	4a30      	ldr	r2, [pc, #192]	; (8000394 <Can_Init+0x1e4>)
+ 80002d4:	f043 0301 	orr.w	r3, r3, #1
+ 80002d8:	6013      	str	r3, [r2, #0]
+		NVIC_IRQ19_CAN_TX_Enable();
+ 80002da:	4b2f      	ldr	r3, [pc, #188]	; (8000398 <Can_Init+0x1e8>)
+ 80002dc:	681b      	ldr	r3, [r3, #0]
+ 80002de:	4a2e      	ldr	r2, [pc, #184]	; (8000398 <Can_Init+0x1e8>)
+ 80002e0:	f443 2300 	orr.w	r3, r3, #524288	; 0x80000
+ 80002e4:	6013      	str	r3, [r2, #0]
+		/*
+		 enable Receive Fifo 0 interrupt
+		 */
+		//FIFO message pending interrupt enable
+		CAN_IER |=(1<<1);
+ 80002e6:	4b2b      	ldr	r3, [pc, #172]	; (8000394 <Can_Init+0x1e4>)
+ 80002e8:	681b      	ldr	r3, [r3, #0]
+ 80002ea:	4a2a      	ldr	r2, [pc, #168]	; (8000394 <Can_Init+0x1e4>)
+ 80002ec:	f043 0302 	orr.w	r3, r3, #2
+ 80002f0:	6013      	str	r3, [r2, #0]
+		//FIFO full interrupt enable
+		CAN_IER |=(1<<2);
+ 80002f2:	4b28      	ldr	r3, [pc, #160]	; (8000394 <Can_Init+0x1e4>)
+ 80002f4:	681b      	ldr	r3, [r3, #0]
+ 80002f6:	4a27      	ldr	r2, [pc, #156]	; (8000394 <Can_Init+0x1e4>)
+ 80002f8:	f043 0304 	orr.w	r3, r3, #4
+ 80002fc:	6013      	str	r3, [r2, #0]
+		//FIFO overrun interrupt enable
+		CAN_IER |=(1<<3);
+ 80002fe:	4b25      	ldr	r3, [pc, #148]	; (8000394 <Can_Init+0x1e4>)
+ 8000300:	681b      	ldr	r3, [r3, #0]
+ 8000302:	4a24      	ldr	r2, [pc, #144]	; (8000394 <Can_Init+0x1e4>)
+ 8000304:	f043 0308 	orr.w	r3, r3, #8
+ 8000308:	6013      	str	r3, [r2, #0]
+		NVIC_IRQ20_CAN_RX0_Enable();
+ 800030a:	4b23      	ldr	r3, [pc, #140]	; (8000398 <Can_Init+0x1e8>)
+ 800030c:	681b      	ldr	r3, [r3, #0]
+ 800030e:	4a22      	ldr	r2, [pc, #136]	; (8000398 <Can_Init+0x1e8>)
+ 8000310:	f443 1380 	orr.w	r3, r3, #1048576	; 0x100000
+ 8000314:	6013      	str	r3, [r2, #0]
+		/*
+		 enable Receive Fifo 1 interrupt
+		 */
+		//FIFO message pending interrupt enable
+		CAN_IER |=(1<<4);
+ 8000316:	4b1f      	ldr	r3, [pc, #124]	; (8000394 <Can_Init+0x1e4>)
+ 8000318:	681b      	ldr	r3, [r3, #0]
+ 800031a:	4a1e      	ldr	r2, [pc, #120]	; (8000394 <Can_Init+0x1e4>)
+ 800031c:	f043 0310 	orr.w	r3, r3, #16
+ 8000320:	6013      	str	r3, [r2, #0]
+		//FIFO full interrupt enable
+		CAN_IER |=(1<<5);
+ 8000322:	4b1c      	ldr	r3, [pc, #112]	; (8000394 <Can_Init+0x1e4>)
+ 8000324:	681b      	ldr	r3, [r3, #0]
+ 8000326:	4a1b      	ldr	r2, [pc, #108]	; (8000394 <Can_Init+0x1e4>)
+ 8000328:	f043 0320 	orr.w	r3, r3, #32
+ 800032c:	6013      	str	r3, [r2, #0]
+		//FIFO overrun interrupt enable
+		CAN_IER |=(1<<6);
+ 800032e:	4b19      	ldr	r3, [pc, #100]	; (8000394 <Can_Init+0x1e4>)
+ 8000330:	681b      	ldr	r3, [r3, #0]
+ 8000332:	4a18      	ldr	r2, [pc, #96]	; (8000394 <Can_Init+0x1e4>)
+ 8000334:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+ 8000338:	6013      	str	r3, [r2, #0]
+		NVIC_IRQ21_CAN_RX1_Enable();
+ 800033a:	4b17      	ldr	r3, [pc, #92]	; (8000398 <Can_Init+0x1e8>)
+ 800033c:	681b      	ldr	r3, [r3, #0]
+ 800033e:	4a16      	ldr	r2, [pc, #88]	; (8000398 <Can_Init+0x1e8>)
+ 8000340:	f443 1300 	orr.w	r3, r3, #2097152	; 0x200000
+ 8000344:	6013      	str	r3, [r2, #0]
+	else
+	{
+		//
+	}
+    // Hardware Object
+    for (int i = 0; i < Max_Num_HOH ; i++)
+ 8000346:	2300      	movs	r3, #0
+ 8000348:	61fb      	str	r3, [r7, #28]
+ 800034a:	e007      	b.n	800035c <Can_Init+0x1ac>
+    {
+    	// Set Message Objects as Free
+    	Message_ObjectStatus[i].Object_Free= TRUE;
+ 800034c:	4a13      	ldr	r2, [pc, #76]	; (800039c <Can_Init+0x1ec>)
+ 800034e:	69fb      	ldr	r3, [r7, #28]
+ 8000350:	2101      	movs	r1, #1
+ 8000352:	f802 1023 	strb.w	r1, [r2, r3, lsl #2]
+    for (int i = 0; i < Max_Num_HOH ; i++)
+ 8000356:	69fb      	ldr	r3, [r7, #28]
+ 8000358:	3301      	adds	r3, #1
+ 800035a:	61fb      	str	r3, [r7, #28]
+ 800035c:	69fb      	ldr	r3, [r7, #28]
+ 800035e:	2b03      	cmp	r3, #3
+ 8000360:	ddf4      	ble.n	800034c <Can_Init+0x19c>
+    }
+    /*
+    [SWS_Can_00246] The function Can_Init shall change the module state to
+    CAN_READY, after initializing all controllers inside the HW Unit.
+    */
+    CanDriverState=CAN_READY;
+ 8000362:	4b05      	ldr	r3, [pc, #20]	; (8000378 <Can_Init+0x1c8>)
+ 8000364:	2201      	movs	r2, #1
+ 8000366:	701a      	strb	r2, [r3, #0]
+	Can_Controller_State=CAN_CS_STOPPED;
+ 8000368:	4b04      	ldr	r3, [pc, #16]	; (800037c <Can_Init+0x1cc>)
+ 800036a:	2202      	movs	r2, #2
+ 800036c:	701a      	strb	r2, [r3, #0]
+}
+ 800036e:	bf00      	nop
+ 8000370:	3720      	adds	r7, #32
+ 8000372:	46bd      	mov	sp, r7
+ 8000374:	bd80      	pop	{r7, pc}
+ 8000376:	bf00      	nop
+ 8000378:	200000a0 	.word	0x200000a0
+ 800037c:	200000a1 	.word	0x200000a1
+ 8000380:	20000110 	.word	0x20000110
+ 8000384:	40021000 	.word	0x40021000
+ 8000388:	40006400 	.word	0x40006400
+ 800038c:	4000641c 	.word	0x4000641c
+ 8000390:	007a1200 	.word	0x007a1200
+ 8000394:	40006414 	.word	0x40006414
+ 8000398:	e000e100 	.word	0xe000e100
+ 800039c:	200000b8 	.word	0x200000b8
+
+080003a0 <Can_SetControllerMode>:
+               	   	      E_OK (request accepted)
+               	   	   	  E_NOT_OK (request not accepted)
+ * Description			: This service reports about the current status of the requested CAN controller.
+*******************************************************************************/
+Std_ReturnType Can_SetControllerMode (uint8 Controller,Can_ControllerStateType Transition)
+{
+ 80003a0:	b580      	push	{r7, lr}
+ 80003a2:	b084      	sub	sp, #16
+ 80003a4:	af00      	add	r7, sp, #0
+ 80003a6:	4603      	mov	r3, r0
+ 80003a8:	460a      	mov	r2, r1
+ 80003aa:	71fb      	strb	r3, [r7, #7]
+ 80003ac:	4613      	mov	r3, r2
+ 80003ae:	71bb      	strb	r3, [r7, #6]
+	Std_ReturnType Status=E_OK;
+ 80003b0:	2300      	movs	r3, #0
+ 80003b2:	73fb      	strb	r3, [r7, #15]
+	/*
+	[SWS_Can_00198]  If development error detection for the Can module is enabled: if
+	the module is not yet initialized, the function Can_SetControllerMode shall raise
+	development error CAN_E_UNINIT and return E_NOT_OK.
+	*/
+	if(CanDriverState!=CAN_READY)
+ 80003b4:	4b4f      	ldr	r3, [pc, #316]	; (80004f4 <Can_SetControllerMode+0x154>)
+ 80003b6:	781b      	ldrb	r3, [r3, #0]
+ 80003b8:	2b01      	cmp	r3, #1
+ 80003ba:	d009      	beq.n	80003d0 <Can_SetControllerMode+0x30>
+	{
+		Status=E_NOT_OK;
+ 80003bc:	2301      	movs	r3, #1
+ 80003be:	73fb      	strb	r3, [r7, #15]
+		Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_SetControllerMode_ID,CAN_E_UNINIT);
+ 80003c0:	2305      	movs	r3, #5
+ 80003c2:	2203      	movs	r2, #3
+ 80003c4:	2100      	movs	r1, #0
+ 80003c6:	200b      	movs	r0, #11
+ 80003c8:	f000 fbaa 	bl	8000b20 <Det_ReportError>
+		return Status;
+ 80003cc:	7bfb      	ldrb	r3, [r7, #15]
+ 80003ce:	e08d      	b.n	80004ec <Can_SetControllerMode+0x14c>
+	/*
+	 The function Can_SetControllerMode(CAN_CS_STARTED)
+	 shall set the hardware registers in a way that makes the CAN controller participating
+	 on the network
+	 */
+	if(Transition==CAN_CS_STARTED)
+ 80003d0:	79bb      	ldrb	r3, [r7, #6]
+ 80003d2:	2b01      	cmp	r3, #1
+ 80003d4:	d12e      	bne.n	8000434 <Can_SetControllerMode+0x94>
+		/*
+		 When the function Can_SetControllerMode
+		 (CAN_CS_STARTED) is entered and the CAN controller is not in state STOPPED it
+		 shall detect a invalid state transition
+		 */
+		if(Can_Controller_State==CAN_CS_STOPPED)
+ 80003d6:	4b48      	ldr	r3, [pc, #288]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 80003d8:	781b      	ldrb	r3, [r3, #0]
+ 80003da:	2b02      	cmp	r3, #2
+ 80003dc:	d120      	bne.n	8000420 <Can_SetControllerMode+0x80>
+		{
+			if(CAN_HW_Unit_settings.CanConfigSet.CanController.CanBusoffProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanTxProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanRxProcessing==INTERRUPT)
+ 80003de:	4b47      	ldr	r3, [pc, #284]	; (80004fc <Can_SetControllerMode+0x15c>)
+ 80003e0:	781b      	ldrb	r3, [r3, #0]
+ 80003e2:	2b01      	cmp	r3, #1
+ 80003e4:	d007      	beq.n	80003f6 <Can_SetControllerMode+0x56>
+ 80003e6:	4b45      	ldr	r3, [pc, #276]	; (80004fc <Can_SetControllerMode+0x15c>)
+ 80003e8:	7a9b      	ldrb	r3, [r3, #10]
+ 80003ea:	2b01      	cmp	r3, #1
+ 80003ec:	d003      	beq.n	80003f6 <Can_SetControllerMode+0x56>
+ 80003ee:	4b43      	ldr	r3, [pc, #268]	; (80004fc <Can_SetControllerMode+0x15c>)
+ 80003f0:	7a5b      	ldrb	r3, [r3, #9]
+ 80003f2:	2b01      	cmp	r3, #1
+ 80003f4:	d103      	bne.n	80003fe <Can_SetControllerMode+0x5e>
+			{
+				Can_EnableControllerInterrupts(Controller);
+ 80003f6:	79fb      	ldrb	r3, [r7, #7]
+ 80003f8:	4618      	mov	r0, r3
+ 80003fa:	f000 f8ef 	bl	80005dc <Can_EnableControllerInterrupts>
+			 [SWS_Can_00261] ⌈ The function Can_SetControllerMode(CAN_CS_STARTED)
+			 shall set the hardware registers in a way that makes the CAN controller participating
+			 on the network
+			 */
+			// enter STARTED mode
+			CAN_MCR &=~(1<<0);
+ 80003fe:	4b40      	ldr	r3, [pc, #256]	; (8000500 <Can_SetControllerMode+0x160>)
+ 8000400:	681b      	ldr	r3, [r3, #0]
+ 8000402:	4a3f      	ldr	r2, [pc, #252]	; (8000500 <Can_SetControllerMode+0x160>)
+ 8000404:	f023 0301 	bic.w	r3, r3, #1
+ 8000408:	6013      	str	r3, [r2, #0]
+			/*
+			 This bit is cleared by hardware when the CAN hardware has left the initialization mode (to
+			 be synchronized on the CAN bus). To be synchronized the hardware has to monitor a
+			 sequence of 11 consecutive recessive bits on the CAN RX signal.
+			 */
+			while(CAN_MSR & (1<<0));
+ 800040a:	bf00      	nop
+ 800040c:	4b3d      	ldr	r3, [pc, #244]	; (8000504 <Can_SetControllerMode+0x164>)
+ 800040e:	681b      	ldr	r3, [r3, #0]
+ 8000410:	f003 0301 	and.w	r3, r3, #1
+ 8000414:	2b00      	cmp	r3, #0
+ 8000416:	d1f9      	bne.n	800040c <Can_SetControllerMode+0x6c>
+			Can_Controller_State=CAN_CS_STARTED;
+ 8000418:	4b37      	ldr	r3, [pc, #220]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 800041a:	2201      	movs	r2, #1
+ 800041c:	701a      	strb	r2, [r3, #0]
+ 800041e:	e05d      	b.n	80004dc <Can_SetControllerMode+0x13c>
+			 [SWS_Can_00409] When the function Can_SetControllerMode
+			 (CAN_CS_STARTED) is entered and the CAN controller is not in state STOPPED it
+			 shall detect a invalid state transition
+			 */
+		#if(CanDevErrorDetect==STD_ON)
+			Status=E_NOT_OK;
+ 8000420:	2301      	movs	r3, #1
+ 8000422:	73fb      	strb	r3, [r7, #15]
+			Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_SetControllerMode_ID,CAN_E_TRANSITION);
+ 8000424:	2306      	movs	r3, #6
+ 8000426:	2203      	movs	r2, #3
+ 8000428:	2100      	movs	r1, #0
+ 800042a:	200b      	movs	r0, #11
+ 800042c:	f000 fb78 	bl	8000b20 <Det_ReportError>
+			return Status;
+ 8000430:	7bfb      	ldrb	r3, [r7, #15]
+ 8000432:	e05b      	b.n	80004ec <Can_SetControllerMode+0x14c>
+		#endif
+
+		}
+	}
+	else if(Transition==CAN_CS_STOPPED)
+ 8000434:	79bb      	ldrb	r3, [r7, #6]
+ 8000436:	2b02      	cmp	r3, #2
+ 8000438:	d12b      	bne.n	8000492 <Can_SetControllerMode+0xf2>
+	{
+		if(Can_Controller_State==CAN_CS_SLEEP||Can_Controller_State==CAN_CS_STARTED)
+ 800043a:	4b2f      	ldr	r3, [pc, #188]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 800043c:	781b      	ldrb	r3, [r3, #0]
+ 800043e:	2b03      	cmp	r3, #3
+ 8000440:	d003      	beq.n	800044a <Can_SetControllerMode+0xaa>
+ 8000442:	4b2d      	ldr	r3, [pc, #180]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 8000444:	781b      	ldrb	r3, [r3, #0]
+ 8000446:	2b01      	cmp	r3, #1
+ 8000448:	d119      	bne.n	800047e <Can_SetControllerMode+0xde>
+			/*
+			 [SWS_Can_00263] ⌈ The function Can_SetControllerMode(CAN_CS_STOPPED)
+			 shall set the bits inside the CAN hardware such that the CAN controller stops
+			 participating on the network.
+			 */
+			CAN_MCR |=(1<<0);
+ 800044a:	4b2d      	ldr	r3, [pc, #180]	; (8000500 <Can_SetControllerMode+0x160>)
+ 800044c:	681b      	ldr	r3, [r3, #0]
+ 800044e:	4a2c      	ldr	r2, [pc, #176]	; (8000500 <Can_SetControllerMode+0x160>)
+ 8000450:	f043 0301 	orr.w	r3, r3, #1
+ 8000454:	6013      	str	r3, [r2, #0]
+			if(CAN_HW_Unit_settings.CanConfigSet.CanController.CanBusoffProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanTxProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanRxProcessing==INTERRUPT)
+ 8000456:	4b29      	ldr	r3, [pc, #164]	; (80004fc <Can_SetControllerMode+0x15c>)
+ 8000458:	781b      	ldrb	r3, [r3, #0]
+ 800045a:	2b01      	cmp	r3, #1
+ 800045c:	d007      	beq.n	800046e <Can_SetControllerMode+0xce>
+ 800045e:	4b27      	ldr	r3, [pc, #156]	; (80004fc <Can_SetControllerMode+0x15c>)
+ 8000460:	7a9b      	ldrb	r3, [r3, #10]
+ 8000462:	2b01      	cmp	r3, #1
+ 8000464:	d003      	beq.n	800046e <Can_SetControllerMode+0xce>
+ 8000466:	4b25      	ldr	r3, [pc, #148]	; (80004fc <Can_SetControllerMode+0x15c>)
+ 8000468:	7a5b      	ldrb	r3, [r3, #9]
+ 800046a:	2b01      	cmp	r3, #1
+ 800046c:	d103      	bne.n	8000476 <Can_SetControllerMode+0xd6>
+			{
+				Can_DisableControllerInterrupts(Controller);
+ 800046e:	79fb      	ldrb	r3, [r7, #7]
+ 8000470:	4618      	mov	r0, r3
+ 8000472:	f000 f849 	bl	8000508 <Can_DisableControllerInterrupts>
+			}
+			else
+			{
+				//
+			}
+			Can_Controller_State=CAN_CS_STOPPED;
+ 8000476:	4b20      	ldr	r3, [pc, #128]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 8000478:	2202      	movs	r2, #2
+ 800047a:	701a      	strb	r2, [r3, #0]
+ 800047c:	e02e      	b.n	80004dc <Can_SetControllerMode+0x13c>
+		}
+		else
+		{
+			Status=E_NOT_OK;
+ 800047e:	2301      	movs	r3, #1
+ 8000480:	73fb      	strb	r3, [r7, #15]
+			Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_SetControllerMode_ID,CAN_E_TRANSITION);
+ 8000482:	2306      	movs	r3, #6
+ 8000484:	2203      	movs	r2, #3
+ 8000486:	2100      	movs	r1, #0
+ 8000488:	200b      	movs	r0, #11
+ 800048a:	f000 fb49 	bl	8000b20 <Det_ReportError>
+			return Status;
+ 800048e:	7bfb      	ldrb	r3, [r7, #15]
+ 8000490:	e02c      	b.n	80004ec <Can_SetControllerMode+0x14c>
+		}
+	}
+	else if(Transition==CAN_CS_SLEEP)
+ 8000492:	79bb      	ldrb	r3, [r7, #6]
+ 8000494:	2b03      	cmp	r3, #3
+ 8000496:	d117      	bne.n	80004c8 <Can_SetControllerMode+0x128>
+	{
+		if(Can_Controller_State==CAN_CS_STOPPED)
+ 8000498:	4b17      	ldr	r3, [pc, #92]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 800049a:	781b      	ldrb	r3, [r3, #0]
+ 800049c:	2b02      	cmp	r3, #2
+ 800049e:	d109      	bne.n	80004b4 <Can_SetControllerMode+0x114>
+			/*
+			 This bit is set by software to request the CAN hardware to enter the Sleep mode. Sleep
+			 mode will be entered as soon as the current CAN activity (transmission or reception of a
+			 CAN frame) has been completed.
+			 */
+			CAN_MCR |=(1<<1);
+ 80004a0:	4b17      	ldr	r3, [pc, #92]	; (8000500 <Can_SetControllerMode+0x160>)
+ 80004a2:	681b      	ldr	r3, [r3, #0]
+ 80004a4:	4a16      	ldr	r2, [pc, #88]	; (8000500 <Can_SetControllerMode+0x160>)
+ 80004a6:	f043 0302 	orr.w	r3, r3, #2
+ 80004aa:	6013      	str	r3, [r2, #0]
+			Can_Controller_State=CAN_CS_SLEEP;
+ 80004ac:	4b12      	ldr	r3, [pc, #72]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 80004ae:	2203      	movs	r2, #3
+ 80004b0:	701a      	strb	r2, [r3, #0]
+ 80004b2:	e013      	b.n	80004dc <Can_SetControllerMode+0x13c>
+			/*
+			  When the function Can_SetControllerMode(CAN_CS_SLEEP)
+			 is entered and the CAN controller is neither in state STOPPED nor in state SLEEP, it
+			 shall detect a invalid state transition
+			 */
+			Status=E_NOT_OK;
+ 80004b4:	2301      	movs	r3, #1
+ 80004b6:	73fb      	strb	r3, [r7, #15]
+			Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_SetControllerMode_ID,CAN_E_TRANSITION);
+ 80004b8:	2306      	movs	r3, #6
+ 80004ba:	2203      	movs	r2, #3
+ 80004bc:	2100      	movs	r1, #0
+ 80004be:	200b      	movs	r0, #11
+ 80004c0:	f000 fb2e 	bl	8000b20 <Det_ReportError>
+			return Status;
+ 80004c4:	7bfb      	ldrb	r3, [r7, #15]
+ 80004c6:	e011      	b.n	80004ec <Can_SetControllerMode+0x14c>
+		[SWS_Can_00200] ⌈ If development error detection for the Can module is enabled: if
+		an invalid transition has been requested, the function Can_SetControllerMode shall
+		raise the error CAN_E_TRANSITION and return E_NOT_OK.
+		*/
+	#if(CanDevErrorDetect==STD_ON)
+		Status=E_NOT_OK;
+ 80004c8:	2301      	movs	r3, #1
+ 80004ca:	73fb      	strb	r3, [r7, #15]
+		Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_SetControllerMode_ID,CAN_E_TRANSITION);
+ 80004cc:	2306      	movs	r3, #6
+ 80004ce:	2203      	movs	r2, #3
+ 80004d0:	2100      	movs	r1, #0
+ 80004d2:	200b      	movs	r0, #11
+ 80004d4:	f000 fb24 	bl	8000b20 <Det_ReportError>
+		return Status;
+ 80004d8:	7bfb      	ldrb	r3, [r7, #15]
+ 80004da:	e007      	b.n	80004ec <Can_SetControllerMode+0x14c>
+	}
+	/*
+	 The Can module notifies the upper layer (CanIf_ControllerModeIndication) after a
+	 successful state transition about the new state.
+	 */
+	CanIf_ControllerModeIndication(Controller,Can_Controller_State);
+ 80004dc:	4b06      	ldr	r3, [pc, #24]	; (80004f8 <Can_SetControllerMode+0x158>)
+ 80004de:	781a      	ldrb	r2, [r3, #0]
+ 80004e0:	79fb      	ldrb	r3, [r7, #7]
+ 80004e2:	4611      	mov	r1, r2
+ 80004e4:	4618      	mov	r0, r3
+ 80004e6:	f000 f9f1 	bl	80008cc <CanIf_ControllerModeIndication>
+	return Status;
+ 80004ea:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 80004ec:	4618      	mov	r0, r3
+ 80004ee:	3710      	adds	r7, #16
+ 80004f0:	46bd      	mov	sp, r7
+ 80004f2:	bd80      	pop	{r7, pc}
+ 80004f4:	200000a0 	.word	0x200000a0
+ 80004f8:	200000a1 	.word	0x200000a1
+ 80004fc:	20000110 	.word	0x20000110
+ 8000500:	40006400 	.word	0x40006400
+ 8000504:	40006404 	.word	0x40006404
+
+08000508 <Can_DisableControllerInterrupts>:
+ * Parameters (out)  	: None
+ * Return value      	: None
+ * Description       	: This function disables all interrupts for this CAN controller
+*******************************************************************************/
+void Can_DisableControllerInterrupts (uint8 Controller)
+{
+ 8000508:	b580      	push	{r7, lr}
+ 800050a:	b082      	sub	sp, #8
+ 800050c:	af00      	add	r7, sp, #0
+ 800050e:	4603      	mov	r3, r0
+ 8000510:	71fb      	strb	r3, [r7, #7]
+	/*
+	 [SWS_Can_00205] If development error detection for the Can module is enabled:
+	 The function Can_DisableControllerInterrupts shall raise the error CAN_E_UNINIT if
+	 the driver not yet initialized.
+	 */
+	if(CanDriverState!=CAN_READY)
+ 8000512:	4b2d      	ldr	r3, [pc, #180]	; (80005c8 <Can_DisableControllerInterrupts+0xc0>)
+ 8000514:	781b      	ldrb	r3, [r3, #0]
+ 8000516:	2b01      	cmp	r3, #1
+ 8000518:	d005      	beq.n	8000526 <Can_DisableControllerInterrupts+0x1e>
+	Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_DisableControllerInterrupts_ID,CAN_E_UNINIT);
+ 800051a:	2305      	movs	r3, #5
+ 800051c:	2204      	movs	r2, #4
+ 800051e:	2100      	movs	r1, #0
+ 8000520:	200b      	movs	r0, #11
+ 8000522:	f000 fafd 	bl	8000b20 <Det_ReportError>
+#endif
+	if(CAN_HW_Unit_settings.CanConfigSet.CanController.CanBusoffProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanTxProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanRxProcessing==INTERRUPT)
+ 8000526:	4b29      	ldr	r3, [pc, #164]	; (80005cc <Can_DisableControllerInterrupts+0xc4>)
+ 8000528:	781b      	ldrb	r3, [r3, #0]
+ 800052a:	2b01      	cmp	r3, #1
+ 800052c:	d007      	beq.n	800053e <Can_DisableControllerInterrupts+0x36>
+ 800052e:	4b27      	ldr	r3, [pc, #156]	; (80005cc <Can_DisableControllerInterrupts+0xc4>)
+ 8000530:	7a9b      	ldrb	r3, [r3, #10]
+ 8000532:	2b01      	cmp	r3, #1
+ 8000534:	d003      	beq.n	800053e <Can_DisableControllerInterrupts+0x36>
+ 8000536:	4b25      	ldr	r3, [pc, #148]	; (80005cc <Can_DisableControllerInterrupts+0xc4>)
+ 8000538:	7a5b      	ldrb	r3, [r3, #9]
+ 800053a:	2b01      	cmp	r3, #1
+ 800053c:	d140      	bne.n	80005c0 <Can_DisableControllerInterrupts+0xb8>
+		/*
+		 The function Can_DisableControllerInterrupts can increase a counter on every
+		 execution that indicates how many Can_EnableControllerInterrupts need to be called
+		 before the interrupts will be enabled
+		 */
+		Interrupt_Disable_Counter++;
+ 800053e:	4b24      	ldr	r3, [pc, #144]	; (80005d0 <Can_DisableControllerInterrupts+0xc8>)
+ 8000540:	781b      	ldrb	r3, [r3, #0]
+ 8000542:	3301      	adds	r3, #1
+ 8000544:	b2da      	uxtb	r2, r3
+ 8000546:	4b22      	ldr	r3, [pc, #136]	; (80005d0 <Can_DisableControllerInterrupts+0xc8>)
+ 8000548:	701a      	strb	r2, [r3, #0]
+		// disable all interrupts for that CAN controller only, if interrupts for that CAN Controller are enabled.
+		if(CAN_IER&(1<<0))
+ 800054a:	4b22      	ldr	r3, [pc, #136]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 800054c:	681b      	ldr	r3, [r3, #0]
+ 800054e:	f003 0301 	and.w	r3, r3, #1
+ 8000552:	2b00      	cmp	r3, #0
+ 8000554:	d034      	beq.n	80005c0 <Can_DisableControllerInterrupts+0xb8>
+			/*
+			 When Can_EnableControllerInterrupts has been called several
+			 times, Can_DisableControllerInterrupts must be called as many times before the
+			 interrupts are re-disabled.
+			*/
+			if(Interrupt_Enable_Counter>0)
+ 8000556:	4b20      	ldr	r3, [pc, #128]	; (80005d8 <Can_DisableControllerInterrupts+0xd0>)
+ 8000558:	781b      	ldrb	r3, [r3, #0]
+ 800055a:	2b00      	cmp	r3, #0
+ 800055c:	d006      	beq.n	800056c <Can_DisableControllerInterrupts+0x64>
+			{
+				Interrupt_Enable_Counter--;
+ 800055e:	4b1e      	ldr	r3, [pc, #120]	; (80005d8 <Can_DisableControllerInterrupts+0xd0>)
+ 8000560:	781b      	ldrb	r3, [r3, #0]
+ 8000562:	3b01      	subs	r3, #1
+ 8000564:	b2da      	uxtb	r2, r3
+ 8000566:	4b1c      	ldr	r3, [pc, #112]	; (80005d8 <Can_DisableControllerInterrupts+0xd0>)
+ 8000568:	701a      	strb	r2, [r3, #0]
+	}
+	else
+	{
+		//
+	}
+}
+ 800056a:	e029      	b.n	80005c0 <Can_DisableControllerInterrupts+0xb8>
+				CAN_IER &=~(1<<0);
+ 800056c:	4b19      	ldr	r3, [pc, #100]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 800056e:	681b      	ldr	r3, [r3, #0]
+ 8000570:	4a18      	ldr	r2, [pc, #96]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 8000572:	f023 0301 	bic.w	r3, r3, #1
+ 8000576:	6013      	str	r3, [r2, #0]
+				CAN_IER &=~(1<<1);
+ 8000578:	4b16      	ldr	r3, [pc, #88]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 800057a:	681b      	ldr	r3, [r3, #0]
+ 800057c:	4a15      	ldr	r2, [pc, #84]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 800057e:	f023 0302 	bic.w	r3, r3, #2
+ 8000582:	6013      	str	r3, [r2, #0]
+				CAN_IER &=~(1<<2);
+ 8000584:	4b13      	ldr	r3, [pc, #76]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 8000586:	681b      	ldr	r3, [r3, #0]
+ 8000588:	4a12      	ldr	r2, [pc, #72]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 800058a:	f023 0304 	bic.w	r3, r3, #4
+ 800058e:	6013      	str	r3, [r2, #0]
+				CAN_IER &=~(1<<3);
+ 8000590:	4b10      	ldr	r3, [pc, #64]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 8000592:	681b      	ldr	r3, [r3, #0]
+ 8000594:	4a0f      	ldr	r2, [pc, #60]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 8000596:	f023 0308 	bic.w	r3, r3, #8
+ 800059a:	6013      	str	r3, [r2, #0]
+				CAN_IER &=~(1<<4);
+ 800059c:	4b0d      	ldr	r3, [pc, #52]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 800059e:	681b      	ldr	r3, [r3, #0]
+ 80005a0:	4a0c      	ldr	r2, [pc, #48]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 80005a2:	f023 0310 	bic.w	r3, r3, #16
+ 80005a6:	6013      	str	r3, [r2, #0]
+				CAN_IER &=~(1<<5);
+ 80005a8:	4b0a      	ldr	r3, [pc, #40]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 80005aa:	681b      	ldr	r3, [r3, #0]
+ 80005ac:	4a09      	ldr	r2, [pc, #36]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 80005ae:	f023 0320 	bic.w	r3, r3, #32
+ 80005b2:	6013      	str	r3, [r2, #0]
+				CAN_IER &=~(1<<6);
+ 80005b4:	4b07      	ldr	r3, [pc, #28]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 80005b6:	681b      	ldr	r3, [r3, #0]
+ 80005b8:	4a06      	ldr	r2, [pc, #24]	; (80005d4 <Can_DisableControllerInterrupts+0xcc>)
+ 80005ba:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+ 80005be:	6013      	str	r3, [r2, #0]
+}
+ 80005c0:	bf00      	nop
+ 80005c2:	3708      	adds	r7, #8
+ 80005c4:	46bd      	mov	sp, r7
+ 80005c6:	bd80      	pop	{r7, pc}
+ 80005c8:	200000a0 	.word	0x200000a0
+ 80005cc:	20000110 	.word	0x20000110
+ 80005d0:	200000a3 	.word	0x200000a3
+ 80005d4:	40006414 	.word	0x40006414
+ 80005d8:	200000a2 	.word	0x200000a2
+
+080005dc <Can_EnableControllerInterrupts>:
+ * Parameters (out)  	: None
+ * Return value      	: None
+ * Description       	: This function enables all allowed interrupts
+******************************************************************************/
+void Can_EnableControllerInterrupts (uint8 Controller)
+{
+ 80005dc:	b580      	push	{r7, lr}
+ 80005de:	b082      	sub	sp, #8
+ 80005e0:	af00      	add	r7, sp, #0
+ 80005e2:	4603      	mov	r3, r0
+ 80005e4:	71fb      	strb	r3, [r7, #7]
+	/*
+	 [SWS_Can_00209] If development error detection for the Can module is enabled:
+	 The function Can_EnableControllerInterrupts shall raise the error CAN_E_UNINIT if
+	 the driver not yet initialized.
+	 */
+	if(CanDriverState!=CAN_READY)
+ 80005e6:	4b2d      	ldr	r3, [pc, #180]	; (800069c <Can_EnableControllerInterrupts+0xc0>)
+ 80005e8:	781b      	ldrb	r3, [r3, #0]
+ 80005ea:	2b01      	cmp	r3, #1
+ 80005ec:	d005      	beq.n	80005fa <Can_EnableControllerInterrupts+0x1e>
+	Det_ReportError(CAN_VERSION_ID,CONTROLLER_ZERO,Can_EnableControllerInterrupts_ID,CAN_E_UNINIT);
+ 80005ee:	2305      	movs	r3, #5
+ 80005f0:	2205      	movs	r2, #5
+ 80005f2:	2100      	movs	r1, #0
+ 80005f4:	200b      	movs	r0, #11
+ 80005f6:	f000 fa93 	bl	8000b20 <Det_ReportError>
+#endif
+	if(CAN_HW_Unit_settings.CanConfigSet.CanController.CanBusoffProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanTxProcessing==INTERRUPT||CAN_HW_Unit_settings.CanConfigSet.CanController.CanRxProcessing==INTERRUPT)
+ 80005fa:	4b29      	ldr	r3, [pc, #164]	; (80006a0 <Can_EnableControllerInterrupts+0xc4>)
+ 80005fc:	781b      	ldrb	r3, [r3, #0]
+ 80005fe:	2b01      	cmp	r3, #1
+ 8000600:	d007      	beq.n	8000612 <Can_EnableControllerInterrupts+0x36>
+ 8000602:	4b27      	ldr	r3, [pc, #156]	; (80006a0 <Can_EnableControllerInterrupts+0xc4>)
+ 8000604:	7a9b      	ldrb	r3, [r3, #10]
+ 8000606:	2b01      	cmp	r3, #1
+ 8000608:	d003      	beq.n	8000612 <Can_EnableControllerInterrupts+0x36>
+ 800060a:	4b25      	ldr	r3, [pc, #148]	; (80006a0 <Can_EnableControllerInterrupts+0xc4>)
+ 800060c:	7a5b      	ldrb	r3, [r3, #9]
+ 800060e:	2b01      	cmp	r3, #1
+ 8000610:	d140      	bne.n	8000694 <Can_EnableControllerInterrupts+0xb8>
+		/*
+		 The function Can_EnableControllerInterrupts can increase a counter on every
+		 execution that indicates how many Can_DisableControllerInterrupts need to be called
+		 before the interrupts will be disabled
+		 */
+		Interrupt_Enable_Counter++;
+ 8000612:	4b24      	ldr	r3, [pc, #144]	; (80006a4 <Can_EnableControllerInterrupts+0xc8>)
+ 8000614:	781b      	ldrb	r3, [r3, #0]
+ 8000616:	3301      	adds	r3, #1
+ 8000618:	b2da      	uxtb	r2, r3
+ 800061a:	4b22      	ldr	r3, [pc, #136]	; (80006a4 <Can_EnableControllerInterrupts+0xc8>)
+ 800061c:	701a      	strb	r2, [r3, #0]
+		// enable all interrupts for that CAN controller only, if interrupts for that CAN Controller are disabled.
+		if((CAN_IER&(1<<0))==0)
+ 800061e:	4b22      	ldr	r3, [pc, #136]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000620:	681b      	ldr	r3, [r3, #0]
+ 8000622:	f003 0301 	and.w	r3, r3, #1
+ 8000626:	2b00      	cmp	r3, #0
+ 8000628:	d134      	bne.n	8000694 <Can_EnableControllerInterrupts+0xb8>
+			/*
+			 [SWS_Can_00202] When Can_DisableControllerInterrupts has been called several
+			 times, Can_EnableControllerInterrupts must be called as many times before the
+			 interrupts are re-enabled.
+			*/
+			if(Interrupt_Disable_Counter>0)
+ 800062a:	4b20      	ldr	r3, [pc, #128]	; (80006ac <Can_EnableControllerInterrupts+0xd0>)
+ 800062c:	781b      	ldrb	r3, [r3, #0]
+ 800062e:	2b00      	cmp	r3, #0
+ 8000630:	d006      	beq.n	8000640 <Can_EnableControllerInterrupts+0x64>
+			{
+				Interrupt_Disable_Counter--;
+ 8000632:	4b1e      	ldr	r3, [pc, #120]	; (80006ac <Can_EnableControllerInterrupts+0xd0>)
+ 8000634:	781b      	ldrb	r3, [r3, #0]
+ 8000636:	3b01      	subs	r3, #1
+ 8000638:	b2da      	uxtb	r2, r3
+ 800063a:	4b1c      	ldr	r3, [pc, #112]	; (80006ac <Can_EnableControllerInterrupts+0xd0>)
+ 800063c:	701a      	strb	r2, [r3, #0]
+	}
+	else
+	{
+		//
+	}
+}
+ 800063e:	e029      	b.n	8000694 <Can_EnableControllerInterrupts+0xb8>
+				CAN_IER |=(1<<0);
+ 8000640:	4b19      	ldr	r3, [pc, #100]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000642:	681b      	ldr	r3, [r3, #0]
+ 8000644:	4a18      	ldr	r2, [pc, #96]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000646:	f043 0301 	orr.w	r3, r3, #1
+ 800064a:	6013      	str	r3, [r2, #0]
+				CAN_IER |=(1<<1);
+ 800064c:	4b16      	ldr	r3, [pc, #88]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800064e:	681b      	ldr	r3, [r3, #0]
+ 8000650:	4a15      	ldr	r2, [pc, #84]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000652:	f043 0302 	orr.w	r3, r3, #2
+ 8000656:	6013      	str	r3, [r2, #0]
+				CAN_IER |=(1<<2);
+ 8000658:	4b13      	ldr	r3, [pc, #76]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800065a:	681b      	ldr	r3, [r3, #0]
+ 800065c:	4a12      	ldr	r2, [pc, #72]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800065e:	f043 0304 	orr.w	r3, r3, #4
+ 8000662:	6013      	str	r3, [r2, #0]
+				CAN_IER |=(1<<3);
+ 8000664:	4b10      	ldr	r3, [pc, #64]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000666:	681b      	ldr	r3, [r3, #0]
+ 8000668:	4a0f      	ldr	r2, [pc, #60]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800066a:	f043 0308 	orr.w	r3, r3, #8
+ 800066e:	6013      	str	r3, [r2, #0]
+				CAN_IER |=(1<<4);
+ 8000670:	4b0d      	ldr	r3, [pc, #52]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000672:	681b      	ldr	r3, [r3, #0]
+ 8000674:	4a0c      	ldr	r2, [pc, #48]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000676:	f043 0310 	orr.w	r3, r3, #16
+ 800067a:	6013      	str	r3, [r2, #0]
+				CAN_IER |=(1<<5);
+ 800067c:	4b0a      	ldr	r3, [pc, #40]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800067e:	681b      	ldr	r3, [r3, #0]
+ 8000680:	4a09      	ldr	r2, [pc, #36]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 8000682:	f043 0320 	orr.w	r3, r3, #32
+ 8000686:	6013      	str	r3, [r2, #0]
+				CAN_IER |=(1<<6);
+ 8000688:	4b07      	ldr	r3, [pc, #28]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800068a:	681b      	ldr	r3, [r3, #0]
+ 800068c:	4a06      	ldr	r2, [pc, #24]	; (80006a8 <Can_EnableControllerInterrupts+0xcc>)
+ 800068e:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+ 8000692:	6013      	str	r3, [r2, #0]
+}
+ 8000694:	bf00      	nop
+ 8000696:	3708      	adds	r7, #8
+ 8000698:	46bd      	mov	sp, r7
+ 800069a:	bd80      	pop	{r7, pc}
+ 800069c:	200000a0 	.word	0x200000a0
+ 80006a0:	20000110 	.word	0x20000110
+ 80006a4:	200000a2 	.word	0x200000a2
+ 80006a8:	40006414 	.word	0x40006414
+ 80006ac:	200000a3 	.word	0x200000a3
+
+080006b0 <USB_HP_CAN_TX_IRQHandler>:
+}
+/*************************************************************************
+ *************************************ISR*********************************
+ ************************************************************************/
+void USB_HP_CAN_TX_IRQHandler(void)
+{
+ 80006b0:	b580      	push	{r7, lr}
+ 80006b2:	b082      	sub	sp, #8
+ 80006b4:	af00      	add	r7, sp, #0
+	//Check which mailbox transmit is complete
+	// RQCPx: Request completed mailbox
+	//Set by hardware when the last request (transmit or abort) has been performed.
+	if((CAN_TSR & (1<<0))==1)
+ 80006b6:	4b21      	ldr	r3, [pc, #132]	; (800073c <USB_HP_CAN_TX_IRQHandler+0x8c>)
+ 80006b8:	681b      	ldr	r3, [r3, #0]
+ 80006ba:	f003 0301 	and.w	r3, r3, #1
+ 80006be:	2b01      	cmp	r3, #1
+ 80006c0:	d134      	bne.n	800072c <USB_HP_CAN_TX_IRQHandler+0x7c>
+	{
+		 //Request completed mailbox0
+		CAN_TSR |=1<<0;
+ 80006c2:	4b1e      	ldr	r3, [pc, #120]	; (800073c <USB_HP_CAN_TX_IRQHandler+0x8c>)
+ 80006c4:	681b      	ldr	r3, [r3, #0]
+ 80006c6:	4a1d      	ldr	r2, [pc, #116]	; (800073c <USB_HP_CAN_TX_IRQHandler+0x8c>)
+ 80006c8:	f043 0301 	orr.w	r3, r3, #1
+ 80006cc:	6013      	str	r3, [r2, #0]
+		for(int i=0;i<Max_Num_HOH;i++)
+ 80006ce:	2300      	movs	r3, #0
+ 80006d0:	607b      	str	r3, [r7, #4]
+ 80006d2:	e027      	b.n	8000724 <USB_HP_CAN_TX_IRQHandler+0x74>
+		{
+			if(CAN_HW_Unit_settings.CanConfigSet.CanHardwareObject[i].CanObjectType==TRANSMIT)
+ 80006d4:	491a      	ldr	r1, [pc, #104]	; (8000740 <USB_HP_CAN_TX_IRQHandler+0x90>)
+ 80006d6:	687a      	ldr	r2, [r7, #4]
+ 80006d8:	4613      	mov	r3, r2
+ 80006da:	009b      	lsls	r3, r3, #2
+ 80006dc:	4413      	add	r3, r2
+ 80006de:	009b      	lsls	r3, r3, #2
+ 80006e0:	440b      	add	r3, r1
+ 80006e2:	3332      	adds	r3, #50	; 0x32
+ 80006e4:	781b      	ldrb	r3, [r3, #0]
+ 80006e6:	2b01      	cmp	r3, #1
+ 80006e8:	d119      	bne.n	800071e <USB_HP_CAN_TX_IRQHandler+0x6e>
+			{
+				if(Message_ObjectStatus[i].mailbox==Transmi_mailbox_0)
+ 80006ea:	4a16      	ldr	r2, [pc, #88]	; (8000744 <USB_HP_CAN_TX_IRQHandler+0x94>)
+ 80006ec:	687b      	ldr	r3, [r7, #4]
+ 80006ee:	009b      	lsls	r3, r3, #2
+ 80006f0:	4413      	add	r3, r2
+ 80006f2:	789b      	ldrb	r3, [r3, #2]
+ 80006f4:	2b00      	cmp	r3, #0
+ 80006f6:	d112      	bne.n	800071e <USB_HP_CAN_TX_IRQHandler+0x6e>
+				{
+					if(Message_ObjectStatus[i].Object_Free==FALSE)
+ 80006f8:	4a12      	ldr	r2, [pc, #72]	; (8000744 <USB_HP_CAN_TX_IRQHandler+0x94>)
+ 80006fa:	687b      	ldr	r3, [r7, #4]
+ 80006fc:	f812 3023 	ldrb.w	r3, [r2, r3, lsl #2]
+ 8000700:	2b00      	cmp	r3, #0
+ 8000702:	d10c      	bne.n	800071e <USB_HP_CAN_TX_IRQHandler+0x6e>
+					{
+						Message_ObjectStatus[i].Object_Free=TRUE;
+ 8000704:	4a0f      	ldr	r2, [pc, #60]	; (8000744 <USB_HP_CAN_TX_IRQHandler+0x94>)
+ 8000706:	687b      	ldr	r3, [r7, #4]
+ 8000708:	2101      	movs	r1, #1
+ 800070a:	f802 1023 	strb.w	r1, [r2, r3, lsl #2]
+						CanIf_TxConfirmation(Message_ObjectStatus[i].swPduHandle);
+ 800070e:	4a0d      	ldr	r2, [pc, #52]	; (8000744 <USB_HP_CAN_TX_IRQHandler+0x94>)
+ 8000710:	687b      	ldr	r3, [r7, #4]
+ 8000712:	009b      	lsls	r3, r3, #2
+ 8000714:	4413      	add	r3, r2
+ 8000716:	78db      	ldrb	r3, [r3, #3]
+ 8000718:	4618      	mov	r0, r3
+ 800071a:	f000 f8cd 	bl	80008b8 <CanIf_TxConfirmation>
+		for(int i=0;i<Max_Num_HOH;i++)
+ 800071e:	687b      	ldr	r3, [r7, #4]
+ 8000720:	3301      	adds	r3, #1
+ 8000722:	607b      	str	r3, [r7, #4]
+ 8000724:	687b      	ldr	r3, [r7, #4]
+ 8000726:	2b03      	cmp	r3, #3
+ 8000728:	ddd4      	ble.n	80006d4 <USB_HP_CAN_TX_IRQHandler+0x24>
+	}
+	else
+	{
+		// no call back
+	}
+}
+ 800072a:	e003      	b.n	8000734 <USB_HP_CAN_TX_IRQHandler+0x84>
+	else if((CAN_TSR & (1<<8))==1)
+ 800072c:	4b03      	ldr	r3, [pc, #12]	; (800073c <USB_HP_CAN_TX_IRQHandler+0x8c>)
+ 800072e:	681b      	ldr	r3, [r3, #0]
+	else if((CAN_TSR & (1<<16))==1)
+ 8000730:	4b02      	ldr	r3, [pc, #8]	; (800073c <USB_HP_CAN_TX_IRQHandler+0x8c>)
+ 8000732:	681b      	ldr	r3, [r3, #0]
+}
+ 8000734:	bf00      	nop
+ 8000736:	3708      	adds	r7, #8
+ 8000738:	46bd      	mov	sp, r7
+ 800073a:	bd80      	pop	{r7, pc}
+ 800073c:	40006408 	.word	0x40006408
+ 8000740:	20000110 	.word	0x20000110
+ 8000744:	200000b8 	.word	0x200000b8
+
+08000748 <USB_LP_CAN_RX0_IRQHandler>:
+
+void USB_LP_CAN_RX0_IRQHandler(void)
+{
+ 8000748:	b580      	push	{r7, lr}
+ 800074a:	b08a      	sub	sp, #40	; 0x28
+ 800074c:	af00      	add	r7, sp, #0
+	//These bits indicate how many messages are pending in the receive FIFO
+	if ((CAN_RF0R & (3<<0))!=0)
+ 800074e:	4b55      	ldr	r3, [pc, #340]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 8000750:	681b      	ldr	r3, [r3, #0]
+ 8000752:	f003 0303 	and.w	r3, r3, #3
+ 8000756:	2b00      	cmp	r3, #0
+ 8000758:	f000 809c 	beq.w	8000894 <USB_LP_CAN_RX0_IRQHandler+0x14c>
+	{
+		for(int i=0;i<Max_Num_HOH;i++)
+ 800075c:	2300      	movs	r3, #0
+ 800075e:	627b      	str	r3, [r7, #36]	; 0x24
+ 8000760:	e08d      	b.n	800087e <USB_LP_CAN_RX0_IRQHandler+0x136>
+		{
+			if(CAN_HW_Unit_settings.CanConfigSet.CanHardwareObject[i].CanObjectType==RECEIVE)
+ 8000762:	4951      	ldr	r1, [pc, #324]	; (80008a8 <USB_LP_CAN_RX0_IRQHandler+0x160>)
+ 8000764:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 8000766:	4613      	mov	r3, r2
+ 8000768:	009b      	lsls	r3, r3, #2
+ 800076a:	4413      	add	r3, r2
+ 800076c:	009b      	lsls	r3, r3, #2
+ 800076e:	440b      	add	r3, r1
+ 8000770:	3332      	adds	r3, #50	; 0x32
+ 8000772:	781b      	ldrb	r3, [r3, #0]
+ 8000774:	2b00      	cmp	r3, #0
+ 8000776:	d17f      	bne.n	8000878 <USB_LP_CAN_RX0_IRQHandler+0x130>
+			{
+				if(Message_ObjectStatus[i].Object_Free==TRUE)
+ 8000778:	4a4c      	ldr	r2, [pc, #304]	; (80008ac <USB_LP_CAN_RX0_IRQHandler+0x164>)
+ 800077a:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 800077c:	f812 3023 	ldrb.w	r3, [r2, r3, lsl #2]
+ 8000780:	2b01      	cmp	r3, #1
+ 8000782:	d179      	bne.n	8000878 <USB_LP_CAN_RX0_IRQHandler+0x130>
+				{
+					//Identifier extension
+					if((CAN_RX_FIFO_0->CAN_RIxR & (1<<2))==1)
+ 8000784:	4b4a      	ldr	r3, [pc, #296]	; (80008b0 <USB_LP_CAN_RX0_IRQHandler+0x168>)
+ 8000786:	681b      	ldr	r3, [r3, #0]
+						}
+					}
+					else
+					{
+						//0: Standard identifier
+						if(CAN_HW_Unit_settings.CanConfigSet.CanHardwareObject[i].CanIdType==STANDARD)
+ 8000788:	4947      	ldr	r1, [pc, #284]	; (80008a8 <USB_LP_CAN_RX0_IRQHandler+0x160>)
+ 800078a:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 800078c:	4613      	mov	r3, r2
+ 800078e:	009b      	lsls	r3, r3, #2
+ 8000790:	4413      	add	r3, r2
+ 8000792:	009b      	lsls	r3, r3, #2
+ 8000794:	440b      	add	r3, r1
+ 8000796:	3330      	adds	r3, #48	; 0x30
+ 8000798:	781b      	ldrb	r3, [r3, #0]
+ 800079a:	2b02      	cmp	r3, #2
+ 800079c:	d166      	bne.n	800086c <USB_LP_CAN_RX0_IRQHandler+0x124>
+						{
+							if((CAN_RX_FIFO_0->CAN_RIxR>>21)==CAN_HW_Unit_settings.CanConfigSet.CanHardwareObject[i].CanHwFilter.CanHwFilterCode)
+ 800079e:	4b44      	ldr	r3, [pc, #272]	; (80008b0 <USB_LP_CAN_RX0_IRQHandler+0x168>)
+ 80007a0:	681b      	ldr	r3, [r3, #0]
+ 80007a2:	0d59      	lsrs	r1, r3, #21
+ 80007a4:	4840      	ldr	r0, [pc, #256]	; (80008a8 <USB_LP_CAN_RX0_IRQHandler+0x160>)
+ 80007a6:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 80007a8:	4613      	mov	r3, r2
+ 80007aa:	009b      	lsls	r3, r3, #2
+ 80007ac:	4413      	add	r3, r2
+ 80007ae:	009b      	lsls	r3, r3, #2
+ 80007b0:	4403      	add	r3, r0
+ 80007b2:	3338      	adds	r3, #56	; 0x38
+ 80007b4:	681b      	ldr	r3, [r3, #0]
+ 80007b6:	4299      	cmp	r1, r3
+ 80007b8:	d15e      	bne.n	8000878 <USB_LP_CAN_RX0_IRQHandler+0x130>
+							{
+								Can_HwType Mailbox;
+								PduInfoType PduInfoPtr;
+								//HOH is busy
+								Message_ObjectStatus[i].Object_Free=FALSE;
+ 80007ba:	4a3c      	ldr	r2, [pc, #240]	; (80008ac <USB_LP_CAN_RX0_IRQHandler+0x164>)
+ 80007bc:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80007be:	2100      	movs	r1, #0
+ 80007c0:	f802 1023 	strb.w	r1, [r2, r3, lsl #2]
+								//00 CAN FD frame with Extended CAN ID
+								Message_Object[i].ID=(CAN_RX_FIFO_0->CAN_RIxR>>21);
+ 80007c4:	4b3a      	ldr	r3, [pc, #232]	; (80008b0 <USB_LP_CAN_RX0_IRQHandler+0x168>)
+ 80007c6:	681b      	ldr	r3, [r3, #0]
+ 80007c8:	0d5a      	lsrs	r2, r3, #21
+ 80007ca:	493a      	ldr	r1, [pc, #232]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 80007cc:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80007ce:	011b      	lsls	r3, r3, #4
+ 80007d0:	440b      	add	r3, r1
+ 80007d2:	601a      	str	r2, [r3, #0]
+								//Data Length
+								Message_Object[i].DLC=(CAN_RX_FIFO_0->CAN_RDTxR & 0x0000000F);
+ 80007d4:	4b36      	ldr	r3, [pc, #216]	; (80008b0 <USB_LP_CAN_RX0_IRQHandler+0x168>)
+ 80007d6:	685b      	ldr	r3, [r3, #4]
+ 80007d8:	b2db      	uxtb	r3, r3
+ 80007da:	f003 030f 	and.w	r3, r3, #15
+ 80007de:	b2d9      	uxtb	r1, r3
+ 80007e0:	4a34      	ldr	r2, [pc, #208]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 80007e2:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80007e4:	011b      	lsls	r3, r3, #4
+ 80007e6:	4413      	add	r3, r2
+ 80007e8:	3304      	adds	r3, #4
+ 80007ea:	460a      	mov	r2, r1
+ 80007ec:	701a      	strb	r2, [r3, #0]
+								//Data
+								*((volatile uint32*)Message_Object[i].SDU)=CAN_RX_FIFO_0->CAN_RDLxR;
+ 80007ee:	4a30      	ldr	r2, [pc, #192]	; (80008b0 <USB_LP_CAN_RX0_IRQHandler+0x168>)
+ 80007f0:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80007f2:	011b      	lsls	r3, r3, #4
+ 80007f4:	492f      	ldr	r1, [pc, #188]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 80007f6:	440b      	add	r3, r1
+ 80007f8:	3305      	adds	r3, #5
+ 80007fa:	6892      	ldr	r2, [r2, #8]
+ 80007fc:	601a      	str	r2, [r3, #0]
+								*(((volatile uint32*)Message_Object[i].SDU)+1)=CAN_RX_FIFO_0->CAN_RDHxR;
+ 80007fe:	4a2c      	ldr	r2, [pc, #176]	; (80008b0 <USB_LP_CAN_RX0_IRQHandler+0x168>)
+ 8000800:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8000802:	011b      	lsls	r3, r3, #4
+ 8000804:	492b      	ldr	r1, [pc, #172]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 8000806:	440b      	add	r3, r1
+ 8000808:	3305      	adds	r3, #5
+ 800080a:	3304      	adds	r3, #4
+ 800080c:	68d2      	ldr	r2, [r2, #12]
+ 800080e:	601a      	str	r2, [r3, #0]
+								Mailbox.CanId=Message_Object[i].ID;
+ 8000810:	4a28      	ldr	r2, [pc, #160]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 8000812:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8000814:	011b      	lsls	r3, r3, #4
+ 8000816:	4413      	add	r3, r2
+ 8000818:	681b      	ldr	r3, [r3, #0]
+ 800081a:	60fb      	str	r3, [r7, #12]
+								Mailbox.Hoh=CAN_HW_Unit_settings.CanConfigSet.CanHardwareObject[i].CanObjectId;
+ 800081c:	4922      	ldr	r1, [pc, #136]	; (80008a8 <USB_LP_CAN_RX0_IRQHandler+0x160>)
+ 800081e:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 8000820:	4613      	mov	r3, r2
+ 8000822:	009b      	lsls	r3, r3, #2
+ 8000824:	4413      	add	r3, r2
+ 8000826:	009b      	lsls	r3, r3, #2
+ 8000828:	440b      	add	r3, r1
+ 800082a:	3331      	adds	r3, #49	; 0x31
+ 800082c:	781b      	ldrb	r3, [r3, #0]
+ 800082e:	743b      	strb	r3, [r7, #16]
+								Mailbox.ControllerId=CAN_HW_Unit_settings.CanConfigSet.CanController.CanControllerId;
+ 8000830:	4b1d      	ldr	r3, [pc, #116]	; (80008a8 <USB_LP_CAN_RX0_IRQHandler+0x160>)
+ 8000832:	7a1b      	ldrb	r3, [r3, #8]
+ 8000834:	747b      	strb	r3, [r7, #17]
+								PduInfoPtr.SduDataPtr=Message_Object[i].SDU;
+ 8000836:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8000838:	011b      	lsls	r3, r3, #4
+ 800083a:	4a1e      	ldr	r2, [pc, #120]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 800083c:	4413      	add	r3, r2
+ 800083e:	3305      	adds	r3, #5
+ 8000840:	607b      	str	r3, [r7, #4]
+								PduInfoPtr.SduLength=Message_Object[i].DLC;
+ 8000842:	4a1c      	ldr	r2, [pc, #112]	; (80008b4 <USB_LP_CAN_RX0_IRQHandler+0x16c>)
+ 8000844:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8000846:	011b      	lsls	r3, r3, #4
+ 8000848:	4413      	add	r3, r2
+ 800084a:	3304      	adds	r3, #4
+ 800084c:	781b      	ldrb	r3, [r3, #0]
+ 800084e:	723b      	strb	r3, [r7, #8]
+								//callback function to upper layer
+								//CanIf_RxIndication(CAN_HW_Unit_settings.CanConfigSet.CanHardwareObject[i].CanObjectId,Message_Object[i].ID,Message_Object[i].DLC,Message_Object[i].SDU);
+								CanIf_RxIndication (&Mailbox,&PduInfoPtr);
+ 8000850:	1d3a      	adds	r2, r7, #4
+ 8000852:	f107 030c 	add.w	r3, r7, #12
+ 8000856:	4611      	mov	r1, r2
+ 8000858:	4618      	mov	r0, r3
+ 800085a:	f000 fd41 	bl	80012e0 <CanIf_RxIndication>
+								Message_ObjectStatus[i].Object_Free=TRUE;
+ 800085e:	4a13      	ldr	r2, [pc, #76]	; (80008ac <USB_LP_CAN_RX0_IRQHandler+0x164>)
+ 8000860:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8000862:	2101      	movs	r1, #1
+ 8000864:	f802 1023 	strb.w	r1, [r2, r3, lsl #2]
+								break;
+ 8000868:	bf00      	nop
+ 800086a:	e00c      	b.n	8000886 <USB_LP_CAN_RX0_IRQHandler+0x13e>
+						}
+						else
+						{
+							//Clear message
+							//Set by software to release the output mailbox of the FIFO
+							CAN_RF0R |=(1<<5);
+ 800086c:	4b0d      	ldr	r3, [pc, #52]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 800086e:	681b      	ldr	r3, [r3, #0]
+ 8000870:	4a0c      	ldr	r2, [pc, #48]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 8000872:	f043 0320 	orr.w	r3, r3, #32
+ 8000876:	6013      	str	r3, [r2, #0]
+		for(int i=0;i<Max_Num_HOH;i++)
+ 8000878:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 800087a:	3301      	adds	r3, #1
+ 800087c:	627b      	str	r3, [r7, #36]	; 0x24
+ 800087e:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 8000880:	2b03      	cmp	r3, #3
+ 8000882:	f77f af6e 	ble.w	8000762 <USB_LP_CAN_RX0_IRQHandler+0x1a>
+				//
+			}
+		}
+		//Clear message
+		//Set by software to release the output mailbox of the FIFO
+		CAN_RF0R |=(1<<5);
+ 8000886:	4b07      	ldr	r3, [pc, #28]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 8000888:	681b      	ldr	r3, [r3, #0]
+ 800088a:	4a06      	ldr	r2, [pc, #24]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 800088c:	f043 0320 	orr.w	r3, r3, #32
+ 8000890:	6013      	str	r3, [r2, #0]
+	}
+	else
+	{
+		//
+	}
+}
+ 8000892:	e003      	b.n	800089c <USB_LP_CAN_RX0_IRQHandler+0x154>
+	else if((CAN_RF0R & (1<<3))==1)
+ 8000894:	4b03      	ldr	r3, [pc, #12]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 8000896:	681b      	ldr	r3, [r3, #0]
+	else if((CAN_RF0R & (1<<4))==1)
+ 8000898:	4b02      	ldr	r3, [pc, #8]	; (80008a4 <USB_LP_CAN_RX0_IRQHandler+0x15c>)
+ 800089a:	681b      	ldr	r3, [r3, #0]
+}
+ 800089c:	bf00      	nop
+ 800089e:	3728      	adds	r7, #40	; 0x28
+ 80008a0:	46bd      	mov	sp, r7
+ 80008a2:	bd80      	pop	{r7, pc}
+ 80008a4:	4000640c 	.word	0x4000640c
+ 80008a8:	20000110 	.word	0x20000110
+ 80008ac:	200000b8 	.word	0x200000b8
+ 80008b0:	400065b0 	.word	0x400065b0
+ 80008b4:	200000d0 	.word	0x200000d0
+
+080008b8 <CanIf_TxConfirmation>:
+	RX_Mailbox.ControllerId=Mailbox->ControllerId;
+	Rte_IWrite_Empty_For_Test_Empty_For_Test_Runnable_PP_CAN_Frame_CAN_Frame(Data_RX);
+}
+*/
+void CanIf_TxConfirmation(PduIdType CanTxPduId)
+{
+ 80008b8:	b480      	push	{r7}
+ 80008ba:	b083      	sub	sp, #12
+ 80008bc:	af00      	add	r7, sp, #0
+ 80008be:	4603      	mov	r3, r0
+ 80008c0:	71fb      	strb	r3, [r7, #7]
+
+}
+ 80008c2:	bf00      	nop
+ 80008c4:	370c      	adds	r7, #12
+ 80008c6:	46bd      	mov	sp, r7
+ 80008c8:	bc80      	pop	{r7}
+ 80008ca:	4770      	bx	lr
+
+080008cc <CanIf_ControllerModeIndication>:
+
+void CanIf_ControllerModeIndication(uint8 Controller, CanIf_ControllerModeType ControllerMode)
+{
+ 80008cc:	b480      	push	{r7}
+ 80008ce:	b083      	sub	sp, #12
+ 80008d0:	af00      	add	r7, sp, #0
+ 80008d2:	4603      	mov	r3, r0
+ 80008d4:	460a      	mov	r2, r1
+ 80008d6:	71fb      	strb	r3, [r7, #7]
+ 80008d8:	4613      	mov	r3, r2
+ 80008da:	71bb      	strb	r3, [r7, #6]
+}
+ 80008dc:	bf00      	nop
+ 80008de:	370c      	adds	r7, #12
+ 80008e0:	46bd      	mov	sp, r7
+ 80008e2:	bc80      	pop	{r7}
+ 80008e4:	4770      	bx	lr
+	...
+
+080008e8 <MCAL_CAN_Config_Filter>:
+* @param [in] 		-Filter_Config: configuration information for the specified Can Filter
+* @retval 			-Can_Status_t	status of Can hardware (CAN_OK,CAN_ERROR,...)
+* Note				-None
+*/
+void MCAL_CAN_Config_Filter(CAN_Filter_Config_t* Filter_Config)
+{
+ 80008e8:	b480      	push	{r7}
+ 80008ea:	b085      	sub	sp, #20
+ 80008ec:	af00      	add	r7, sp, #0
+ 80008ee:	6078      	str	r0, [r7, #4]
+	// Current Filter Bank
+	CAN_Filter_Bank_TypeDef* Current_Bank ;
+	switch (Filter_Config->Filter_Bank)
+ 80008f0:	687b      	ldr	r3, [r7, #4]
+ 80008f2:	68db      	ldr	r3, [r3, #12]
+ 80008f4:	2b0d      	cmp	r3, #13
+ 80008f6:	d849      	bhi.n	800098c <MCAL_CAN_Config_Filter+0xa4>
+ 80008f8:	a201      	add	r2, pc, #4	; (adr r2, 8000900 <MCAL_CAN_Config_Filter+0x18>)
+ 80008fa:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ 80008fe:	bf00      	nop
+ 8000900:	08000939 	.word	0x08000939
+ 8000904:	0800093f 	.word	0x0800093f
+ 8000908:	08000945 	.word	0x08000945
+ 800090c:	0800094b 	.word	0x0800094b
+ 8000910:	08000951 	.word	0x08000951
+ 8000914:	08000957 	.word	0x08000957
+ 8000918:	0800095d 	.word	0x0800095d
+ 800091c:	08000963 	.word	0x08000963
+ 8000920:	08000969 	.word	0x08000969
+ 8000924:	0800096f 	.word	0x0800096f
+ 8000928:	08000975 	.word	0x08000975
+ 800092c:	0800097b 	.word	0x0800097b
+ 8000930:	08000981 	.word	0x08000981
+ 8000934:	08000987 	.word	0x08000987
+	{
+		case CAN_Filter_Bank_0:
+			Current_Bank=CAN_FBank_0;
+ 8000938:	4b66      	ldr	r3, [pc, #408]	; (8000ad4 <MCAL_CAN_Config_Filter+0x1ec>)
+ 800093a:	60fb      	str	r3, [r7, #12]
+			break;
+ 800093c:	e027      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_1:
+			Current_Bank=CAN_FBank_1;
+ 800093e:	4b66      	ldr	r3, [pc, #408]	; (8000ad8 <MCAL_CAN_Config_Filter+0x1f0>)
+ 8000940:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000942:	e024      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_2:
+			Current_Bank=CAN_FBank_2;
+ 8000944:	4b65      	ldr	r3, [pc, #404]	; (8000adc <MCAL_CAN_Config_Filter+0x1f4>)
+ 8000946:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000948:	e021      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_3:
+			Current_Bank=CAN_FBank_3;
+ 800094a:	4b65      	ldr	r3, [pc, #404]	; (8000ae0 <MCAL_CAN_Config_Filter+0x1f8>)
+ 800094c:	60fb      	str	r3, [r7, #12]
+			break;
+ 800094e:	e01e      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_4:
+			Current_Bank=CAN_FBank_4;
+ 8000950:	4b64      	ldr	r3, [pc, #400]	; (8000ae4 <MCAL_CAN_Config_Filter+0x1fc>)
+ 8000952:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000954:	e01b      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_5:
+			Current_Bank=CAN_FBank_5;
+ 8000956:	4b64      	ldr	r3, [pc, #400]	; (8000ae8 <MCAL_CAN_Config_Filter+0x200>)
+ 8000958:	60fb      	str	r3, [r7, #12]
+			break;
+ 800095a:	e018      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_6:
+			Current_Bank=CAN_FBank_6;
+ 800095c:	4b63      	ldr	r3, [pc, #396]	; (8000aec <MCAL_CAN_Config_Filter+0x204>)
+ 800095e:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000960:	e015      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_7:
+			Current_Bank=CAN_FBank_7;
+ 8000962:	4b63      	ldr	r3, [pc, #396]	; (8000af0 <MCAL_CAN_Config_Filter+0x208>)
+ 8000964:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000966:	e012      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_8:
+			Current_Bank=CAN_FBank_8;
+ 8000968:	4b62      	ldr	r3, [pc, #392]	; (8000af4 <MCAL_CAN_Config_Filter+0x20c>)
+ 800096a:	60fb      	str	r3, [r7, #12]
+			break;
+ 800096c:	e00f      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_9:
+			Current_Bank=CAN_FBank_9;
+ 800096e:	4b62      	ldr	r3, [pc, #392]	; (8000af8 <MCAL_CAN_Config_Filter+0x210>)
+ 8000970:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000972:	e00c      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_10:
+			Current_Bank=CAN_FBank_10;
+ 8000974:	4b61      	ldr	r3, [pc, #388]	; (8000afc <MCAL_CAN_Config_Filter+0x214>)
+ 8000976:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000978:	e009      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_11:
+			Current_Bank=CAN_FBank_11;
+ 800097a:	4b61      	ldr	r3, [pc, #388]	; (8000b00 <MCAL_CAN_Config_Filter+0x218>)
+ 800097c:	60fb      	str	r3, [r7, #12]
+			break;
+ 800097e:	e006      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_12:
+			Current_Bank=CAN_FBank_12;
+ 8000980:	4b60      	ldr	r3, [pc, #384]	; (8000b04 <MCAL_CAN_Config_Filter+0x21c>)
+ 8000982:	60fb      	str	r3, [r7, #12]
+			break;
+ 8000984:	e003      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		case CAN_Filter_Bank_13:
+			Current_Bank=CAN_FBank_13;
+ 8000986:	4b60      	ldr	r3, [pc, #384]	; (8000b08 <MCAL_CAN_Config_Filter+0x220>)
+ 8000988:	60fb      	str	r3, [r7, #12]
+			break;
+ 800098a:	e000      	b.n	800098e <MCAL_CAN_Config_Filter+0xa6>
+		default:
+			break;
+ 800098c:	bf00      	nop
+	}
+	// To configure a filter bank it must be deactivated by clearing the FACT bit in the CAN_FAR register
+	// Initialization mode for the filters
+	CAN_FMR |=(1<<0);
+ 800098e:	4b5f      	ldr	r3, [pc, #380]	; (8000b0c <MCAL_CAN_Config_Filter+0x224>)
+ 8000990:	681b      	ldr	r3, [r3, #0]
+ 8000992:	4a5e      	ldr	r2, [pc, #376]	; (8000b0c <MCAL_CAN_Config_Filter+0x224>)
+ 8000994:	f043 0301 	orr.w	r3, r3, #1
+ 8000998:	6013      	str	r3, [r2, #0]
+	//Filter x is not active
+	CAN_FA1R &=~(1<<Filter_Config->Filter_Bank);
+ 800099a:	4b5d      	ldr	r3, [pc, #372]	; (8000b10 <MCAL_CAN_Config_Filter+0x228>)
+ 800099c:	681b      	ldr	r3, [r3, #0]
+ 800099e:	687a      	ldr	r2, [r7, #4]
+ 80009a0:	68d2      	ldr	r2, [r2, #12]
+ 80009a2:	2101      	movs	r1, #1
+ 80009a4:	fa01 f202 	lsl.w	r2, r1, r2
+ 80009a8:	43d2      	mvns	r2, r2
+ 80009aa:	4611      	mov	r1, r2
+ 80009ac:	4a58      	ldr	r2, [pc, #352]	; (8000b10 <MCAL_CAN_Config_Filter+0x228>)
+ 80009ae:	400b      	ands	r3, r1
+ 80009b0:	6013      	str	r3, [r2, #0]
+	// The filter scale is configured by means of the corresponding FSCx bit in the CAN_FS1R register
+	switch (Filter_Config->Filter_Scale)
+ 80009b2:	687b      	ldr	r3, [r7, #4]
+ 80009b4:	695b      	ldr	r3, [r3, #20]
+ 80009b6:	2b00      	cmp	r3, #0
+ 80009b8:	d002      	beq.n	80009c0 <MCAL_CAN_Config_Filter+0xd8>
+ 80009ba:	2b01      	cmp	r3, #1
+ 80009bc:	d020      	beq.n	8000a00 <MCAL_CAN_Config_Filter+0x118>
+			// configure filter bank
+			Current_Bank->CAN_FiR1=Filter_Config->Filter_ID;
+			Current_Bank->CAN_FiR2=Filter_Config->Filter_Mask_ID;
+			break;
+		default:
+			break;
+ 80009be:	e033      	b.n	8000a28 <MCAL_CAN_Config_Filter+0x140>
+			CAN_FS1R &=~(1<<Filter_Config->Filter_Bank);
+ 80009c0:	4b54      	ldr	r3, [pc, #336]	; (8000b14 <MCAL_CAN_Config_Filter+0x22c>)
+ 80009c2:	681b      	ldr	r3, [r3, #0]
+ 80009c4:	687a      	ldr	r2, [r7, #4]
+ 80009c6:	68d2      	ldr	r2, [r2, #12]
+ 80009c8:	2101      	movs	r1, #1
+ 80009ca:	fa01 f202 	lsl.w	r2, r1, r2
+ 80009ce:	43d2      	mvns	r2, r2
+ 80009d0:	4611      	mov	r1, r2
+ 80009d2:	4a50      	ldr	r2, [pc, #320]	; (8000b14 <MCAL_CAN_Config_Filter+0x22c>)
+ 80009d4:	400b      	ands	r3, r1
+ 80009d6:	6013      	str	r3, [r2, #0]
+			Current_Bank->CAN_FiR1=(Filter_Config->Filter_ID &(0xffff))|((Filter_Config->Filter_Mask_ID &(0xffff))<<16);
+ 80009d8:	687b      	ldr	r3, [r7, #4]
+ 80009da:	681b      	ldr	r3, [r3, #0]
+ 80009dc:	b29a      	uxth	r2, r3
+ 80009de:	687b      	ldr	r3, [r7, #4]
+ 80009e0:	685b      	ldr	r3, [r3, #4]
+ 80009e2:	041b      	lsls	r3, r3, #16
+ 80009e4:	431a      	orrs	r2, r3
+ 80009e6:	68fb      	ldr	r3, [r7, #12]
+ 80009e8:	601a      	str	r2, [r3, #0]
+			Current_Bank->CAN_FiR2=((Filter_Config->Filter_ID &(0xffff0000))>>16)|(Filter_Config->Filter_Mask_ID &(0xffff0000));
+ 80009ea:	687b      	ldr	r3, [r7, #4]
+ 80009ec:	681b      	ldr	r3, [r3, #0]
+ 80009ee:	0c1a      	lsrs	r2, r3, #16
+ 80009f0:	687b      	ldr	r3, [r7, #4]
+ 80009f2:	685b      	ldr	r3, [r3, #4]
+ 80009f4:	0c1b      	lsrs	r3, r3, #16
+ 80009f6:	041b      	lsls	r3, r3, #16
+ 80009f8:	431a      	orrs	r2, r3
+ 80009fa:	68fb      	ldr	r3, [r7, #12]
+ 80009fc:	605a      	str	r2, [r3, #4]
+			break;
+ 80009fe:	e013      	b.n	8000a28 <MCAL_CAN_Config_Filter+0x140>
+			CAN_FS1R |=(1<<Filter_Config->Filter_Bank);
+ 8000a00:	4b44      	ldr	r3, [pc, #272]	; (8000b14 <MCAL_CAN_Config_Filter+0x22c>)
+ 8000a02:	681b      	ldr	r3, [r3, #0]
+ 8000a04:	687a      	ldr	r2, [r7, #4]
+ 8000a06:	68d2      	ldr	r2, [r2, #12]
+ 8000a08:	2101      	movs	r1, #1
+ 8000a0a:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000a0e:	4611      	mov	r1, r2
+ 8000a10:	4a40      	ldr	r2, [pc, #256]	; (8000b14 <MCAL_CAN_Config_Filter+0x22c>)
+ 8000a12:	430b      	orrs	r3, r1
+ 8000a14:	6013      	str	r3, [r2, #0]
+			Current_Bank->CAN_FiR1=Filter_Config->Filter_ID;
+ 8000a16:	687b      	ldr	r3, [r7, #4]
+ 8000a18:	681a      	ldr	r2, [r3, #0]
+ 8000a1a:	68fb      	ldr	r3, [r7, #12]
+ 8000a1c:	601a      	str	r2, [r3, #0]
+			Current_Bank->CAN_FiR2=Filter_Config->Filter_Mask_ID;
+ 8000a1e:	687b      	ldr	r3, [r7, #4]
+ 8000a20:	685a      	ldr	r2, [r3, #4]
+ 8000a22:	68fb      	ldr	r3, [r7, #12]
+ 8000a24:	605a      	str	r2, [r3, #4]
+			break;
+ 8000a26:	bf00      	nop
+	}
+	//The identifier list or identifier mask mode is configured by means of the FBMx bits in the CAN_FM1R register.
+	switch (Filter_Config->Filter_Mode)
+ 8000a28:	687b      	ldr	r3, [r7, #4]
+ 8000a2a:	691b      	ldr	r3, [r3, #16]
+ 8000a2c:	2b00      	cmp	r3, #0
+ 8000a2e:	d002      	beq.n	8000a36 <MCAL_CAN_Config_Filter+0x14e>
+ 8000a30:	2b01      	cmp	r3, #1
+ 8000a32:	d00d      	beq.n	8000a50 <MCAL_CAN_Config_Filter+0x168>
+			break;
+		case CAN_Filter_Mode_List:
+			CAN_FM1R |=(1<<Filter_Config->Filter_Bank);
+			break;
+		default:
+			break;
+ 8000a34:	e018      	b.n	8000a68 <MCAL_CAN_Config_Filter+0x180>
+			CAN_FM1R &=~(1<<Filter_Config->Filter_Bank);
+ 8000a36:	4b38      	ldr	r3, [pc, #224]	; (8000b18 <MCAL_CAN_Config_Filter+0x230>)
+ 8000a38:	681b      	ldr	r3, [r3, #0]
+ 8000a3a:	687a      	ldr	r2, [r7, #4]
+ 8000a3c:	68d2      	ldr	r2, [r2, #12]
+ 8000a3e:	2101      	movs	r1, #1
+ 8000a40:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000a44:	43d2      	mvns	r2, r2
+ 8000a46:	4611      	mov	r1, r2
+ 8000a48:	4a33      	ldr	r2, [pc, #204]	; (8000b18 <MCAL_CAN_Config_Filter+0x230>)
+ 8000a4a:	400b      	ands	r3, r1
+ 8000a4c:	6013      	str	r3, [r2, #0]
+			break;
+ 8000a4e:	e00b      	b.n	8000a68 <MCAL_CAN_Config_Filter+0x180>
+			CAN_FM1R |=(1<<Filter_Config->Filter_Bank);
+ 8000a50:	4b31      	ldr	r3, [pc, #196]	; (8000b18 <MCAL_CAN_Config_Filter+0x230>)
+ 8000a52:	681b      	ldr	r3, [r3, #0]
+ 8000a54:	687a      	ldr	r2, [r7, #4]
+ 8000a56:	68d2      	ldr	r2, [r2, #12]
+ 8000a58:	2101      	movs	r1, #1
+ 8000a5a:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000a5e:	4611      	mov	r1, r2
+ 8000a60:	4a2d      	ldr	r2, [pc, #180]	; (8000b18 <MCAL_CAN_Config_Filter+0x230>)
+ 8000a62:	430b      	orrs	r3, r1
+ 8000a64:	6013      	str	r3, [r2, #0]
+			break;
+ 8000a66:	bf00      	nop
+	}
+	//The message passing through this filter will be stored in the specified FIFO
+	switch (Filter_Config->Filter_FIFO_Assignment)
+ 8000a68:	687b      	ldr	r3, [r7, #4]
+ 8000a6a:	689b      	ldr	r3, [r3, #8]
+ 8000a6c:	2b00      	cmp	r3, #0
+ 8000a6e:	d002      	beq.n	8000a76 <MCAL_CAN_Config_Filter+0x18e>
+ 8000a70:	2b01      	cmp	r3, #1
+ 8000a72:	d00d      	beq.n	8000a90 <MCAL_CAN_Config_Filter+0x1a8>
+			break;
+		case CAN_Filter_FIFO_Assignment_FIFO1:
+			CAN_FFA1R |=(1<<Filter_Config->Filter_Bank);
+			break;
+		default:
+			break;
+ 8000a74:	e018      	b.n	8000aa8 <MCAL_CAN_Config_Filter+0x1c0>
+			CAN_FFA1R &=~(1<<Filter_Config->Filter_Bank);
+ 8000a76:	4b29      	ldr	r3, [pc, #164]	; (8000b1c <MCAL_CAN_Config_Filter+0x234>)
+ 8000a78:	681b      	ldr	r3, [r3, #0]
+ 8000a7a:	687a      	ldr	r2, [r7, #4]
+ 8000a7c:	68d2      	ldr	r2, [r2, #12]
+ 8000a7e:	2101      	movs	r1, #1
+ 8000a80:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000a84:	43d2      	mvns	r2, r2
+ 8000a86:	4611      	mov	r1, r2
+ 8000a88:	4a24      	ldr	r2, [pc, #144]	; (8000b1c <MCAL_CAN_Config_Filter+0x234>)
+ 8000a8a:	400b      	ands	r3, r1
+ 8000a8c:	6013      	str	r3, [r2, #0]
+			break;
+ 8000a8e:	e00b      	b.n	8000aa8 <MCAL_CAN_Config_Filter+0x1c0>
+			CAN_FFA1R |=(1<<Filter_Config->Filter_Bank);
+ 8000a90:	4b22      	ldr	r3, [pc, #136]	; (8000b1c <MCAL_CAN_Config_Filter+0x234>)
+ 8000a92:	681b      	ldr	r3, [r3, #0]
+ 8000a94:	687a      	ldr	r2, [r7, #4]
+ 8000a96:	68d2      	ldr	r2, [r2, #12]
+ 8000a98:	2101      	movs	r1, #1
+ 8000a9a:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000a9e:	4611      	mov	r1, r2
+ 8000aa0:	4a1e      	ldr	r2, [pc, #120]	; (8000b1c <MCAL_CAN_Config_Filter+0x234>)
+ 8000aa2:	430b      	orrs	r3, r1
+ 8000aa4:	6013      	str	r3, [r2, #0]
+			break;
+ 8000aa6:	bf00      	nop
+	}
+	// Filter Bank active mode
+	CAN_FMR &=~(1<<0);
+ 8000aa8:	4b18      	ldr	r3, [pc, #96]	; (8000b0c <MCAL_CAN_Config_Filter+0x224>)
+ 8000aaa:	681b      	ldr	r3, [r3, #0]
+ 8000aac:	4a17      	ldr	r2, [pc, #92]	; (8000b0c <MCAL_CAN_Config_Filter+0x224>)
+ 8000aae:	f023 0301 	bic.w	r3, r3, #1
+ 8000ab2:	6013      	str	r3, [r2, #0]
+	//Filter x is not active
+	CAN_FA1R |=(1<<Filter_Config->Filter_Bank);
+ 8000ab4:	4b16      	ldr	r3, [pc, #88]	; (8000b10 <MCAL_CAN_Config_Filter+0x228>)
+ 8000ab6:	681b      	ldr	r3, [r3, #0]
+ 8000ab8:	687a      	ldr	r2, [r7, #4]
+ 8000aba:	68d2      	ldr	r2, [r2, #12]
+ 8000abc:	2101      	movs	r1, #1
+ 8000abe:	fa01 f202 	lsl.w	r2, r1, r2
+ 8000ac2:	4611      	mov	r1, r2
+ 8000ac4:	4a12      	ldr	r2, [pc, #72]	; (8000b10 <MCAL_CAN_Config_Filter+0x228>)
+ 8000ac6:	430b      	orrs	r3, r1
+ 8000ac8:	6013      	str	r3, [r2, #0]
+}
+ 8000aca:	bf00      	nop
+ 8000acc:	3714      	adds	r7, #20
+ 8000ace:	46bd      	mov	sp, r7
+ 8000ad0:	bc80      	pop	{r7}
+ 8000ad2:	4770      	bx	lr
+ 8000ad4:	40006640 	.word	0x40006640
+ 8000ad8:	40006648 	.word	0x40006648
+ 8000adc:	40006650 	.word	0x40006650
+ 8000ae0:	40006658 	.word	0x40006658
+ 8000ae4:	40006660 	.word	0x40006660
+ 8000ae8:	40006668 	.word	0x40006668
+ 8000aec:	40006670 	.word	0x40006670
+ 8000af0:	40006678 	.word	0x40006678
+ 8000af4:	40006680 	.word	0x40006680
+ 8000af8:	40006688 	.word	0x40006688
+ 8000afc:	40006690 	.word	0x40006690
+ 8000b00:	40006698 	.word	0x40006698
+ 8000b04:	400066a0 	.word	0x400066a0
+ 8000b08:	400066a8 	.word	0x400066a8
+ 8000b0c:	40006600 	.word	0x40006600
+ 8000b10:	4000661c 	.word	0x4000661c
+ 8000b14:	4000660c 	.word	0x4000660c
+ 8000b18:	40006604 	.word	0x40006604
+ 8000b1c:	40006614 	.word	0x40006614
+
+08000b20 <Det_ReportError>:
+* Parameters (out)	:	None
+* Return value		:	Std_ReturnType (never returns a value, but has a return type for compatibility with services and hooks)
+* Description		:	Service to report development errors.
+***********************************************************************/
+Std_ReturnType Det_ReportError ( uint16 ModuleId , uint8 InstanceId , uint8 ApiId , uint8 ErrorId )
+{
+ 8000b20:	b490      	push	{r4, r7}
+ 8000b22:	b082      	sub	sp, #8
+ 8000b24:	af00      	add	r7, sp, #0
+ 8000b26:	4604      	mov	r4, r0
+ 8000b28:	4608      	mov	r0, r1
+ 8000b2a:	4611      	mov	r1, r2
+ 8000b2c:	461a      	mov	r2, r3
+ 8000b2e:	4623      	mov	r3, r4
+ 8000b30:	80fb      	strh	r3, [r7, #6]
+ 8000b32:	4603      	mov	r3, r0
+ 8000b34:	717b      	strb	r3, [r7, #5]
+ 8000b36:	460b      	mov	r3, r1
+ 8000b38:	713b      	strb	r3, [r7, #4]
+ 8000b3a:	4613      	mov	r3, r2
+ 8000b3c:	70fb      	strb	r3, [r7, #3]
+	while(1)
+ 8000b3e:	e7fe      	b.n	8000b3e <Det_ReportError+0x1e>
+
+08000b40 <HardFault_Handler>:
+#include "Cortex_Mx_Porting.h"
+
+uint8_t SysTickLED;
+
+void HardFault_Handler(void)
+{
+ 8000b40:	b480      	push	{r7}
+ 8000b42:	af00      	add	r7, sp, #0
+	while(1);
+ 8000b44:	e7fe      	b.n	8000b44 <HardFault_Handler+0x4>
+
+08000b46 <MemManage_Handler>:
+}
+
+void MemManage_Handler(void)
+{
+ 8000b46:	b480      	push	{r7}
+ 8000b48:	af00      	add	r7, sp, #0
+	while(1);
+ 8000b4a:	e7fe      	b.n	8000b4a <MemManage_Handler+0x4>
+
+08000b4c <UsageFault_Handler>:
+{
+	while(1);
+}
+
+void UsageFault_Handler(void)
+{
+ 8000b4c:	b480      	push	{r7}
+ 8000b4e:	af00      	add	r7, sp, #0
+	while(1);
+ 8000b50:	e7fe      	b.n	8000b50 <UsageFault_Handler+0x4>
+	...
+
+08000b54 <SysTick_Handler>:
+	 */
+	 SysTick_Config(8000);
+}
+
+void SysTick_Handler(void)
+{
+ 8000b54:	b480      	push	{r7}
+ 8000b56:	af00      	add	r7, sp, #0
+	SysTickLED ^= 1 ;
+ 8000b58:	4b05      	ldr	r3, [pc, #20]	; (8000b70 <SysTick_Handler+0x1c>)
+ 8000b5a:	781b      	ldrb	r3, [r3, #0]
+ 8000b5c:	f083 0301 	eor.w	r3, r3, #1
+ 8000b60:	b2da      	uxtb	r2, r3
+ 8000b62:	4b03      	ldr	r3, [pc, #12]	; (8000b70 <SysTick_Handler+0x1c>)
+ 8000b64:	701a      	strb	r2, [r3, #0]
+	//Decide_whatNext();
+	//Switch Context & restore
+	//Schedule();
+	//trigger_OS_PendSV();
+
+}
+ 8000b66:	bf00      	nop
+ 8000b68:	46bd      	mov	sp, r7
+ 8000b6a:	bc80      	pop	{r7}
+ 8000b6c:	4770      	bx	lr
+ 8000b6e:	bf00      	nop
+ 8000b70:	2000018c 	.word	0x2000018c
+
+08000b74 <PendSV_Handler>:
+* 				such as saving and restoring task context, updating task states,
+* 				or performing other operations related to task scheduling or context management.
+*****************************************************************************************/
+__attribute ((naked)) void PendSV_Handler()
+{
+	if(OS_Control.NextTask != NULL)
+ 8000b74:	4b9a      	ldr	r3, [pc, #616]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000b76:	f8d3 31a4 	ldr.w	r3, [r3, #420]	; 0x1a4
+ 8000b7a:	2b00      	cmp	r3, #0
+ 8000b7c:	f000 8125 	beq.w	8000dca <PendSV_Handler+0x256>
+	{
+		if(OS_Control.CurrentTask->TaskType!=Basic_Task||OS_Control.CurrentTask->TaskState!=Suspend)
+ 8000b80:	4b97      	ldr	r3, [pc, #604]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000b82:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000b86:	f893 3037 	ldrb.w	r3, [r3, #55]	; 0x37
+ 8000b8a:	2b00      	cmp	r3, #0
+ 8000b8c:	d106      	bne.n	8000b9c <PendSV_Handler+0x28>
+ 8000b8e:	4b94      	ldr	r3, [pc, #592]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000b90:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000b94:	f893 3036 	ldrb.w	r3, [r3, #54]	; 0x36
+ 8000b98:	2b00      	cmp	r3, #0
+ 8000b9a:	d067      	beq.n	8000c6c <PendSV_Handler+0xf8>
+		{
+			//====================================
+			//Save the Context of the Current Task
+			//====================================
+			//Get the Current Task "Current PSP from CPU register" as CPU Push
+			OS_GET_PSP(OS_Control.CurrentTask->Current_PSP);
+ 8000b9c:	4b90      	ldr	r3, [pc, #576]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000b9e:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000ba2:	f3ef 8009 	mrs	r0, PSP
+ 8000ba6:	4602      	mov	r2, r0
+ 8000ba8:	615a      	str	r2, [r3, #20]
+			//using this Current_PSP store from R4 to R11
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000baa:	4b8d      	ldr	r3, [pc, #564]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000bac:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000bb0:	695a      	ldr	r2, [r3, #20]
+ 8000bb2:	3a04      	subs	r2, #4
+ 8000bb4:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r4 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000bb6:	4b8a      	ldr	r3, [pc, #552]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000bb8:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000bbc:	695b      	ldr	r3, [r3, #20]
+ 8000bbe:	4622      	mov	r2, r4
+ 8000bc0:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000bc2:	4b87      	ldr	r3, [pc, #540]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000bc4:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000bc8:	695a      	ldr	r2, [r3, #20]
+ 8000bca:	3a04      	subs	r2, #4
+ 8000bcc:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r5 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000bce:	4b84      	ldr	r3, [pc, #528]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000bd0:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000bd4:	695b      	ldr	r3, [r3, #20]
+ 8000bd6:	462a      	mov	r2, r5
+ 8000bd8:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000bda:	4b81      	ldr	r3, [pc, #516]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000bdc:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000be0:	695a      	ldr	r2, [r3, #20]
+ 8000be2:	3a04      	subs	r2, #4
+ 8000be4:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r6 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000be6:	4b7e      	ldr	r3, [pc, #504]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000be8:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000bec:	695b      	ldr	r3, [r3, #20]
+ 8000bee:	4632      	mov	r2, r6
+ 8000bf0:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000bf2:	4b7b      	ldr	r3, [pc, #492]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000bf4:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000bf8:	695a      	ldr	r2, [r3, #20]
+ 8000bfa:	3a04      	subs	r2, #4
+ 8000bfc:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r7 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000bfe:	4b78      	ldr	r3, [pc, #480]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c00:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c04:	695b      	ldr	r3, [r3, #20]
+ 8000c06:	463a      	mov	r2, r7
+ 8000c08:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000c0a:	4b75      	ldr	r3, [pc, #468]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c0c:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c10:	695a      	ldr	r2, [r3, #20]
+ 8000c12:	3a04      	subs	r2, #4
+ 8000c14:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r8 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000c16:	4b72      	ldr	r3, [pc, #456]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c18:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c1c:	695b      	ldr	r3, [r3, #20]
+ 8000c1e:	4642      	mov	r2, r8
+ 8000c20:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000c22:	4b6f      	ldr	r3, [pc, #444]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c24:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c28:	695a      	ldr	r2, [r3, #20]
+ 8000c2a:	3a04      	subs	r2, #4
+ 8000c2c:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r9 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000c2e:	4b6c      	ldr	r3, [pc, #432]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c30:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c34:	695b      	ldr	r3, [r3, #20]
+ 8000c36:	464a      	mov	r2, r9
+ 8000c38:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000c3a:	4b69      	ldr	r3, [pc, #420]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c3c:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c40:	695a      	ldr	r2, [r3, #20]
+ 8000c42:	3a04      	subs	r2, #4
+ 8000c44:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r10 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000c46:	4b66      	ldr	r3, [pc, #408]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c48:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c4c:	695b      	ldr	r3, [r3, #20]
+ 8000c4e:	4652      	mov	r2, sl
+ 8000c50:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000c52:	4b63      	ldr	r3, [pc, #396]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c54:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c58:	695a      	ldr	r2, [r3, #20]
+ 8000c5a:	3a04      	subs	r2, #4
+ 8000c5c:	615a      	str	r2, [r3, #20]
+			__asm volatile("mov %0,r11 " : "=r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000c5e:	4b60      	ldr	r3, [pc, #384]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c60:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c64:	695b      	ldr	r3, [r3, #20]
+ 8000c66:	465a      	mov	r2, fp
+ 8000c68:	601a      	str	r2, [r3, #0]
+ 8000c6a:	e041      	b.n	8000cf0 <PendSV_Handler+0x17c>
+			 */
+		}
+		else
+		{
+			//basic task reallocate stack
+			OS_Control.CurrentTask->Current_PSP= OS_Control.CurrentTask->_S_PSP_Task ;
+ 8000c6c:	4b5c      	ldr	r3, [pc, #368]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c6e:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c72:	68da      	ldr	r2, [r3, #12]
+ 8000c74:	4b5a      	ldr	r3, [pc, #360]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c76:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c7a:	615a      	str	r2, [r3, #20]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000c7c:	4b58      	ldr	r3, [pc, #352]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c7e:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c82:	695a      	ldr	r2, [r3, #20]
+ 8000c84:	3a04      	subs	r2, #4
+ 8000c86:	615a      	str	r2, [r3, #20]
+			*(OS_Control.CurrentTask->Current_PSP) = 0x01000000;
+ 8000c88:	4b55      	ldr	r3, [pc, #340]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c8a:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c8e:	695b      	ldr	r3, [r3, #20]
+ 8000c90:	f04f 7280 	mov.w	r2, #16777216	; 0x1000000
+ 8000c94:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000c96:	4b52      	ldr	r3, [pc, #328]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000c98:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000c9c:	695a      	ldr	r2, [r3, #20]
+ 8000c9e:	3a04      	subs	r2, #4
+ 8000ca0:	615a      	str	r2, [r3, #20]
+			*(OS_Control.CurrentTask->Current_PSP) = (uint32_t)OS_Control.CurrentTask->P_TaskEntry ;
+ 8000ca2:	4b4f      	ldr	r3, [pc, #316]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000ca4:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000ca8:	689a      	ldr	r2, [r3, #8]
+ 8000caa:	4b4d      	ldr	r3, [pc, #308]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cac:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000cb0:	695b      	ldr	r3, [r3, #20]
+ 8000cb2:	601a      	str	r2, [r3, #0]
+			OS_Control.CurrentTask->Current_PSP-- ;
+ 8000cb4:	4b4a      	ldr	r3, [pc, #296]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cb6:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000cba:	695a      	ldr	r2, [r3, #20]
+ 8000cbc:	3a04      	subs	r2, #4
+ 8000cbe:	615a      	str	r2, [r3, #20]
+			*(OS_Control.CurrentTask->Current_PSP)  = 0xFFFFFFFD ;
+ 8000cc0:	4b47      	ldr	r3, [pc, #284]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cc2:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000cc6:	695b      	ldr	r3, [r3, #20]
+ 8000cc8:	f06f 0202 	mvn.w	r2, #2
+ 8000ccc:	601a      	str	r2, [r3, #0]
+			//set R0 to R12 by value 0
+			for (int  i=0 ; i< 13 ; i++ )
+ 8000cce:	2400      	movs	r4, #0
+ 8000cd0:	e00c      	b.n	8000cec <PendSV_Handler+0x178>
+			{
+				OS_Control.CurrentTask->Current_PSP-- ;
+ 8000cd2:	4b43      	ldr	r3, [pc, #268]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cd4:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000cd8:	695a      	ldr	r2, [r3, #20]
+ 8000cda:	3a04      	subs	r2, #4
+ 8000cdc:	615a      	str	r2, [r3, #20]
+				*(OS_Control.CurrentTask->Current_PSP)  = 0 ;
+ 8000cde:	4b40      	ldr	r3, [pc, #256]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000ce0:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000ce4:	695b      	ldr	r3, [r3, #20]
+ 8000ce6:	2200      	movs	r2, #0
+ 8000ce8:	601a      	str	r2, [r3, #0]
+			for (int  i=0 ; i< 13 ; i++ )
+ 8000cea:	3401      	adds	r4, #1
+ 8000cec:	2c0c      	cmp	r4, #12
+ 8000cee:	ddf0      	ble.n	8000cd2 <PendSV_Handler+0x15e>
+
+		}
+		//====================================
+		//Restore the Context of the Next Task
+		//====================================
+		OS_Control.CurrentTask = OS_Control.NextTask ;
+ 8000cf0:	4b3b      	ldr	r3, [pc, #236]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cf2:	f8d3 31a4 	ldr.w	r3, [r3, #420]	; 0x1a4
+ 8000cf6:	4a3a      	ldr	r2, [pc, #232]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cf8:	f8c2 31a0 	str.w	r3, [r2, #416]	; 0x1a0
+		__asm volatile("mov r11,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000cfc:	4b38      	ldr	r3, [pc, #224]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000cfe:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d02:	695b      	ldr	r3, [r3, #20]
+ 8000d04:	681b      	ldr	r3, [r3, #0]
+ 8000d06:	469b      	mov	fp, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d08:	4b35      	ldr	r3, [pc, #212]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d0a:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d0e:	695a      	ldr	r2, [r3, #20]
+ 8000d10:	3204      	adds	r2, #4
+ 8000d12:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r10,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000d14:	4b32      	ldr	r3, [pc, #200]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d16:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d1a:	695b      	ldr	r3, [r3, #20]
+ 8000d1c:	681b      	ldr	r3, [r3, #0]
+ 8000d1e:	469a      	mov	sl, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d20:	4b2f      	ldr	r3, [pc, #188]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d22:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d26:	695a      	ldr	r2, [r3, #20]
+ 8000d28:	3204      	adds	r2, #4
+ 8000d2a:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r9,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000d2c:	4b2c      	ldr	r3, [pc, #176]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d2e:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d32:	695b      	ldr	r3, [r3, #20]
+ 8000d34:	681b      	ldr	r3, [r3, #0]
+ 8000d36:	4699      	mov	r9, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d38:	4b29      	ldr	r3, [pc, #164]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d3a:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d3e:	695a      	ldr	r2, [r3, #20]
+ 8000d40:	3204      	adds	r2, #4
+ 8000d42:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r8,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000d44:	4b26      	ldr	r3, [pc, #152]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d46:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d4a:	695b      	ldr	r3, [r3, #20]
+ 8000d4c:	681b      	ldr	r3, [r3, #0]
+ 8000d4e:	4698      	mov	r8, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d50:	4b23      	ldr	r3, [pc, #140]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d52:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d56:	695a      	ldr	r2, [r3, #20]
+ 8000d58:	3204      	adds	r2, #4
+ 8000d5a:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r7,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000d5c:	4b20      	ldr	r3, [pc, #128]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d5e:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d62:	695b      	ldr	r3, [r3, #20]
+ 8000d64:	681b      	ldr	r3, [r3, #0]
+ 8000d66:	461f      	mov	r7, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d68:	4b1d      	ldr	r3, [pc, #116]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d6a:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d6e:	695a      	ldr	r2, [r3, #20]
+ 8000d70:	3204      	adds	r2, #4
+ 8000d72:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r6,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000d74:	4b1a      	ldr	r3, [pc, #104]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d76:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d7a:	695b      	ldr	r3, [r3, #20]
+ 8000d7c:	681b      	ldr	r3, [r3, #0]
+ 8000d7e:	461e      	mov	r6, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d80:	4b17      	ldr	r3, [pc, #92]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d82:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d86:	695a      	ldr	r2, [r3, #20]
+ 8000d88:	3204      	adds	r2, #4
+ 8000d8a:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r5,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000d8c:	4b14      	ldr	r3, [pc, #80]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d8e:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d92:	695b      	ldr	r3, [r3, #20]
+ 8000d94:	681b      	ldr	r3, [r3, #0]
+ 8000d96:	461d      	mov	r5, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000d98:	4b11      	ldr	r3, [pc, #68]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000d9a:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000d9e:	695a      	ldr	r2, [r3, #20]
+ 8000da0:	3204      	adds	r2, #4
+ 8000da2:	615a      	str	r2, [r3, #20]
+		__asm volatile("mov r4,%0 " : : "r" (*(OS_Control.CurrentTask->Current_PSP))  );
+ 8000da4:	4b0e      	ldr	r3, [pc, #56]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000da6:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000daa:	695b      	ldr	r3, [r3, #20]
+ 8000dac:	681b      	ldr	r3, [r3, #0]
+ 8000dae:	461c      	mov	r4, r3
+		OS_Control.CurrentTask->Current_PSP++ ;
+ 8000db0:	4b0b      	ldr	r3, [pc, #44]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000db2:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000db6:	695a      	ldr	r2, [r3, #20]
+ 8000db8:	3204      	adds	r2, #4
+ 8000dba:	615a      	str	r2, [r3, #20]
+		//update PSP and exit
+		OS_SET_PSP(OS_Control.CurrentTask->Current_PSP);
+ 8000dbc:	4b08      	ldr	r3, [pc, #32]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000dbe:	f8d3 31a0 	ldr.w	r3, [r3, #416]	; 0x1a0
+ 8000dc2:	695b      	ldr	r3, [r3, #20]
+ 8000dc4:	4618      	mov	r0, r3
+ 8000dc6:	f380 8809 	msr	PSP, r0
+		// return to next task
+	}
+	OS_Control.NextTask = NULL ;
+ 8000dca:	4b05      	ldr	r3, [pc, #20]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000dcc:	2200      	movs	r2, #0
+ 8000dce:	f8c3 21a4 	str.w	r2, [r3, #420]	; 0x1a4
+	OS_Control.Call_Leve=TASK_LEVEL;
+ 8000dd2:	4b03      	ldr	r3, [pc, #12]	; (8000de0 <PendSV_Handler+0x26c>)
+ 8000dd4:	2200      	movs	r2, #0
+ 8000dd6:	f883 21a9 	strb.w	r2, [r3, #425]	; 0x1a9
+	__asm volatile("BX LR");
+ 8000dda:	4770      	bx	lr
+}
+ 8000ddc:	bf00      	nop
+ 8000dde:	bf00      	nop
+ 8000de0:	20000190 	.word	0x20000190
+
+08000de4 <get_position>:
+ uint8 Flag_DIR_Change[PortNumberOfPortPins]={0};
+/*************************************************************************
+                               Local Functions
+*************************************************************************/
+ uint8 get_position(uint8 pinNumber)
+ {
+ 8000de4:	b480      	push	{r7}
+ 8000de6:	b085      	sub	sp, #20
+ 8000de8:	af00      	add	r7, sp, #0
+ 8000dea:	4603      	mov	r3, r0
+ 8000dec:	71fb      	strb	r3, [r7, #7]
+	 uint8 Pos=0;
+ 8000dee:	2300      	movs	r3, #0
+ 8000df0:	73fb      	strb	r3, [r7, #15]
+	 if(pinNumber<PORT_B_PIN_0)
+ 8000df2:	79fb      	ldrb	r3, [r7, #7]
+ 8000df4:	2b10      	cmp	r3, #16
+ 8000df6:	d80e      	bhi.n	8000e16 <get_position+0x32>
+	 {
+		 if(pinNumber<PORT_A_PIN_8)
+ 8000df8:	79fb      	ldrb	r3, [r7, #7]
+ 8000dfa:	2b08      	cmp	r3, #8
+ 8000dfc:	d805      	bhi.n	8000e0a <get_position+0x26>
+			 Pos=((pinNumber-1)*4);
+ 8000dfe:	79fb      	ldrb	r3, [r7, #7]
+ 8000e00:	333f      	adds	r3, #63	; 0x3f
+ 8000e02:	b2db      	uxtb	r3, r3
+ 8000e04:	009b      	lsls	r3, r3, #2
+ 8000e06:	73fb      	strb	r3, [r7, #15]
+ 8000e08:	e01c      	b.n	8000e44 <get_position+0x60>
+		 else
+			 Pos=((pinNumber-1)*4)-32;
+ 8000e0a:	79fb      	ldrb	r3, [r7, #7]
+ 8000e0c:	3337      	adds	r3, #55	; 0x37
+ 8000e0e:	b2db      	uxtb	r3, r3
+ 8000e10:	009b      	lsls	r3, r3, #2
+ 8000e12:	73fb      	strb	r3, [r7, #15]
+ 8000e14:	e016      	b.n	8000e44 <get_position+0x60>
+	 }
+	 else if(pinNumber<PORT_C_PIN_13)
+ 8000e16:	79fb      	ldrb	r3, [r7, #7]
+ 8000e18:	2b2d      	cmp	r3, #45	; 0x2d
+ 8000e1a:	d80e      	bhi.n	8000e3a <get_position+0x56>
+	 {
+		 if(pinNumber<PORT_B_PIN_8)
+ 8000e1c:	79fb      	ldrb	r3, [r7, #7]
+ 8000e1e:	2b18      	cmp	r3, #24
+ 8000e20:	d805      	bhi.n	8000e2e <get_position+0x4a>
+			 Pos=((pinNumber-17)*4);
+ 8000e22:	79fb      	ldrb	r3, [r7, #7]
+ 8000e24:	332f      	adds	r3, #47	; 0x2f
+ 8000e26:	b2db      	uxtb	r3, r3
+ 8000e28:	009b      	lsls	r3, r3, #2
+ 8000e2a:	73fb      	strb	r3, [r7, #15]
+ 8000e2c:	e00a      	b.n	8000e44 <get_position+0x60>
+		 else
+			 Pos=((pinNumber-17)*4)-32;
+ 8000e2e:	79fb      	ldrb	r3, [r7, #7]
+ 8000e30:	3327      	adds	r3, #39	; 0x27
+ 8000e32:	b2db      	uxtb	r3, r3
+ 8000e34:	009b      	lsls	r3, r3, #2
+ 8000e36:	73fb      	strb	r3, [r7, #15]
+ 8000e38:	e004      	b.n	8000e44 <get_position+0x60>
+	 }
+	 else
+	 {
+		 Pos=((pinNumber-33)*4)-32;
+ 8000e3a:	79fb      	ldrb	r3, [r7, #7]
+ 8000e3c:	3317      	adds	r3, #23
+ 8000e3e:	b2db      	uxtb	r3, r3
+ 8000e40:	009b      	lsls	r3, r3, #2
+ 8000e42:	73fb      	strb	r3, [r7, #15]
+	 }
+	 return Pos;
+ 8000e44:	7bfb      	ldrb	r3, [r7, #15]
+ }
+ 8000e46:	4618      	mov	r0, r3
+ 8000e48:	3714      	adds	r7, #20
+ 8000e4a:	46bd      	mov	sp, r7
+ 8000e4c:	bc80      	pop	{r7}
+ 8000e4e:	4770      	bx	lr
+
+08000e50 <Port_Init>:
+* Parameters (out)	:	None
+* Return value		:	None
+* Description		:	Initializes the Port Driver module.
+***********************************************************************/
+void Port_Init( const Port_ConfigType* ConfigPtr )
+{
+ 8000e50:	b580      	push	{r7, lr}
+ 8000e52:	b088      	sub	sp, #32
+ 8000e54:	af00      	add	r7, sp, #0
+ 8000e56:	6078      	str	r0, [r7, #4]
+	GPIO_TypeDef* GPIO_Current=NULL_PTR;
+ 8000e58:	2300      	movs	r3, #0
+ 8000e5a:	61fb      	str	r3, [r7, #28]
+	 uint8 pos=0;
+ 8000e5c:	2300      	movs	r3, #0
+ 8000e5e:	76fb      	strb	r3, [r7, #27]
+	uint32 pin_config=0;
+ 8000e60:	2300      	movs	r3, #0
+ 8000e62:	617b      	str	r3, [r7, #20]
+	volatile uint32 *configregister =NULL_PTR;
+ 8000e64:	2300      	movs	r3, #0
+ 8000e66:	613b      	str	r3, [r7, #16]
+	//uint32 pin_config=0;
+	Port_Config = ConfigPtr ;
+ 8000e68:	4ab3      	ldr	r2, [pc, #716]	; (8001138 <Port_Init+0x2e8>)
+ 8000e6a:	687b      	ldr	r3, [r7, #4]
+ 8000e6c:	6013      	str	r3, [r2, #0]
+	#if (TRUE==PortDevErrorDetect)
+		// Check APIs called with a Null Pointer
+		if (NULL_PTR==ConfigPtr)
+ 8000e6e:	687b      	ldr	r3, [r7, #4]
+ 8000e70:	2b00      	cmp	r3, #0
+ 8000e72:	d105      	bne.n	8000e80 <Port_Init+0x30>
+		{
+			Det_ReportError(PORT_VERSION_ID,PORT_INSTANCE_ZERO,PORT_INIT_ID,PORT_E_PARAM_POINTER);
+ 8000e74:	2310      	movs	r3, #16
+ 8000e76:	2200      	movs	r2, #0
+ 8000e78:	2100      	movs	r1, #0
+ 8000e7a:	2028      	movs	r0, #40	; 0x28
+ 8000e7c:	f7ff fe50 	bl	8000b20 <Det_ReportError>
+		else
+		{
+			//
+		}
+	#endif
+	for(int Pin_Index=0;Pin_Index<PortNumberOfPortPins;Pin_Index++)
+ 8000e80:	2300      	movs	r3, #0
+ 8000e82:	60fb      	str	r3, [r7, #12]
+ 8000e84:	e21e      	b.n	80012c4 <Port_Init+0x474>
+	{
+		pin_config=0;
+ 8000e86:	2300      	movs	r3, #0
+ 8000e88:	617b      	str	r3, [r7, #20]
+		//determine GPIO current port
+		if(ConfigPtr->PortPin[Pin_Index].PortPinId<PORT_B_PIN_0)
+ 8000e8a:	6879      	ldr	r1, [r7, #4]
+ 8000e8c:	68fa      	ldr	r2, [r7, #12]
+ 8000e8e:	4613      	mov	r3, r2
+ 8000e90:	009b      	lsls	r3, r3, #2
+ 8000e92:	4413      	add	r3, r2
+ 8000e94:	005b      	lsls	r3, r3, #1
+ 8000e96:	440b      	add	r3, r1
+ 8000e98:	3302      	adds	r3, #2
+ 8000e9a:	781b      	ldrb	r3, [r3, #0]
+ 8000e9c:	2b10      	cmp	r3, #16
+ 8000e9e:	d833      	bhi.n	8000f08 <Port_Init+0xb8>
+		{
+			GPIO_Current=GPIOA;
+ 8000ea0:	4ba6      	ldr	r3, [pc, #664]	; (800113c <Port_Init+0x2ec>)
+ 8000ea2:	61fb      	str	r3, [r7, #28]
+			// GPIO->CRL configure pins 0-->>7
+			// GPIO->CRH configure pins 8-->>15
+			if(ConfigPtr->PortPin[Pin_Index].PortPinId<PORT_A_PIN_8)
+ 8000ea4:	6879      	ldr	r1, [r7, #4]
+ 8000ea6:	68fa      	ldr	r2, [r7, #12]
+ 8000ea8:	4613      	mov	r3, r2
+ 8000eaa:	009b      	lsls	r3, r3, #2
+ 8000eac:	4413      	add	r3, r2
+ 8000eae:	005b      	lsls	r3, r3, #1
+ 8000eb0:	440b      	add	r3, r1
+ 8000eb2:	3302      	adds	r3, #2
+ 8000eb4:	781b      	ldrb	r3, [r3, #0]
+ 8000eb6:	2b08      	cmp	r3, #8
+ 8000eb8:	d811      	bhi.n	8000ede <Port_Init+0x8e>
+			{
+				configregister=&GPIO_Current->CRL;
+ 8000eba:	69fb      	ldr	r3, [r7, #28]
+ 8000ebc:	613b      	str	r3, [r7, #16]
+				pos=get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)/4;
+ 8000ebe:	6879      	ldr	r1, [r7, #4]
+ 8000ec0:	68fa      	ldr	r2, [r7, #12]
+ 8000ec2:	4613      	mov	r3, r2
+ 8000ec4:	009b      	lsls	r3, r3, #2
+ 8000ec6:	4413      	add	r3, r2
+ 8000ec8:	005b      	lsls	r3, r3, #1
+ 8000eca:	440b      	add	r3, r1
+ 8000ecc:	3302      	adds	r3, #2
+ 8000ece:	781b      	ldrb	r3, [r3, #0]
+ 8000ed0:	4618      	mov	r0, r3
+ 8000ed2:	f7ff ff87 	bl	8000de4 <get_position>
+ 8000ed6:	4603      	mov	r3, r0
+ 8000ed8:	089b      	lsrs	r3, r3, #2
+ 8000eda:	76fb      	strb	r3, [r7, #27]
+ 8000edc:	e069      	b.n	8000fb2 <Port_Init+0x162>
+			}
+			else
+			{
+				configregister=&GPIO_Current->CRH;
+ 8000ede:	69fb      	ldr	r3, [r7, #28]
+ 8000ee0:	3304      	adds	r3, #4
+ 8000ee2:	613b      	str	r3, [r7, #16]
+				pos=(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)/4)+8;
+ 8000ee4:	6879      	ldr	r1, [r7, #4]
+ 8000ee6:	68fa      	ldr	r2, [r7, #12]
+ 8000ee8:	4613      	mov	r3, r2
+ 8000eea:	009b      	lsls	r3, r3, #2
+ 8000eec:	4413      	add	r3, r2
+ 8000eee:	005b      	lsls	r3, r3, #1
+ 8000ef0:	440b      	add	r3, r1
+ 8000ef2:	3302      	adds	r3, #2
+ 8000ef4:	781b      	ldrb	r3, [r3, #0]
+ 8000ef6:	4618      	mov	r0, r3
+ 8000ef8:	f7ff ff74 	bl	8000de4 <get_position>
+ 8000efc:	4603      	mov	r3, r0
+ 8000efe:	089b      	lsrs	r3, r3, #2
+ 8000f00:	b2db      	uxtb	r3, r3
+ 8000f02:	3308      	adds	r3, #8
+ 8000f04:	76fb      	strb	r3, [r7, #27]
+ 8000f06:	e054      	b.n	8000fb2 <Port_Init+0x162>
+			}
+		}
+		else if(ConfigPtr->PortPin[Pin_Index].PortPinId<PORT_C_PIN_13)
+ 8000f08:	6879      	ldr	r1, [r7, #4]
+ 8000f0a:	68fa      	ldr	r2, [r7, #12]
+ 8000f0c:	4613      	mov	r3, r2
+ 8000f0e:	009b      	lsls	r3, r3, #2
+ 8000f10:	4413      	add	r3, r2
+ 8000f12:	005b      	lsls	r3, r3, #1
+ 8000f14:	440b      	add	r3, r1
+ 8000f16:	3302      	adds	r3, #2
+ 8000f18:	781b      	ldrb	r3, [r3, #0]
+ 8000f1a:	2b2d      	cmp	r3, #45	; 0x2d
+ 8000f1c:	d833      	bhi.n	8000f86 <Port_Init+0x136>
+		{
+			GPIO_Current=GPIOB;
+ 8000f1e:	4b88      	ldr	r3, [pc, #544]	; (8001140 <Port_Init+0x2f0>)
+ 8000f20:	61fb      	str	r3, [r7, #28]
+			// GPIO->CRL configure pins 0-->>7
+			// GPIO->CRH configure pins 8-->>15
+			if(ConfigPtr->PortPin[Pin_Index].PortPinId<PORT_B_PIN_8)
+ 8000f22:	6879      	ldr	r1, [r7, #4]
+ 8000f24:	68fa      	ldr	r2, [r7, #12]
+ 8000f26:	4613      	mov	r3, r2
+ 8000f28:	009b      	lsls	r3, r3, #2
+ 8000f2a:	4413      	add	r3, r2
+ 8000f2c:	005b      	lsls	r3, r3, #1
+ 8000f2e:	440b      	add	r3, r1
+ 8000f30:	3302      	adds	r3, #2
+ 8000f32:	781b      	ldrb	r3, [r3, #0]
+ 8000f34:	2b18      	cmp	r3, #24
+ 8000f36:	d811      	bhi.n	8000f5c <Port_Init+0x10c>
+			{
+				configregister=&GPIO_Current->CRL;
+ 8000f38:	69fb      	ldr	r3, [r7, #28]
+ 8000f3a:	613b      	str	r3, [r7, #16]
+				pos=get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)/4;
+ 8000f3c:	6879      	ldr	r1, [r7, #4]
+ 8000f3e:	68fa      	ldr	r2, [r7, #12]
+ 8000f40:	4613      	mov	r3, r2
+ 8000f42:	009b      	lsls	r3, r3, #2
+ 8000f44:	4413      	add	r3, r2
+ 8000f46:	005b      	lsls	r3, r3, #1
+ 8000f48:	440b      	add	r3, r1
+ 8000f4a:	3302      	adds	r3, #2
+ 8000f4c:	781b      	ldrb	r3, [r3, #0]
+ 8000f4e:	4618      	mov	r0, r3
+ 8000f50:	f7ff ff48 	bl	8000de4 <get_position>
+ 8000f54:	4603      	mov	r3, r0
+ 8000f56:	089b      	lsrs	r3, r3, #2
+ 8000f58:	76fb      	strb	r3, [r7, #27]
+ 8000f5a:	e02a      	b.n	8000fb2 <Port_Init+0x162>
+			}
+			else
+			{
+				configregister=&GPIO_Current->CRH;
+ 8000f5c:	69fb      	ldr	r3, [r7, #28]
+ 8000f5e:	3304      	adds	r3, #4
+ 8000f60:	613b      	str	r3, [r7, #16]
+				pos=(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)/4)+8;
+ 8000f62:	6879      	ldr	r1, [r7, #4]
+ 8000f64:	68fa      	ldr	r2, [r7, #12]
+ 8000f66:	4613      	mov	r3, r2
+ 8000f68:	009b      	lsls	r3, r3, #2
+ 8000f6a:	4413      	add	r3, r2
+ 8000f6c:	005b      	lsls	r3, r3, #1
+ 8000f6e:	440b      	add	r3, r1
+ 8000f70:	3302      	adds	r3, #2
+ 8000f72:	781b      	ldrb	r3, [r3, #0]
+ 8000f74:	4618      	mov	r0, r3
+ 8000f76:	f7ff ff35 	bl	8000de4 <get_position>
+ 8000f7a:	4603      	mov	r3, r0
+ 8000f7c:	089b      	lsrs	r3, r3, #2
+ 8000f7e:	b2db      	uxtb	r3, r3
+ 8000f80:	3308      	adds	r3, #8
+ 8000f82:	76fb      	strb	r3, [r7, #27]
+ 8000f84:	e015      	b.n	8000fb2 <Port_Init+0x162>
+			}
+		}
+		else
+		{
+			GPIO_Current=GPIOC;
+ 8000f86:	4b6f      	ldr	r3, [pc, #444]	; (8001144 <Port_Init+0x2f4>)
+ 8000f88:	61fb      	str	r3, [r7, #28]
+			// GPIO->CRL configure pins 0-->>7
+			// GPIO->CRH configure pins 8-->>15
+			configregister =&GPIO_Current->CRH;
+ 8000f8a:	69fb      	ldr	r3, [r7, #28]
+ 8000f8c:	3304      	adds	r3, #4
+ 8000f8e:	613b      	str	r3, [r7, #16]
+			pos=(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)/4)+8;
+ 8000f90:	6879      	ldr	r1, [r7, #4]
+ 8000f92:	68fa      	ldr	r2, [r7, #12]
+ 8000f94:	4613      	mov	r3, r2
+ 8000f96:	009b      	lsls	r3, r3, #2
+ 8000f98:	4413      	add	r3, r2
+ 8000f9a:	005b      	lsls	r3, r3, #1
+ 8000f9c:	440b      	add	r3, r1
+ 8000f9e:	3302      	adds	r3, #2
+ 8000fa0:	781b      	ldrb	r3, [r3, #0]
+ 8000fa2:	4618      	mov	r0, r3
+ 8000fa4:	f7ff ff1e 	bl	8000de4 <get_position>
+ 8000fa8:	4603      	mov	r3, r0
+ 8000faa:	089b      	lsrs	r3, r3, #2
+ 8000fac:	b2db      	uxtb	r3, r3
+ 8000fae:	3308      	adds	r3, #8
+ 8000fb0:	76fb      	strb	r3, [r7, #27]
+		}
+		//clear MODEy[1:0] and CNFy[1:0]
+		(*configregister) &=~(0XF<<get_position(ConfigPtr->PortPin[Pin_Index].PortPinId));
+ 8000fb2:	6879      	ldr	r1, [r7, #4]
+ 8000fb4:	68fa      	ldr	r2, [r7, #12]
+ 8000fb6:	4613      	mov	r3, r2
+ 8000fb8:	009b      	lsls	r3, r3, #2
+ 8000fba:	4413      	add	r3, r2
+ 8000fbc:	005b      	lsls	r3, r3, #1
+ 8000fbe:	440b      	add	r3, r1
+ 8000fc0:	3302      	adds	r3, #2
+ 8000fc2:	781b      	ldrb	r3, [r3, #0]
+ 8000fc4:	4618      	mov	r0, r3
+ 8000fc6:	f7ff ff0d 	bl	8000de4 <get_position>
+ 8000fca:	4603      	mov	r3, r0
+ 8000fcc:	461a      	mov	r2, r3
+ 8000fce:	230f      	movs	r3, #15
+ 8000fd0:	4093      	lsls	r3, r2
+ 8000fd2:	43da      	mvns	r2, r3
+ 8000fd4:	693b      	ldr	r3, [r7, #16]
+ 8000fd6:	681b      	ldr	r3, [r3, #0]
+ 8000fd8:	401a      	ands	r2, r3
+ 8000fda:	693b      	ldr	r3, [r7, #16]
+ 8000fdc:	601a      	str	r2, [r3, #0]
+		//pin mode
+		if(ConfigPtr->PortPin[Pin_Index].PortPinDirection==PORT_PIN_OUT)
+ 8000fde:	6879      	ldr	r1, [r7, #4]
+ 8000fe0:	68fa      	ldr	r2, [r7, #12]
+ 8000fe2:	4613      	mov	r3, r2
+ 8000fe4:	009b      	lsls	r3, r3, #2
+ 8000fe6:	4413      	add	r3, r2
+ 8000fe8:	005b      	lsls	r3, r3, #1
+ 8000fea:	440b      	add	r3, r1
+ 8000fec:	781b      	ldrb	r3, [r3, #0]
+ 8000fee:	2b01      	cmp	r3, #1
+ 8000ff0:	f040 80d5 	bne.w	800119e <Port_Init+0x34e>
+		{
+			//Slew_Rate
+			if(ConfigPtr->PortPin[Pin_Index].Slew_Rate==GPIO_Slew_Rate_10M)
+ 8000ff4:	6879      	ldr	r1, [r7, #4]
+ 8000ff6:	68fa      	ldr	r2, [r7, #12]
+ 8000ff8:	4613      	mov	r3, r2
+ 8000ffa:	009b      	lsls	r3, r3, #2
+ 8000ffc:	4413      	add	r3, r2
+ 8000ffe:	005b      	lsls	r3, r3, #1
+ 8001000:	440b      	add	r3, r1
+ 8001002:	3308      	adds	r3, #8
+ 8001004:	781b      	ldrb	r3, [r3, #0]
+ 8001006:	2b01      	cmp	r3, #1
+ 8001008:	d114      	bne.n	8001034 <Port_Init+0x1e4>
+			{
+				//01: Output mode, max speed 10 MHz
+				pin_config|=(0b01<<get_position(ConfigPtr->PortPin[Pin_Index].PortPinId));
+ 800100a:	6879      	ldr	r1, [r7, #4]
+ 800100c:	68fa      	ldr	r2, [r7, #12]
+ 800100e:	4613      	mov	r3, r2
+ 8001010:	009b      	lsls	r3, r3, #2
+ 8001012:	4413      	add	r3, r2
+ 8001014:	005b      	lsls	r3, r3, #1
+ 8001016:	440b      	add	r3, r1
+ 8001018:	3302      	adds	r3, #2
+ 800101a:	781b      	ldrb	r3, [r3, #0]
+ 800101c:	4618      	mov	r0, r3
+ 800101e:	f7ff fee1 	bl	8000de4 <get_position>
+ 8001022:	4603      	mov	r3, r0
+ 8001024:	461a      	mov	r2, r3
+ 8001026:	2301      	movs	r3, #1
+ 8001028:	4093      	lsls	r3, r2
+ 800102a:	461a      	mov	r2, r3
+ 800102c:	697b      	ldr	r3, [r7, #20]
+ 800102e:	4313      	orrs	r3, r2
+ 8001030:	617b      	str	r3, [r7, #20]
+ 8001032:	e033      	b.n	800109c <Port_Init+0x24c>
+
+			}
+			else if(ConfigPtr->PortPin[Pin_Index].Slew_Rate==GPIO_Slew_Rate_50M)
+ 8001034:	6879      	ldr	r1, [r7, #4]
+ 8001036:	68fa      	ldr	r2, [r7, #12]
+ 8001038:	4613      	mov	r3, r2
+ 800103a:	009b      	lsls	r3, r3, #2
+ 800103c:	4413      	add	r3, r2
+ 800103e:	005b      	lsls	r3, r3, #1
+ 8001040:	440b      	add	r3, r1
+ 8001042:	3308      	adds	r3, #8
+ 8001044:	781b      	ldrb	r3, [r3, #0]
+ 8001046:	2b03      	cmp	r3, #3
+ 8001048:	d114      	bne.n	8001074 <Port_Init+0x224>
+			{
+				//11: Output mode, max speed 50 MHz
+				pin_config|=(0b11<<get_position(ConfigPtr->PortPin[Pin_Index].PortPinId));
+ 800104a:	6879      	ldr	r1, [r7, #4]
+ 800104c:	68fa      	ldr	r2, [r7, #12]
+ 800104e:	4613      	mov	r3, r2
+ 8001050:	009b      	lsls	r3, r3, #2
+ 8001052:	4413      	add	r3, r2
+ 8001054:	005b      	lsls	r3, r3, #1
+ 8001056:	440b      	add	r3, r1
+ 8001058:	3302      	adds	r3, #2
+ 800105a:	781b      	ldrb	r3, [r3, #0]
+ 800105c:	4618      	mov	r0, r3
+ 800105e:	f7ff fec1 	bl	8000de4 <get_position>
+ 8001062:	4603      	mov	r3, r0
+ 8001064:	461a      	mov	r2, r3
+ 8001066:	2303      	movs	r3, #3
+ 8001068:	4093      	lsls	r3, r2
+ 800106a:	461a      	mov	r2, r3
+ 800106c:	697b      	ldr	r3, [r7, #20]
+ 800106e:	4313      	orrs	r3, r2
+ 8001070:	617b      	str	r3, [r7, #20]
+ 8001072:	e013      	b.n	800109c <Port_Init+0x24c>
+			}
+			else
+			{
+				//10: Output mode, max speed 2 MHz
+				pin_config|=(0b10<<get_position(ConfigPtr->PortPin[Pin_Index].PortPinId));
+ 8001074:	6879      	ldr	r1, [r7, #4]
+ 8001076:	68fa      	ldr	r2, [r7, #12]
+ 8001078:	4613      	mov	r3, r2
+ 800107a:	009b      	lsls	r3, r3, #2
+ 800107c:	4413      	add	r3, r2
+ 800107e:	005b      	lsls	r3, r3, #1
+ 8001080:	440b      	add	r3, r1
+ 8001082:	3302      	adds	r3, #2
+ 8001084:	781b      	ldrb	r3, [r3, #0]
+ 8001086:	4618      	mov	r0, r3
+ 8001088:	f7ff feac 	bl	8000de4 <get_position>
+ 800108c:	4603      	mov	r3, r0
+ 800108e:	461a      	mov	r2, r3
+ 8001090:	2302      	movs	r3, #2
+ 8001092:	4093      	lsls	r3, r2
+ 8001094:	461a      	mov	r2, r3
+ 8001096:	697b      	ldr	r3, [r7, #20]
+ 8001098:	4313      	orrs	r3, r2
+ 800109a:	617b      	str	r3, [r7, #20]
+			}
+			//Pin driven mode
+			if(ConfigPtr->PortPin[Pin_Index].PortPinMode==PORT_PIN_MODE_CAN)
+ 800109c:	6879      	ldr	r1, [r7, #4]
+ 800109e:	68fa      	ldr	r2, [r7, #12]
+ 80010a0:	4613      	mov	r3, r2
+ 80010a2:	009b      	lsls	r3, r3, #2
+ 80010a4:	4413      	add	r3, r2
+ 80010a6:	005b      	lsls	r3, r3, #1
+ 80010a8:	440b      	add	r3, r1
+ 80010aa:	3305      	adds	r3, #5
+ 80010ac:	781b      	ldrb	r3, [r3, #0]
+ 80010ae:	2b01      	cmp	r3, #1
+ 80010b0:	d115      	bne.n	80010de <Port_Init+0x28e>
+			{
+				//10: Alternate function output Push-pull
+				pin_config|=(0b10<<(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)+2));
+ 80010b2:	6879      	ldr	r1, [r7, #4]
+ 80010b4:	68fa      	ldr	r2, [r7, #12]
+ 80010b6:	4613      	mov	r3, r2
+ 80010b8:	009b      	lsls	r3, r3, #2
+ 80010ba:	4413      	add	r3, r2
+ 80010bc:	005b      	lsls	r3, r3, #1
+ 80010be:	440b      	add	r3, r1
+ 80010c0:	3302      	adds	r3, #2
+ 80010c2:	781b      	ldrb	r3, [r3, #0]
+ 80010c4:	4618      	mov	r0, r3
+ 80010c6:	f7ff fe8d 	bl	8000de4 <get_position>
+ 80010ca:	4603      	mov	r3, r0
+ 80010cc:	3302      	adds	r3, #2
+ 80010ce:	2202      	movs	r2, #2
+ 80010d0:	fa02 f303 	lsl.w	r3, r2, r3
+ 80010d4:	461a      	mov	r2, r3
+ 80010d6:	697b      	ldr	r3, [r7, #20]
+ 80010d8:	4313      	orrs	r3, r2
+ 80010da:	617b      	str	r3, [r7, #20]
+ 80010dc:	e049      	b.n	8001172 <Port_Init+0x322>
+			}
+			else if(ConfigPtr->PortPin[Pin_Index].PortPinMode==PORT_PIN_MODE_ADC)
+ 80010de:	6879      	ldr	r1, [r7, #4]
+ 80010e0:	68fa      	ldr	r2, [r7, #12]
+ 80010e2:	4613      	mov	r3, r2
+ 80010e4:	009b      	lsls	r3, r3, #2
+ 80010e6:	4413      	add	r3, r2
+ 80010e8:	005b      	lsls	r3, r3, #1
+ 80010ea:	440b      	add	r3, r1
+ 80010ec:	3305      	adds	r3, #5
+ 80010ee:	781b      	ldrb	r3, [r3, #0]
+ 80010f0:	2b00      	cmp	r3, #0
+ 80010f2:	d03e      	beq.n	8001172 <Port_Init+0x322>
+			{
+				//
+			}
+			else
+			{
+				if(ConfigPtr->PortPin[Pin_Index].Pin_Driven_Mode==GPIO_Pin_Driven_Mode_PP)
+ 80010f4:	6879      	ldr	r1, [r7, #4]
+ 80010f6:	68fa      	ldr	r2, [r7, #12]
+ 80010f8:	4613      	mov	r3, r2
+ 80010fa:	009b      	lsls	r3, r3, #2
+ 80010fc:	4413      	add	r3, r2
+ 80010fe:	005b      	lsls	r3, r3, #1
+ 8001100:	440b      	add	r3, r1
+ 8001102:	3309      	adds	r3, #9
+ 8001104:	781b      	ldrb	r3, [r3, #0]
+ 8001106:	2b00      	cmp	r3, #0
+ 8001108:	d11e      	bne.n	8001148 <Port_Init+0x2f8>
+				{
+					//00: General purpose output push-pull
+					pin_config&=~(0b11<<(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)+2));
+ 800110a:	6879      	ldr	r1, [r7, #4]
+ 800110c:	68fa      	ldr	r2, [r7, #12]
+ 800110e:	4613      	mov	r3, r2
+ 8001110:	009b      	lsls	r3, r3, #2
+ 8001112:	4413      	add	r3, r2
+ 8001114:	005b      	lsls	r3, r3, #1
+ 8001116:	440b      	add	r3, r1
+ 8001118:	3302      	adds	r3, #2
+ 800111a:	781b      	ldrb	r3, [r3, #0]
+ 800111c:	4618      	mov	r0, r3
+ 800111e:	f7ff fe61 	bl	8000de4 <get_position>
+ 8001122:	4603      	mov	r3, r0
+ 8001124:	3302      	adds	r3, #2
+ 8001126:	2203      	movs	r2, #3
+ 8001128:	fa02 f303 	lsl.w	r3, r2, r3
+ 800112c:	43db      	mvns	r3, r3
+ 800112e:	461a      	mov	r2, r3
+ 8001130:	697b      	ldr	r3, [r7, #20]
+ 8001132:	4013      	ands	r3, r2
+ 8001134:	617b      	str	r3, [r7, #20]
+ 8001136:	e01c      	b.n	8001172 <Port_Init+0x322>
+ 8001138:	200000a8 	.word	0x200000a8
+ 800113c:	40010800 	.word	0x40010800
+ 8001140:	40010c00 	.word	0x40010c00
+ 8001144:	40011000 	.word	0x40011000
+				}
+				else
+				{
+					//01: General purpose output Open-drain
+					pin_config|=(0b01<<(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)+2));
+ 8001148:	6879      	ldr	r1, [r7, #4]
+ 800114a:	68fa      	ldr	r2, [r7, #12]
+ 800114c:	4613      	mov	r3, r2
+ 800114e:	009b      	lsls	r3, r3, #2
+ 8001150:	4413      	add	r3, r2
+ 8001152:	005b      	lsls	r3, r3, #1
+ 8001154:	440b      	add	r3, r1
+ 8001156:	3302      	adds	r3, #2
+ 8001158:	781b      	ldrb	r3, [r3, #0]
+ 800115a:	4618      	mov	r0, r3
+ 800115c:	f7ff fe42 	bl	8000de4 <get_position>
+ 8001160:	4603      	mov	r3, r0
+ 8001162:	3302      	adds	r3, #2
+ 8001164:	2201      	movs	r2, #1
+ 8001166:	fa02 f303 	lsl.w	r3, r2, r3
+ 800116a:	461a      	mov	r2, r3
+ 800116c:	697b      	ldr	r3, [r7, #20]
+ 800116e:	4313      	orrs	r3, r2
+ 8001170:	617b      	str	r3, [r7, #20]
+				}
+			}
+			// Port Pin Level value from Port pin list.
+			if(ConfigPtr->PortPin[Pin_Index].PortPinLevelValue==STD_HIGH)
+ 8001172:	6879      	ldr	r1, [r7, #4]
+ 8001174:	68fa      	ldr	r2, [r7, #12]
+ 8001176:	4613      	mov	r3, r2
+ 8001178:	009b      	lsls	r3, r3, #2
+ 800117a:	4413      	add	r3, r2
+ 800117c:	005b      	lsls	r3, r3, #1
+ 800117e:	440b      	add	r3, r1
+ 8001180:	3304      	adds	r3, #4
+ 8001182:	781b      	ldrb	r3, [r3, #0]
+ 8001184:	2b01      	cmp	r3, #1
+ 8001186:	f040 8094 	bne.w	80012b2 <Port_Init+0x462>
+			{
+				GPIO_Current->ODR|=1<<pos;
+ 800118a:	69fb      	ldr	r3, [r7, #28]
+ 800118c:	68db      	ldr	r3, [r3, #12]
+ 800118e:	7efa      	ldrb	r2, [r7, #27]
+ 8001190:	2101      	movs	r1, #1
+ 8001192:	fa01 f202 	lsl.w	r2, r1, r2
+ 8001196:	431a      	orrs	r2, r3
+ 8001198:	69fb      	ldr	r3, [r7, #28]
+ 800119a:	60da      	str	r2, [r3, #12]
+ 800119c:	e089      	b.n	80012b2 <Port_Init+0x462>
+			else
+			{
+				//
+			}
+		}
+		else if(ConfigPtr->PortPin[Pin_Index].PortPinDirection==PORT_PIN_IN)
+ 800119e:	6879      	ldr	r1, [r7, #4]
+ 80011a0:	68fa      	ldr	r2, [r7, #12]
+ 80011a2:	4613      	mov	r3, r2
+ 80011a4:	009b      	lsls	r3, r3, #2
+ 80011a6:	4413      	add	r3, r2
+ 80011a8:	005b      	lsls	r3, r3, #1
+ 80011aa:	440b      	add	r3, r1
+ 80011ac:	781b      	ldrb	r3, [r3, #0]
+ 80011ae:	2b00      	cmp	r3, #0
+ 80011b0:	d17f      	bne.n	80012b2 <Port_Init+0x462>
+		{
+			//Pin driven mode
+			if(ConfigPtr->PortPin[Pin_Index].PortPinMode==PORT_PIN_MODE_CAN)
+ 80011b2:	6879      	ldr	r1, [r7, #4]
+ 80011b4:	68fa      	ldr	r2, [r7, #12]
+ 80011b6:	4613      	mov	r3, r2
+ 80011b8:	009b      	lsls	r3, r3, #2
+ 80011ba:	4413      	add	r3, r2
+ 80011bc:	005b      	lsls	r3, r3, #1
+ 80011be:	440b      	add	r3, r1
+ 80011c0:	3305      	adds	r3, #5
+ 80011c2:	781b      	ldrb	r3, [r3, #0]
+ 80011c4:	2b01      	cmp	r3, #1
+ 80011c6:	d11e      	bne.n	8001206 <Port_Init+0x3b6>
+			{
+				//10: Input with pull-up / pull-down
+				pin_config|=(0b10<<(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)+2));
+ 80011c8:	6879      	ldr	r1, [r7, #4]
+ 80011ca:	68fa      	ldr	r2, [r7, #12]
+ 80011cc:	4613      	mov	r3, r2
+ 80011ce:	009b      	lsls	r3, r3, #2
+ 80011d0:	4413      	add	r3, r2
+ 80011d2:	005b      	lsls	r3, r3, #1
+ 80011d4:	440b      	add	r3, r1
+ 80011d6:	3302      	adds	r3, #2
+ 80011d8:	781b      	ldrb	r3, [r3, #0]
+ 80011da:	4618      	mov	r0, r3
+ 80011dc:	f7ff fe02 	bl	8000de4 <get_position>
+ 80011e0:	4603      	mov	r3, r0
+ 80011e2:	3302      	adds	r3, #2
+ 80011e4:	2202      	movs	r2, #2
+ 80011e6:	fa02 f303 	lsl.w	r3, r2, r3
+ 80011ea:	461a      	mov	r2, r3
+ 80011ec:	697b      	ldr	r3, [r7, #20]
+ 80011ee:	4313      	orrs	r3, r2
+ 80011f0:	617b      	str	r3, [r7, #20]
+				//  port bit configuration table px_ODR =1
+				GPIO_Current->ODR|=1<<pos;
+ 80011f2:	69fb      	ldr	r3, [r7, #28]
+ 80011f4:	68db      	ldr	r3, [r3, #12]
+ 80011f6:	7efa      	ldrb	r2, [r7, #27]
+ 80011f8:	2101      	movs	r1, #1
+ 80011fa:	fa01 f202 	lsl.w	r2, r1, r2
+ 80011fe:	431a      	orrs	r2, r3
+ 8001200:	69fb      	ldr	r3, [r7, #28]
+ 8001202:	60da      	str	r2, [r3, #12]
+ 8001204:	e055      	b.n	80012b2 <Port_Init+0x462>
+			}
+			else if(ConfigPtr->PortPin[Pin_Index].PortPinMode==PORT_PIN_MODE_ADC)
+ 8001206:	6879      	ldr	r1, [r7, #4]
+ 8001208:	68fa      	ldr	r2, [r7, #12]
+ 800120a:	4613      	mov	r3, r2
+ 800120c:	009b      	lsls	r3, r3, #2
+ 800120e:	4413      	add	r3, r2
+ 8001210:	005b      	lsls	r3, r3, #1
+ 8001212:	440b      	add	r3, r1
+ 8001214:	3305      	adds	r3, #5
+ 8001216:	781b      	ldrb	r3, [r3, #0]
+ 8001218:	2b00      	cmp	r3, #0
+ 800121a:	d116      	bne.n	800124a <Port_Init+0x3fa>
+			{
+				//00: Analog mode
+				pin_config&=~(0b11<<(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)+2));
+ 800121c:	6879      	ldr	r1, [r7, #4]
+ 800121e:	68fa      	ldr	r2, [r7, #12]
+ 8001220:	4613      	mov	r3, r2
+ 8001222:	009b      	lsls	r3, r3, #2
+ 8001224:	4413      	add	r3, r2
+ 8001226:	005b      	lsls	r3, r3, #1
+ 8001228:	440b      	add	r3, r1
+ 800122a:	3302      	adds	r3, #2
+ 800122c:	781b      	ldrb	r3, [r3, #0]
+ 800122e:	4618      	mov	r0, r3
+ 8001230:	f7ff fdd8 	bl	8000de4 <get_position>
+ 8001234:	4603      	mov	r3, r0
+ 8001236:	3302      	adds	r3, #2
+ 8001238:	2203      	movs	r2, #3
+ 800123a:	fa02 f303 	lsl.w	r3, r2, r3
+ 800123e:	43db      	mvns	r3, r3
+ 8001240:	461a      	mov	r2, r3
+ 8001242:	697b      	ldr	r3, [r7, #20]
+ 8001244:	4013      	ands	r3, r2
+ 8001246:	617b      	str	r3, [r7, #20]
+ 8001248:	e033      	b.n	80012b2 <Port_Init+0x462>
+			}
+			else
+			{
+				if(ConfigPtr->PortPin[Pin_Index].Pull_UP==TRUE)
+ 800124a:	6879      	ldr	r1, [r7, #4]
+ 800124c:	68fa      	ldr	r2, [r7, #12]
+ 800124e:	4613      	mov	r3, r2
+ 8001250:	009b      	lsls	r3, r3, #2
+ 8001252:	4413      	add	r3, r2
+ 8001254:	005b      	lsls	r3, r3, #1
+ 8001256:	440b      	add	r3, r1
+ 8001258:	3307      	adds	r3, #7
+ 800125a:	781b      	ldrb	r3, [r3, #0]
+ 800125c:	2b01      	cmp	r3, #1
+ 800125e:	d128      	bne.n	80012b2 <Port_Init+0x462>
+				{
+					//10: Input with pull-up / pull-down
+					pin_config|=(0b10<<(get_position(ConfigPtr->PortPin[Pin_Index].PortPinId)+2));
+ 8001260:	6879      	ldr	r1, [r7, #4]
+ 8001262:	68fa      	ldr	r2, [r7, #12]
+ 8001264:	4613      	mov	r3, r2
+ 8001266:	009b      	lsls	r3, r3, #2
+ 8001268:	4413      	add	r3, r2
+ 800126a:	005b      	lsls	r3, r3, #1
+ 800126c:	440b      	add	r3, r1
+ 800126e:	3302      	adds	r3, #2
+ 8001270:	781b      	ldrb	r3, [r3, #0]
+ 8001272:	4618      	mov	r0, r3
+ 8001274:	f7ff fdb6 	bl	8000de4 <get_position>
+ 8001278:	4603      	mov	r3, r0
+ 800127a:	3302      	adds	r3, #2
+ 800127c:	2202      	movs	r2, #2
+ 800127e:	fa02 f303 	lsl.w	r3, r2, r3
+ 8001282:	461a      	mov	r2, r3
+ 8001284:	697b      	ldr	r3, [r7, #20]
+ 8001286:	4313      	orrs	r3, r2
+ 8001288:	617b      	str	r3, [r7, #20]
+					//  port bit configuration table px_ODR =1
+					if(ConfigPtr->PortPin[Pin_Index].PortPinLevelValue==STD_HIGH)
+ 800128a:	6879      	ldr	r1, [r7, #4]
+ 800128c:	68fa      	ldr	r2, [r7, #12]
+ 800128e:	4613      	mov	r3, r2
+ 8001290:	009b      	lsls	r3, r3, #2
+ 8001292:	4413      	add	r3, r2
+ 8001294:	005b      	lsls	r3, r3, #1
+ 8001296:	440b      	add	r3, r1
+ 8001298:	3304      	adds	r3, #4
+ 800129a:	781b      	ldrb	r3, [r3, #0]
+ 800129c:	2b01      	cmp	r3, #1
+ 800129e:	d108      	bne.n	80012b2 <Port_Init+0x462>
+					{
+						GPIO_Current->ODR|=1<<pos;
+ 80012a0:	69fb      	ldr	r3, [r7, #28]
+ 80012a2:	68db      	ldr	r3, [r3, #12]
+ 80012a4:	7efa      	ldrb	r2, [r7, #27]
+ 80012a6:	2101      	movs	r1, #1
+ 80012a8:	fa01 f202 	lsl.w	r2, r1, r2
+ 80012ac:	431a      	orrs	r2, r3
+ 80012ae:	69fb      	ldr	r3, [r7, #28]
+ 80012b0:	60da      	str	r2, [r3, #12]
+		}
+		else
+		{
+			//
+		}
+		*configregister|=pin_config;
+ 80012b2:	693b      	ldr	r3, [r7, #16]
+ 80012b4:	681a      	ldr	r2, [r3, #0]
+ 80012b6:	697b      	ldr	r3, [r7, #20]
+ 80012b8:	431a      	orrs	r2, r3
+ 80012ba:	693b      	ldr	r3, [r7, #16]
+ 80012bc:	601a      	str	r2, [r3, #0]
+	for(int Pin_Index=0;Pin_Index<PortNumberOfPortPins;Pin_Index++)
+ 80012be:	68fb      	ldr	r3, [r7, #12]
+ 80012c0:	3301      	adds	r3, #1
+ 80012c2:	60fb      	str	r3, [r7, #12]
+ 80012c4:	68fb      	ldr	r3, [r7, #12]
+ 80012c6:	2b1f      	cmp	r3, #31
+ 80012c8:	f77f addd 	ble.w	8000e86 <Port_Init+0x36>
+	}
+	/*
+	 [SWS_Port_00002] The function Port_Init shall initialize all variables used by the
+	 PORT driver module to an initial state.
+	 */
+	Port_Status=PORT_INITIALIZED;
+ 80012cc:	4b03      	ldr	r3, [pc, #12]	; (80012dc <Port_Init+0x48c>)
+ 80012ce:	2201      	movs	r2, #1
+ 80012d0:	701a      	strb	r2, [r3, #0]
+}
+ 80012d2:	bf00      	nop
+ 80012d4:	3720      	adds	r7, #32
+ 80012d6:	46bd      	mov	sp, r7
+ 80012d8:	bd80      	pop	{r7, pc}
+ 80012da:	bf00      	nop
+ 80012dc:	200000a4 	.word	0x200000a4
+
+080012e0 <CanIf_RxIndication>:
+uint8 Data_RX1[8]={0X00};
+Can_HwHandleType Hth=0;
+Can_PduType PduInfo;
+
+void CanIf_RxIndication (const Can_HwType* Mailbox,const PduInfoType* PduInfoPtr)
+{
+ 80012e0:	b480      	push	{r7}
+ 80012e2:	b085      	sub	sp, #20
+ 80012e4:	af00      	add	r7, sp, #0
+ 80012e6:	6078      	str	r0, [r7, #4]
+ 80012e8:	6039      	str	r1, [r7, #0]
+	for(int i=0;i<8;i++)
+ 80012ea:	2300      	movs	r3, #0
+ 80012ec:	60fb      	str	r3, [r7, #12]
+ 80012ee:	e00c      	b.n	800130a <CanIf_RxIndication+0x2a>
+	{
+		Data_RX1[i]=PduInfoPtr->SduDataPtr[i];
+ 80012f0:	683b      	ldr	r3, [r7, #0]
+ 80012f2:	681a      	ldr	r2, [r3, #0]
+ 80012f4:	68fb      	ldr	r3, [r7, #12]
+ 80012f6:	4413      	add	r3, r2
+ 80012f8:	7819      	ldrb	r1, [r3, #0]
+ 80012fa:	4a08      	ldr	r2, [pc, #32]	; (800131c <CanIf_RxIndication+0x3c>)
+ 80012fc:	68fb      	ldr	r3, [r7, #12]
+ 80012fe:	4413      	add	r3, r2
+ 8001300:	460a      	mov	r2, r1
+ 8001302:	701a      	strb	r2, [r3, #0]
+	for(int i=0;i<8;i++)
+ 8001304:	68fb      	ldr	r3, [r7, #12]
+ 8001306:	3301      	adds	r3, #1
+ 8001308:	60fb      	str	r3, [r7, #12]
+ 800130a:	68fb      	ldr	r3, [r7, #12]
+ 800130c:	2b07      	cmp	r3, #7
+ 800130e:	ddef      	ble.n	80012f0 <CanIf_RxIndication+0x10>
+	HrH=Mailbox->Hoh;
+	RX_Mailbox.ControllerId=Mailbox->ControllerId;
+	Rte_IWrite_Empty_For_Test_Empty_For_Test_Runnable_PP_CAN_Frame_CAN_Frame(Data_RX);
+	*/
+
+}
+ 8001310:	bf00      	nop
+ 8001312:	3714      	adds	r7, #20
+ 8001314:	46bd      	mov	sp, r7
+ 8001316:	bc80      	pop	{r7}
+ 8001318:	4770      	bx	lr
+ 800131a:	bf00      	nop
+ 800131c:	200000ac 	.word	0x200000ac
+
+08001320 <main>:
+}
+
+void ECUM_Init(void);
+
+int main(void)
+{
+ 8001320:	b580      	push	{r7, lr}
+ 8001322:	b086      	sub	sp, #24
+ 8001324:	af00      	add	r7, sp, #0
+	RCC_GPIOA_CLK_Enable();
+ 8001326:	4b20      	ldr	r3, [pc, #128]	; (80013a8 <main+0x88>)
+ 8001328:	699b      	ldr	r3, [r3, #24]
+ 800132a:	4a1f      	ldr	r2, [pc, #124]	; (80013a8 <main+0x88>)
+ 800132c:	f043 0304 	orr.w	r3, r3, #4
+ 8001330:	6193      	str	r3, [r2, #24]
+	RCC_TIM2_CLK_Enable();
+ 8001332:	4b1d      	ldr	r3, [pc, #116]	; (80013a8 <main+0x88>)
+ 8001334:	69db      	ldr	r3, [r3, #28]
+ 8001336:	4a1c      	ldr	r2, [pc, #112]	; (80013a8 <main+0x88>)
+ 8001338:	f043 0301 	orr.w	r3, r3, #1
+ 800133c:	61d3      	str	r3, [r2, #28]
+	RCC_GPIOB_CLK_Enable();
+ 800133e:	4b1a      	ldr	r3, [pc, #104]	; (80013a8 <main+0x88>)
+ 8001340:	699b      	ldr	r3, [r3, #24]
+ 8001342:	4a19      	ldr	r2, [pc, #100]	; (80013a8 <main+0x88>)
+ 8001344:	f043 0308 	orr.w	r3, r3, #8
+ 8001348:	6193      	str	r3, [r2, #24]
+	RCC_GPIOC_CLK_Enable();
+ 800134a:	4b17      	ldr	r3, [pc, #92]	; (80013a8 <main+0x88>)
+ 800134c:	699b      	ldr	r3, [r3, #24]
+ 800134e:	4a16      	ldr	r2, [pc, #88]	; (80013a8 <main+0x88>)
+ 8001350:	f043 0310 	orr.w	r3, r3, #16
+ 8001354:	6193      	str	r3, [r2, #24]
+	Port_Init(&Port);
+ 8001356:	4815      	ldr	r0, [pc, #84]	; (80013ac <main+0x8c>)
+ 8001358:	f7ff fd7a 	bl	8000e50 <Port_Init>
+	//Pwm_Init(&PWM_Config);
+    Can_Init(&Can);
+ 800135c:	4814      	ldr	r0, [pc, #80]	; (80013b0 <main+0x90>)
+ 800135e:	f7fe ff27 	bl	80001b0 <Can_Init>
+    //Configuration Pdu
+	PduInfo.id=0x000007ff;
+ 8001362:	4b14      	ldr	r3, [pc, #80]	; (80013b4 <main+0x94>)
+ 8001364:	f240 72ff 	movw	r2, #2047	; 0x7ff
+ 8001368:	601a      	str	r2, [r3, #0]
+	PduInfo.sdu=Data;
+ 800136a:	4b12      	ldr	r3, [pc, #72]	; (80013b4 <main+0x94>)
+ 800136c:	4a12      	ldr	r2, [pc, #72]	; (80013b8 <main+0x98>)
+ 800136e:	605a      	str	r2, [r3, #4]
+	PduInfo.swPduHandle=5;
+ 8001370:	4b10      	ldr	r3, [pc, #64]	; (80013b4 <main+0x94>)
+ 8001372:	2205      	movs	r2, #5
+ 8001374:	721a      	strb	r2, [r3, #8]
+	PduInfo.length=8;
+ 8001376:	4b0f      	ldr	r3, [pc, #60]	; (80013b4 <main+0x94>)
+ 8001378:	2208      	movs	r2, #8
+ 800137a:	725a      	strb	r2, [r3, #9]
+	//Configuration Filter Bank 0
+	CAN_Filter_Config_t Filter_Config;
+	Filter_Config.Filter_Bank=CAN_Filter_Bank_0;
+ 800137c:	2300      	movs	r3, #0
+ 800137e:	60fb      	str	r3, [r7, #12]
+	Filter_Config.Filter_FIFO_Assignment=CAN_Filter_FIFO_Assignment_FIFO0;
+ 8001380:	2300      	movs	r3, #0
+ 8001382:	60bb      	str	r3, [r7, #8]
+	Filter_Config.Filter_ID=0XFFFFFFFF;
+ 8001384:	f04f 33ff 	mov.w	r3, #4294967295
+ 8001388:	603b      	str	r3, [r7, #0]
+	Filter_Config.Filter_Mask_ID=0X00000000;
+ 800138a:	2300      	movs	r3, #0
+ 800138c:	607b      	str	r3, [r7, #4]
+	Filter_Config.Filter_Mode=CAN_Filter_Mode_Mask;
+ 800138e:	2300      	movs	r3, #0
+ 8001390:	613b      	str	r3, [r7, #16]
+	Filter_Config.Filter_Scale=CAN_Filter_Scale_32;
+ 8001392:	2301      	movs	r3, #1
+ 8001394:	617b      	str	r3, [r7, #20]
+	MCAL_CAN_Config_Filter(&Filter_Config);
+ 8001396:	463b      	mov	r3, r7
+ 8001398:	4618      	mov	r0, r3
+ 800139a:	f7ff faa5 	bl	80008e8 <MCAL_CAN_Config_Filter>
+	Can_SetControllerMode(CONTROLLER_ZERO,CAN_CS_STARTED);
+ 800139e:	2101      	movs	r1, #1
+ 80013a0:	2000      	movs	r0, #0
+ 80013a2:	f7fe fffd 	bl	80003a0 <Can_SetControllerMode>
+
+	//ECUM_Init();
+
+	while(1)
+ 80013a6:	e7fe      	b.n	80013a6 <main+0x86>
+ 80013a8:	40021000 	.word	0x40021000
+ 80013ac:	08001488 	.word	0x08001488
+ 80013b0:	20000000 	.word	0x20000000
+ 80013b4:	20000388 	.word	0x20000388
+ 80013b8:	2000007c 	.word	0x2000007c
+
+080013bc <Reset_Handler>:
+
+  .section .text.Reset_Handler
+  .weak Reset_Handler
+  .type Reset_Handler, %function
+Reset_Handler:
+  ldr   r0, =_estack
+ 80013bc:	480d      	ldr	r0, [pc, #52]	; (80013f4 <LoopForever+0x2>)
+  mov   sp, r0          /* set stack pointer */
+ 80013be:	4685      	mov	sp, r0
+/* Call the clock system intitialization function.*/
+  bl  SystemInit
+ 80013c0:	f3af 8000 	nop.w
+
+/* Copy the data segment initializers from flash to SRAM */
+  ldr r0, =_sdata
+ 80013c4:	480c      	ldr	r0, [pc, #48]	; (80013f8 <LoopForever+0x6>)
+  ldr r1, =_edata
+ 80013c6:	490d      	ldr	r1, [pc, #52]	; (80013fc <LoopForever+0xa>)
+  ldr r2, =_sidata
+ 80013c8:	4a0d      	ldr	r2, [pc, #52]	; (8001400 <LoopForever+0xe>)
+  movs r3, #0
+ 80013ca:	2300      	movs	r3, #0
+  b LoopCopyDataInit
+ 80013cc:	e002      	b.n	80013d4 <LoopCopyDataInit>
+
+080013ce <CopyDataInit>:
+
+CopyDataInit:
+  ldr r4, [r2, r3]
+ 80013ce:	58d4      	ldr	r4, [r2, r3]
+  str r4, [r0, r3]
+ 80013d0:	50c4      	str	r4, [r0, r3]
+  adds r3, r3, #4
+ 80013d2:	3304      	adds	r3, #4
+
+080013d4 <LoopCopyDataInit>:
+
+LoopCopyDataInit:
+  adds r4, r0, r3
+ 80013d4:	18c4      	adds	r4, r0, r3
+  cmp r4, r1
+ 80013d6:	428c      	cmp	r4, r1
+  bcc CopyDataInit
+ 80013d8:	d3f9      	bcc.n	80013ce <CopyDataInit>
+
+/* Zero fill the bss segment. */
+  ldr r2, =_sbss
+ 80013da:	4a0a      	ldr	r2, [pc, #40]	; (8001404 <LoopForever+0x12>)
+  ldr r4, =_ebss
+ 80013dc:	4c0a      	ldr	r4, [pc, #40]	; (8001408 <LoopForever+0x16>)
+  movs r3, #0
+ 80013de:	2300      	movs	r3, #0
+  b LoopFillZerobss
+ 80013e0:	e001      	b.n	80013e6 <LoopFillZerobss>
+
+080013e2 <FillZerobss>:
+
+FillZerobss:
+  str  r3, [r2]
+ 80013e2:	6013      	str	r3, [r2, #0]
+  adds r2, r2, #4
+ 80013e4:	3204      	adds	r2, #4
+
+080013e6 <LoopFillZerobss>:
+
+LoopFillZerobss:
+  cmp r2, r4
+ 80013e6:	42a2      	cmp	r2, r4
+  bcc FillZerobss
+ 80013e8:	d3fb      	bcc.n	80013e2 <FillZerobss>
+
+/* Call static constructors */
+  bl __libc_init_array
+ 80013ea:	f000 f811 	bl	8001410 <__libc_init_array>
+/* Call the application's entry point.*/
+  bl main
+ 80013ee:	f7ff ff97 	bl	8001320 <main>
+
+080013f2 <LoopForever>:
+
+LoopForever:
+    b LoopForever
+ 80013f2:	e7fe      	b.n	80013f2 <LoopForever>
+  ldr   r0, =_estack
+ 80013f4:	20005000 	.word	0x20005000
+  ldr r0, =_sdata
+ 80013f8:	20000000 	.word	0x20000000
+  ldr r1, =_edata
+ 80013fc:	20000084 	.word	0x20000084
+  ldr r2, =_sidata
+ 8001400:	080015d0 	.word	0x080015d0
+  ldr r2, =_sbss
+ 8001404:	20000084 	.word	0x20000084
+  ldr r4, =_ebss
+ 8001408:	20000394 	.word	0x20000394
+
+0800140c <ADC1_2_IRQHandler>:
+ * @retval : None
+*/
+  .section .text.Default_Handler,"ax",%progbits
+Default_Handler:
+Infinite_Loop:
+  b Infinite_Loop
+ 800140c:	e7fe      	b.n	800140c <ADC1_2_IRQHandler>
+	...
+
+08001410 <__libc_init_array>:
+ 8001410:	b570      	push	{r4, r5, r6, lr}
+ 8001412:	2500      	movs	r5, #0
+ 8001414:	4e0c      	ldr	r6, [pc, #48]	; (8001448 <__libc_init_array+0x38>)
+ 8001416:	4c0d      	ldr	r4, [pc, #52]	; (800144c <__libc_init_array+0x3c>)
+ 8001418:	1ba4      	subs	r4, r4, r6
+ 800141a:	10a4      	asrs	r4, r4, #2
+ 800141c:	42a5      	cmp	r5, r4
+ 800141e:	d109      	bne.n	8001434 <__libc_init_array+0x24>
+ 8001420:	f000 f826 	bl	8001470 <_init>
+ 8001424:	2500      	movs	r5, #0
+ 8001426:	4e0a      	ldr	r6, [pc, #40]	; (8001450 <__libc_init_array+0x40>)
+ 8001428:	4c0a      	ldr	r4, [pc, #40]	; (8001454 <__libc_init_array+0x44>)
+ 800142a:	1ba4      	subs	r4, r4, r6
+ 800142c:	10a4      	asrs	r4, r4, #2
+ 800142e:	42a5      	cmp	r5, r4
+ 8001430:	d105      	bne.n	800143e <__libc_init_array+0x2e>
+ 8001432:	bd70      	pop	{r4, r5, r6, pc}
+ 8001434:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
+ 8001438:	4798      	blx	r3
+ 800143a:	3501      	adds	r5, #1
+ 800143c:	e7ee      	b.n	800141c <__libc_init_array+0xc>
+ 800143e:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
+ 8001442:	4798      	blx	r3
+ 8001444:	3501      	adds	r5, #1
+ 8001446:	e7f2      	b.n	800142e <__libc_init_array+0x1e>
+ 8001448:	080015c8 	.word	0x080015c8
+ 800144c:	080015c8 	.word	0x080015c8
+ 8001450:	080015c8 	.word	0x080015c8
+ 8001454:	080015cc 	.word	0x080015cc
+
+08001458 <memcpy>:
+ 8001458:	b510      	push	{r4, lr}
+ 800145a:	1e43      	subs	r3, r0, #1
+ 800145c:	440a      	add	r2, r1
+ 800145e:	4291      	cmp	r1, r2
+ 8001460:	d100      	bne.n	8001464 <memcpy+0xc>
+ 8001462:	bd10      	pop	{r4, pc}
+ 8001464:	f811 4b01 	ldrb.w	r4, [r1], #1
+ 8001468:	f803 4f01 	strb.w	r4, [r3, #1]!
+ 800146c:	e7f7      	b.n	800145e <memcpy+0x6>
+	...
+
+08001470 <_init>:
+ 8001470:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 8001472:	bf00      	nop
+ 8001474:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8001476:	bc08      	pop	{r3}
+ 8001478:	469e      	mov	lr, r3
+ 800147a:	4770      	bx	lr
+
+0800147c <_fini>:
+ 800147c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 800147e:	bf00      	nop
+ 8001480:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 8001482:	bc08      	pop	{r3}
+ 8001484:	469e      	mov	lr, r3
+ 8001486:	4770      	bx	lr
