@@ -1,0 +1,6 @@
+RC_Car.c:12:6:Set_Speed	24	static
+RC_Car.c:31:6:Forward_Dir	8	static
+RC_Car.c:38:6:Back_Dir	8	static
+RC_Car.c:45:6:Right_Dir	8	static
+RC_Car.c:52:6:Left_Dir	8	static
+RC_Car.c:59:6:Stop_Car	8	static

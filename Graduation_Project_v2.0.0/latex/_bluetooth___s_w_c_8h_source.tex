@@ -1,0 +1,25 @@
+\doxysection{Bluetooth\+\_\+\+SWC.\+h}
+\hypertarget{_bluetooth___s_w_c_8h_source}{}\label{_bluetooth___s_w_c_8h_source}\index{Complex\_Drivers/Inc/Bluetooth\_SWC.h@{Complex\_Drivers/Inc/Bluetooth\_SWC.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SWC\ \ \ \ \ \ \ \ :\ Bluetooth\_SWC.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Created\ on\ :\ 16/3/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author\ \ \ \ \ :\ Salama\ Mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ CDD\_SWC}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *****************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ HC\_05\_BLUETOOTH\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ HC\_05\_BLUETOOTH\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include"{}stm32\_f103c6\_USART.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ Bluetooth\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ Bluetooth\_TX\_Byte(uint8*\ PTXBuffer)\ ;}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ Bluetooth\_TX\_Str(uint8*\ PTXBuffer)\ ;}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ Bluetooth\_RX\_Byte(uint8*\ PRXBuffer)\ ;}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ Bluetooth\_RX\_Str(uint8*\ PRXBuffer)\ ;}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ ISR\_Bluetooth\ (\textcolor{keywordtype}{void})\ ;}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ USART1\_IRQ\_Call\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ HC\_05\_BLUETOOTH\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,51 @@
+\doxysection{Task\+\_\+\+Config.\+h}
+\hypertarget{_task___config_8h_source}{}\label{_task___config_8h_source}\index{OSEK\_VDX/Inc/Task\_Config.h@{OSEK\_VDX/Inc/Task\_Config.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ File\ Name\ \ \ :\ Task\_Config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Created\ on\ :\ 27/11/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Author\ \ \ \ \ :\ Salama\ mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ ************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_TASK\_CONFIG\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_TASK\_CONFIG\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Type.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Scheduler.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Task.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Task\_Config.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Event.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//To\ refer\ to\ a\ task\ the\ constructional\ element\ should\ be\ used\ to\ declare\ the\ task\ before\ references\ to\ it}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ DeclareTask(TaskName)\ \ \ TaskRefType\ TaskName}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ DefineTask(\_TaskName,\ \_Stack\_Size,\_AutoStart,\_priority,\_TaskSchedlerType,\_TaskType)\ \(\backslash\)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_TaskName.P\_TaskEntry\ =\ \_TaskName\#\#\_Entry;\ \(\backslash\)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_TaskName.Stack\_Size\ =\ \_Stack\_Size;\ \(\backslash\)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_TaskName.AutoStart\ =\ \_AutoStart;\ \(\backslash\)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ strcpy(\_TaskName.Task\_Name,\#\_TaskName);\ \(\backslash\)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_TaskName.priority\ =\ \_priority;\ \(\backslash\)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_TaskName.TaskSchedlerType\ =\ \_TaskSchedlerType;\ \(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ MYRTOS\_CreateTask(\&\_TaskName);\(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \_TaskName.TaskType=\_TaskType;\(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ TASK(TaskName)\ void\ TaskName\#\#\_Entry(void)}}
+\DoxyCodeLine{00031\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ Various\ requirements\ of\ the\ application\ software\ for\ the\ system\ and\ various\ capabilities\ of\ a}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ specific\ system}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//only\ basic\ tasks,\ limited\ to\ one\ activation\ request\ per\ task\ and\ one\ task\ per\ priority}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ BCC1\ \ \ \ 0}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//like\ BCC1,\ plus\ more\ than\ one\ task\ per\ priority\ possible\ and\ multiple\ requesting\ of\ task\ activation\ allowed}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ BCC2\ \ \ \ 1}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//like\ BCC1,\ plus\ extended\ tasks}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ ECC1\ \ \ \ 2}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//like\ ECC1,\ plus\ more\ than\ one\ task\ per\ priority\ possible\ and\ multiple\ requesting\ of\ task\ activation\ allowed\ for\ basic\ tasks}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ ECC2\ \ \ \ 3}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ Conformance\_Classe\ ECC1}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ Os\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_TASK\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

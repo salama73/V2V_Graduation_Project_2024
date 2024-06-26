@@ -1,0 +1,45 @@
+\doxysection{MY\+\_\+\+RTOS\+\_\+\+FIFO.\+h}
+\hypertarget{_m_y___r_t_o_s___f_i_f_o_8h_source}{}\label{_m_y___r_t_o_s___f_i_f_o_8h_source}\index{OSEK\_VDX/Inc/MY\_RTOS\_FIFO.h@{OSEK\_VDX/Inc/MY\_RTOS\_FIFO.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ File\ Name\ \ \ :\ MY\_RTOS\_FIFO.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Created\ on\ :\ 27/11/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author\ \ \ \ \ :\ Salama\ mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *****************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_MY\_RTOS\_FIFO\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_MY\_RTOS\_FIFO\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}stdio.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include"{}stdint.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Scheduler.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{comment}{/*customer\ can\ select\ element\ type\ */}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ element\_type\ TaskRefType*}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ counter;}
+\DoxyCodeLine{00016\ \ \ \ \ element\_type*\ head;}
+\DoxyCodeLine{00017\ \ \ \ \ element\_type*\ tail;}
+\DoxyCodeLine{00018\ \ \ \ \ element\_type*\ base;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ length;}
+\DoxyCodeLine{00020\ \}\mbox{\hyperlink{struct_f_i_f_o___buf__t}{FIFO\_Buf\_t}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00023\ \ \ \ \ FIFO\_NO\_ERROR,}
+\DoxyCodeLine{00024\ \ \ \ \ FIFO\_FULL,}
+\DoxyCodeLine{00025\ \ \ \ \ FIFO\_EMPTY,}
+\DoxyCodeLine{00026\ \ \ \ \ FIFO\_NULL,}
+\DoxyCodeLine{00027\ \ \ \ \ FIFO\_NOT\_FULL}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \}Buffer\_status;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/*APIs*/}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ Buffer\_status\ FIFO\_init\ (\mbox{\hyperlink{struct_f_i_f_o___buf__t}{FIFO\_Buf\_t}}*\ fifo,element\_type*\ buff\ ,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ length);}
+\DoxyCodeLine{00034\ Buffer\_status\ FIFO\_enqueue\ (\mbox{\hyperlink{struct_f_i_f_o___buf__t}{FIFO\_Buf\_t}}*\ fifo,element\_type\ item);}
+\DoxyCodeLine{00035\ Buffer\_status\ FIFO\_dequeue\ (\mbox{\hyperlink{struct_f_i_f_o___buf__t}{FIFO\_Buf\_t}}*\ fifo,element\_type*\ item);}
+\DoxyCodeLine{00036\ Buffer\_status\ FIFO\_is\_full\ (\mbox{\hyperlink{struct_f_i_f_o___buf__t}{FIFO\_Buf\_t}}*\ fifo);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ FIFO\_print\ (\mbox{\hyperlink{struct_f_i_f_o___buf__t}{FIFO\_Buf\_t}}*\ fifo);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_MY\_RTOS\_FIFO\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

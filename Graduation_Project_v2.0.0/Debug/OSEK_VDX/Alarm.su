@@ -1,0 +1,2 @@
+Alarm.c:13:12:GetAlarmBase	24	static
+Alarm.c:41:12:CancelAlarm	24	static

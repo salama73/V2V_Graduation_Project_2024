@@ -1,0 +1,29 @@
+\doxysection{Task.\+h}
+\hypertarget{_task_8h_source}{}\label{_task_8h_source}\index{OSEK\_VDX/Inc/Task.h@{OSEK\_VDX/Inc/Task.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ File\ Name\ \ \ :\ Task.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Created\ on\ :\ 20/11/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Author\ \ \ \ \ :\ Salama\ mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ ************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_TASK\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_TASK\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Type.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ uint8\_t\ TaskType\ ;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ MaxTaskId\ \ \ 20}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ StatusType\ TerminateTask(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00018\ StatusType\ ActivateTask(\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ TaskName);}
+\DoxyCodeLine{00019\ StatusType\ ChainTask(\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ TaskName);}
+\DoxyCodeLine{00020\ StatusType\ Schedule(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00021\ StatusType\ GetTaskId(\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ TaskName);}
+\DoxyCodeLine{00022\ StatusType\ GetTaskState(\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}\ TaskName,TaskStateType\ State);}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_TASK\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

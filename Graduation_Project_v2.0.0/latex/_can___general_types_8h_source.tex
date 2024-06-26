@@ -1,0 +1,174 @@
+\doxysection{Can\+\_\+\+General\+Types.\+h}
+\hypertarget{_can___general_types_8h_source}{}\label{_can___general_types_8h_source}\index{Can\_Module/Can\_GeneralTypes.h@{Can\_Module/Can\_GeneralTypes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ CAN}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ \ \ \ \ \ \ \ \ \ :\ Can\_GeneralTypes.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ \ \ \ \ \ \ \ \ \ :\ This\ specification\ specifies\ the\ functionality,\ API\ and\ the\ configuration\ of\ the\ AUTOSAR}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Basic\ Software\ module\ CAN\ Driver.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Salama\ Mohamed}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ CAN\_GENERALTYPES\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_H\_}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CAN\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 11}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ CAN\_GENERALTYPES\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}ComStack\_Types.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ AUTOSAR\ checking\ ComStack\_Types.h}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#if\ ((CAN\_GENERALTYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ COMSTACK\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{||\ \ (CAN\_GENERALTYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ COMSTACK\_TYPES\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{||\ \ (CAN\_GENERALTYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ COMSTACK\_TYPES\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ Can\_GeneralTypes\ version"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00037\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ ****************************************************************************/}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ POLLING\ \ \ \ \ 0U}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ INTERRUPT\ \ \ 1U}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ Transmi\_mailbox\_0\ \ \ \ \ \ \ (uint8)0}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ Transmi\_mailbox\_1\ \ \ \ \ \ \ (uint8)1}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ Transmi\_mailbox\_2\ \ \ \ \ \ \ (uint8)2}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ Transmi\_mailbox\_Full\ \ \ \ (uint8)3}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CAN\_RTR\_Data\_Frame\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)0)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ CAN\_RTR\_Remote\_Frame\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)1)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ CAN\_IDE\_Standard\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)0)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ CAN\_IDE\_Extended\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)1)}}
+\DoxyCodeLine{00050\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ Represents\ the\ Identifier\ of\ an\ L-\/PDU.\ The\ two\ most\ significant\ bits\ specify\ the\ frame}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ type:}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ 00\ CAN\ message\ with\ Standard\ CAN\ ID}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ 01\ CAN\ FD\ frame\ with\ Standard\ CAN\ ID}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ 10\ CAN\ message\ with\ Extended\ CAN\ ID}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ 11\ CAN\ FD\ frame\ with\ Extended\ CAN\ ID}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ uint32\ Can\_IdType;}
+\DoxyCodeLine{00059\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ This\ type\ unites\ PduId\ (swPduHandle),\ SduLength\ (length),\ SduData\ (sdu),\ and\ Can}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ Id\ (id)\ for\ any\ CAN\ L-\/SDU.}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ Can\_IdType\ id;}
+\DoxyCodeLine{00066\ \ \ \ \ uint8*\ sdu;}
+\DoxyCodeLine{00067\ \ \ \ \ PduIdType\ swPduHandle;}
+\DoxyCodeLine{00068\ \ \ \ \ uint8\ length;}
+\DoxyCodeLine{00069\ \}\mbox{\hyperlink{struct_can___pdu_type}{Can\_PduType}};}
+\DoxyCodeLine{00070\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ Represents\ the\ hardware\ object\ handles\ of\ a\ CAN\ hardware\ unit.\ For\ CAN\ hardware}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ units\ with\ more\ than\ 255\ HW\ objects\ use\ extended\ range.}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00074\ \textcolor{keyword}{typedef}\ uint8\ Can\_HwHandleType;}
+\DoxyCodeLine{00075\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ This\ type\ defines\ a\ data\ structure\ which\ clearly\ provides\ an\ Hardware\ Object\ Handle}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ including\ its\ corresponding\ CAN\ Controller\ and\ therefore\ CanDrv\ as\ well\ as\ the\ specific\ CanId.}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//Standard/Extended\ CAN\ ID\ of\ CAN\ L-\/PDU}}
+\DoxyCodeLine{00082\ \ \ \ \ Can\_IdType\ CanId;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//ID\ of\ the\ corresponding\ Hardware\ Object\ Range}}
+\DoxyCodeLine{00084\ \ \ \ \ Can\_HwHandleType\ Hoh;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//ControllerId\ provided\ by\ CanIf\ clearly\ identify\ the\ corresponding\ controller}}
+\DoxyCodeLine{00086\ \ \ \ \ uint8\ ControllerId;}
+\DoxyCodeLine{00087\ \}\mbox{\hyperlink{struct_can___hw_type}{Can\_HwType}};}
+\DoxyCodeLine{00088\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extension\ to\ Std\_ReturnType}}
+\DoxyCodeLine{00090\ \textcolor{comment}{***********************************************************************************/}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ transmit\ request\ could\ not\ be\ processed\ because\ no\ transmit\ object\ was\ available}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ CAN\_BUSY\ \ \ \ \ \ \ \ ((Std\_ReturnType)0x02U)}}
+\DoxyCodeLine{00093\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Can\_ErrorStateType}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Error\ states\ of\ a\ CAN\ controller."{}}}
+\DoxyCodeLine{00096\ \textcolor{comment}{***********************************************************************************/}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ The\ CAN\ controller\ takes\ fully\ part\ in\ communication.}}
+\DoxyCodeLine{00100\ \ \ \ \ CAN\_ERRORSTATE\_ACTIVE,}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//The\ CAN\ controller\ takes\ part\ in\ communication,\ but\ does\ not\ send\ active\ error\ frames.}}
+\DoxyCodeLine{00102\ \ \ \ \ CAN\_ERRORSTATE\_PASSIVE,}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//The\ CAN\ controller\ does\ not\ take\ part\ in\ communication.}}
+\DoxyCodeLine{00104\ \ \ \ \ CAN\_ERRORSTATE\_BUSOFF}
+\DoxyCodeLine{00105\ \}Can\_ErrorStateType;}
+\DoxyCodeLine{00106\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Can\_ControllerStateType}}
+\DoxyCodeLine{00108\ \textcolor{comment}{***********************************************************************************/}}
+\DoxyCodeLine{00109\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//CAN\ controller\ state\ UNINIT.}}
+\DoxyCodeLine{00112\ \ \ \ \ CAN\_CS\_UNINIT,}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//CAN\ controller\ state\ STARTED.}}
+\DoxyCodeLine{00114\ \ \ \ \ CAN\_CS\_STARTED,}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ CAN\ controller\ state\ STOPPED.}}
+\DoxyCodeLine{00116\ \ \ \ \ CAN\_CS\_STOPPED,}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//\ CAN\ controller\ state\ SLEEP.}}
+\DoxyCodeLine{00118\ \ \ \ \ CAN\_CS\_SLEEP}
+\DoxyCodeLine{00119\ \}Can\_ControllerStateType;}
+\DoxyCodeLine{00120\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Can\_ErrorType}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}The\ enumeration\ represents\ a\ superset\ of\ CAN}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Error\ Types\ which\ typical\ CAN\ HW\ is}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ able\ to\ report.\ That\ means\ not\ all\ CAN\ HW\ will\ be\ able}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\ support\ the\ complete\ set."{}}}
+\DoxyCodeLine{00126\ \textcolor{comment}{***********************************************************************************/}}
+\DoxyCodeLine{00127\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \textcolor{comment}{//A\ 0\ was\ transmitted\ and\ a\ 1\ was\ read\ back}}
+\DoxyCodeLine{00130\ \ \ \ \ CAN\_ERROR\_BIT\_MONITORING1=1,}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ A\ 1\ was\ transmitted\ and\ a\ 0\ was\ read\ back}}
+\DoxyCodeLine{00132\ \ \ \ \ CAN\_ERROR\_BIT\_MONITORING0,}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//The\ HW\ reports\ a\ CAN\ bit\ error\ but\ cannot\ report\ distinguish\ between\ CAN\_ERROR\_BIT\_MONITORING1\ and\ CAN\_ERROR\_BIT\_MONITORING0}}
+\DoxyCodeLine{00134\ \ \ \ \ CAN\_ERROR\_BIT,}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ Acknowledgement\ check\ failed}}
+\DoxyCodeLine{00136\ \ \ \ \ CAN\_ERROR\_CHECK\_ACK\_FAILED,}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//\ Acknowledgement\ delimiter\ check\ failed}}
+\DoxyCodeLine{00138\ \ \ \ \ CAN\_ERROR\_ACK\_DELIMITER,}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{//\ The\ sender\ lost\ in\ arbitration.}}
+\DoxyCodeLine{00140\ \ \ \ \ CAN\_ERROR\_ARBITRATION\_LOST,}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//CAN\ overload\ detected\ via\ an\ overload\ frame.\ Indicates\ that\ the\ receive\ buffers\ of\ a\ receiver\ are\ full.}}
+\DoxyCodeLine{00142\ \ \ \ \ CAN\_ERROR\_OVERLOAD,}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//\ Violations\ of\ the\ fixed\ frame\ format}}
+\DoxyCodeLine{00144\ \ \ \ \ CAN\_ERROR\_CHECK\_FORM\_FAILED,}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//tuffing\ bits\ not\ as\ expected}}
+\DoxyCodeLine{00146\ \ \ \ \ CAN\_ERROR\_CHECK\_STUFFING\_FAILED,}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ CRC\ failed}}
+\DoxyCodeLine{00148\ \ \ \ \ CAN\_ERROR\_CHECK\_CRC\_FAILED,}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{//Bus\ lock\ (Bus\ is\ stuck\ to\ dominant\ level)}}
+\DoxyCodeLine{00150\ \ \ \ \ CAN\_ERROR\_BUS\_LOCK}
+\DoxyCodeLine{00151\ \}Can\_ErrorType;}
+\DoxyCodeLine{00152\ \textcolor{comment}{//buffer\ for\ data\ RX\ or\ TX}}
+\DoxyCodeLine{00153\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00154\ \ \ \ \ uint32\ ID;}
+\DoxyCodeLine{00155\ \ \ \ \ uint8\ DLC;}
+\DoxyCodeLine{00156\ \ \ \ \ uint8\ SDU\ [8];}
+\DoxyCodeLine{00157\ \ \ \ \ uint8\ RTR;}
+\DoxyCodeLine{00158\ \ \ \ \ uint8\ IDE;}
+\DoxyCodeLine{00159\ \}\mbox{\hyperlink{struct_message_object}{MessageObject}};}
+\DoxyCodeLine{00160\ \textcolor{comment}{//state\ and\ information\ for\ hardware\ object\ handle}}
+\DoxyCodeLine{00161\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00162\ \ \ \ \textcolor{keywordtype}{boolean}\ Object\_Free;}
+\DoxyCodeLine{00163\ \ \ \ uint8\ CanObjectId;}
+\DoxyCodeLine{00164\ \ \ \ uint8\ mailbox;}
+\DoxyCodeLine{00165\ \ \ \ PduIdType\ swPduHandle;}
+\DoxyCodeLine{00166\ \}\mbox{\hyperlink{struct_message___object___status}{Message\_Object\_Status}};}
+\DoxyCodeLine{00167\ \mbox{\hyperlink{struct_can___hw_type}{Can\_HwType}}\ RX\_Message;}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CAN\_GENERALTYPES\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

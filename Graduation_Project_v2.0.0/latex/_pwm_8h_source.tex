@@ -1,0 +1,305 @@
+\doxysection{Pwm.\+h}
+\hypertarget{_pwm_8h_source}{}\label{_pwm_8h_source}\index{PWM\_Module/Pwm.h@{PWM\_Module/Pwm.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ PWM}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Pwm.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ This\ specification\ specifies\ the\ functionality,\ API\ and\ the\ configuration\ of\ the}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AUTOSAR\ Basic\ Software\ module\ PWM\ driver.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ PWM\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PWM\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PWM\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 37}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ VENDOR\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PWM\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PWM\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PWM\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PWM\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ PWM\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ PWM\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}Det.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}Pwm\_Cfg.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ AUTOSAR\ checking\ Std\_Version}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ ((STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ PWM\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ PWM\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ PWM\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ Port\ version"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ API\ Service\ Id\ Macros}}
+\DoxyCodeLine{00041\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ PWM\_INIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x00}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ PWM\_DEINIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x01}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ PWM\_SETDUTYCYCLE\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x02}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ PWM\_SETPERIODANDDUTY\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x03}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ PWM\_SETOUTPUTTOIDLE\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x04}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ PWM\_GETOUTPUTSTATE\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x05}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ PWM\_DISABLENOTIFICATION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x06}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ PWM\_ENABLENOTIFICATION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x07}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ PWM\_GETVERSIONINFO\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x08}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ PWM\_SETPOWERSTATE\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x09}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ PWM\_GETCURRENTPOWERSTATE\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0A}}
+\DoxyCodeLine{00053\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DET\ Error\ Codes}}
+\DoxyCodeLine{00055\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//API\ Pwm\_Init\ service\ called\ with\ wrong\ parameter}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ PWM\_E\_INIT\_FAILED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x10}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//API\ service\ used\ without\ module\ initialization}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ PWM\_E\_UNINIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x11}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//API\ service\ used\ with\ an\ invalid\ channel\ Identifier}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ PWM\_E\_PARAM\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x12}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//Usage\ of\ unauthorized\ PWM\ service\ on\ PWM\ channel\ configured\ a\ fixed\ period}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ PWM\_E\_PERIOD\_UNCHANGEABLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x13}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//API\ Pwm\_Init\ service\ called\ while\ the\ PWM\ driver\ has\ already\ been\ initialised}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ PWM\_E\_ALREADY\_INITIALIZED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x14}}
+\DoxyCodeLine{00066\ \textcolor{comment}{//API\ Pwm\_GetVersionInfo\ is\ called\ with\ a\ NULL\ parameter.}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ PWM\_E\_PARAM\_POINTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x15}}
+\DoxyCodeLine{00068\ \textcolor{comment}{//API\ Pwm\_SetPowerState\ is\ called\ while\ the\ PWM\ module\ is\ still\ in\ use.}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ PWM\_E\_NOT\_DISENGAGED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x16}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//The\ requested\ power\ state\ is\ not\ supported\ by\ the\ PWM\ module.}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ PWM\_E\_POWER\_STATE\_NOT\_SUPPORTED\ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x17}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//The\ requested\ power\ state\ is\ not\ reachable\ from\ the\ current\ one}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ PWM\_E\_TRANSITION\_NOT\_POSSIBLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x18}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//API\ Pwm\_SetPowerState\ has\ been\ called\ without\ having\ called\ the\ API\ Pwm\_PreparePowerState\ before}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ PWM\_E\_PERIPHERAL\_NOT\_PREPARED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x19}}
+\DoxyCodeLine{00076\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00078\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ PWM\_NOT\_INITIALIZED\ 0U}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ PWM\_INITIALIZED\ \ \ \ \ 1U}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ Max\_Num\_CH\ \ 4}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//Numeric\ identifier\ of\ a\ PWM\ channel.}}
+\DoxyCodeLine{00083\ \textcolor{keyword}{typedef}\ uint8\ Pwm\_ChannelType;}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ Definition\ of\ the\ period\ of\ a\ PWM\ channel.}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{typedef}\ float32\ Pwm\_PeriodType;}
+\DoxyCodeLine{00086\ \textcolor{comment}{//Output\ state\ of\ a\ PWM\ channel.}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//The\ PWM\ channel\ is\ in\ high\ state}}
+\DoxyCodeLine{00090\ \ \ \ \ PWM\_HIGH,}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//The\ PWM\ channel\ is\ in\ low\ state}}
+\DoxyCodeLine{00092\ \ \ \ \ PWM\_LOW}
+\DoxyCodeLine{00093\ \}Pwm\_OutputStateType;}
+\DoxyCodeLine{00094\ \textcolor{comment}{//Definition\ of\ the\ type\ of\ edge\ notification\ of\ a\ PWM\ channel.}}
+\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Notification\ will\ be\ called\ when\ a\ rising\ edge\ occurs\ on\ the\ PWM\ output\ signal.}}
+\DoxyCodeLine{00098\ \ \ \ \ PWM\_RISING\_EDGE,}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Notification\ will\ be\ called\ when\ a\ falling\ edge\ occurs\ on\ the\ PWM\ output\ signal.}}
+\DoxyCodeLine{00100\ \ \ \ \ PWM\_FALLING\_EDGE,}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//Notification\ will\ be\ called\ when\ either\ a\ rising\ edge\ or\ falling\ edge\ occur\ on\ the\ PWM\ output\ signal.}}
+\DoxyCodeLine{00102\ \ \ \ \ PWM\_BOTH\_EDGES}
+\DoxyCodeLine{00103\ \}Pwm\_EdgeNotificationType;}
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ Defines\ the\ class\ of\ a\ PWM\ channel}}
+\DoxyCodeLine{00105\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ The\ PWM\ channel\ has\ a\ variable\ period.\ The\ duty\ cycle\ and\ the\ period\ can\ be\ changed.}}
+\DoxyCodeLine{00108\ \ \ \ \ PWM\_VARIABLE\_PERIOD,}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ The\ PWM\ channel\ has\ a\ fixed\ period.\ Only\ the\ duty\ cycle\ can\ be\ changed.}}
+\DoxyCodeLine{00110\ \ \ \ \ PWM\_FIXED\_PERIOD,}
+\DoxyCodeLine{00111\ \}Pwm\_ChannelClassType;}
+\DoxyCodeLine{00112\ \textcolor{comment}{//Result\ of\ the\ requests\ related\ to\ power\ state\ transitions.}}
+\DoxyCodeLine{00113\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00114\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Power\ state\ change\ executed.}}
+\DoxyCodeLine{00116\ \ \ \ \ PWM\_SERVICE\_ACCEPTED,}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//PWM\ Module\ not\ initialized}}
+\DoxyCodeLine{00118\ \ \ \ \ PWM\_NOT\_INIT,}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//Wrong\ API\ call\ sequence}}
+\DoxyCodeLine{00120\ \ \ \ \ PWM\_SEQUENCE\_ERROR,}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ The\ HW\ module\ has\ a\ failure\ which\ prevents\ it\ to\ enter\ the\ required\ power\ state.}}
+\DoxyCodeLine{00122\ \ \ \ \ PWM\_HW\_FAILURE,}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ PWM\ Module\ does\ not\ support\ the\ requested\ power\ state.}}
+\DoxyCodeLine{00124\ \ \ \ \ PWM\_POWER\_STATE\_NOT\_SUPP,}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//PWM\ Module\ cannot\ transition\ directly\ from\ the\ current\ power\ state\ to\ the\ requested\ power\ state\ or\ the\ HW\ peripheral\ is\ still\ busy.}}
+\DoxyCodeLine{00126\ \ \ \ \ PWM\_TRANS\_NOT\_POSSIBLE}
+\DoxyCodeLine{00127\ \}Pwm\_PowerStateRequestResultType;}
+\DoxyCodeLine{00128\ \textcolor{comment}{//\ Power\ state\ currently\ active\ or\ set\ as\ target\ power\ state.}}
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00130\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ Full\ Power}}
+\DoxyCodeLine{00132\ \ \ \ \ PWM\_FULL\_POWER,}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//\ Half\ Power}}
+\DoxyCodeLine{00134\ \ \ \ \ PWM\_HALF\_POWER}
+\DoxyCodeLine{00135\ \}Pwm\_PowerStateType;}
+\DoxyCodeLine{00136\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00137\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PwmChannel}}
+\DoxyCodeLine{00138\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PwmChannelConfigSet}}
+\DoxyCodeLine{00139\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Configuration\ of\ an\ individual\ PWM\ channel.}}
+\DoxyCodeLine{00140\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00141\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00142\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//Only\ the\ duty\ cycle\ can\ be\ changed\ or\ Duty\ Cycle\ and\ period\ can\ be\ changed.}}
+\DoxyCodeLine{00145\ \ \ \ \ Pwm\_ChannelClassType\ PwmChannelClass;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{comment}{//Channel\ Id\ of\ the\ PWM\ channel.\ This\ value\ will\ be\ assigned\ to\ the\ symbolic\ name\ derived\ of\ the\ PwmChannel\ container\ short\ name}}
+\DoxyCodeLine{00147\ \ \ \ \ Pwm\_ChannelType\ PwmChannelId;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//Value\ of\ duty\ cycle\ used\ for\ Initialization\ 0\ represents\ 0\%\ 0x8000\ represents\ 100\%}}
+\DoxyCodeLine{00149\ \ \ \ \ uint16\ PwmDutycycleDefault;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//The\ parameter\ PWM\_IDLE\_STATE\ represents\ the\ output\ state\ of\ the\ PWM\ after\ the\ signal\ is\ stopped}}
+\DoxyCodeLine{00151\ \ \ \ \ Pwm\_OutputStateType\ PwmIdleState;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//Definition\ of\ the\ Callback\ function.Default\ value\ "{}NULL"{}}}
+\DoxyCodeLine{00153\ \ \ \ \ void(*PwmNotification)(void);}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{comment}{//Value\ of\ period\ used\ for\ Initialization(in\ seconds).}}
+\DoxyCodeLine{00155\ \ \ \ \ Pwm\_PeriodType\ PwmPeriodDefault;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//Defines\ the\ starting\ polarity\ of\ each\ PWM\ channel.}}
+\DoxyCodeLine{00157\ \ \ \ \ Pwm\_OutputStateType\ PwmPolarity;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \}\mbox{\hyperlink{struct_pwm_channel}{PwmChannel}};}
+\DoxyCodeLine{00160\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00161\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PwmChannelConfigSet}}
+\DoxyCodeLine{00162\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PWM}}
+\DoxyCodeLine{00163\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ parameters\ and}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ containers\ of\ the\ AUTOSAR\ Pwm\ module.}}
+\DoxyCodeLine{00165\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00166\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00167\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00168\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{struct_pwm_channel}{PwmChannel}}\ Channel\_Config[Max\_Num\_CH];}
+\DoxyCodeLine{00170\ \}\mbox{\hyperlink{struct_pwm_channel_config_set}{PwmChannelConfigSet}};}
+\DoxyCodeLine{00171\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00172\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pwm\_ConfigType}}
+\DoxyCodeLine{00173\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ None}}
+\DoxyCodeLine{00174\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ is\ the\ type\ of\ data\ structure\ containing\ the\ initialization\ data\ for\ the\ PWM\ driver.}}
+\DoxyCodeLine{00175\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Structure}}
+\DoxyCodeLine{00176\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00178\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \mbox{\hyperlink{struct_pwm_channel_config_set}{PwmChannelConfigSet}}\ Config\_Pwm;}
+\DoxyCodeLine{00180\ \}\mbox{\hyperlink{struct_pwm___config_type}{Pwm\_ConfigType}};}
+\DoxyCodeLine{00181\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_pwm___config_type}{Pwm\_ConfigType}}\ PWM\_Config;}
+\DoxyCodeLine{00182\ \textcolor{comment}{/*************************************************************************}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS}}
+\DoxyCodeLine{00184\ \textcolor{comment}{*************************************************************************/}}
+\DoxyCodeLine{00185\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_Init}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x00}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ConfigPtr}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ configuration\ set}}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00195\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ for\ PWM\ initialization}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ Pwm\_Init\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_pwm___config_type}{Pwm\_ConfigType}}*\ ConfigPtr);}
+\DoxyCodeLine{00198\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_DeInit}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x01}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ for\ PWM\ De-\/Initialization.}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00209\ \textcolor{keywordtype}{void}\ Pwm\_DeInit\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00210\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_SetDutyCycle}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x02}}
+\DoxyCodeLine{00213\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Asynchronous}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ channel\ numbers}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ChannelNumber}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ PWM}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ *Parameters\ (in)\ \ \ \ \ \ \ :\ DutyCycle}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Min=0x0000\ Max=0x8000}}
+\DoxyCodeLine{00219\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ sets\ the\ duty\ cycle\ of\ the\ PWM\ channel.}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{void}\ Pwm\_SetDutyCycle\ (Pwm\_ChannelType\ ChannelNumber,uint16\ DutyCycle);}
+\DoxyCodeLine{00226\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_DeInit}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x03}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Asynchronous}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ channel\ numbers}}
+\DoxyCodeLine{00231\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ChannelNumber}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ PWM}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Period}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Period\ of\ the\ PWM\ signal}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ DutyCycle}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Min=0x0000\ Max=0x8000}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ sets\ the\ period\ and\ the\ duty\ cycle\ of\ a\ PWM\ channel}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00242\ \textcolor{keywordtype}{void}\ Pwm\_SetPeriodAndDuty\ (Pwm\_ChannelType\ ChannelNumber,Pwm\_PeriodType\ Period,uint16\ DutyCycle);}
+\DoxyCodeLine{00243\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_SetOutputToIdle}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x04}}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Asynchronous}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ channel\ numbers}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ChannelNumber}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ PWM}}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ sets\ the\ PWM\ output\ to\ the\ configured\ Idle\ state}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00255\ \textcolor{keywordtype}{void}\ Pwm\_SetOutputToIdle\ (Pwm\_ChannelType\ ChannelNumber);}
+\DoxyCodeLine{00256\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_GetOutputState}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x05}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ channel\ numbers}}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ChannelNumber}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ PWM}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00265\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Pwm\_OutputStateType}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PWM\_HIGH\ The\ PWM\ output\ state\ is\ high}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PWM\_LOW\ The\ PWM\ output\ state\ is\ low}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ to\ read\ the\ internal\ state\ of\ the\ PWM\ output\ signal}}
+\DoxyCodeLine{00269\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00270\ Pwm\_OutputStateType\ Pwm\_GetOutputState\ (Pwm\_ChannelType\ ChannelNumber);}
+\DoxyCodeLine{00271\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00272\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_DisableNotification}}
+\DoxyCodeLine{00273\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x06}}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Asynchronous}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ channel\ numbers}}
+\DoxyCodeLine{00276\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ChannelNumber}}
+\DoxyCodeLine{00277\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ PWM}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ to\ disable\ the\ PWM\ signal\ edge\ notification}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00283\ \textcolor{keywordtype}{void}\ Pwm\_DisableNotification\ (Pwm\_ChannelType\ ChannelNumber);}
+\DoxyCodeLine{00284\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Pwm\_EnableNotification}}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x07}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Asynchronous}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ channel\ numbers}}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ ChannelNumber}}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ PWM}}
+\DoxyCodeLine{00291\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Notification}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ of\ notification\ PWM\_RISING\_EDGE\ or\ PWM\_FALLING\_EDGE\ or\ PWM\_BOTH\_EDGES}}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00295\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00296\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Service\ to\ enable\ the\ PWM\ signal\ edge\ notification\ according\ to\ notification\ parameter.}}
+\DoxyCodeLine{00297\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00298\ \textcolor{keywordtype}{void}\ Pwm\_EnableNotification\ (Pwm\_ChannelType\ ChannelNumber,Pwm\_EdgeNotificationType\ Notification);}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWM\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

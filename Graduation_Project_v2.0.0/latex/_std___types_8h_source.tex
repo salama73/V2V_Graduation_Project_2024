@@ -1,0 +1,79 @@
+\doxysection{Std\+\_\+\+Types.\+h}
+\hypertarget{_std___types_8h_source}{}\label{_std___types_8h_source}\index{Common/Std\_Types.h@{Common/Std\_Types.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ \ :\ Common}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ \ :\ StandardTypes.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ \ :\ This\ document\ specifies\ the\ AUTOSAR\ standard\ types\ header\ file.\ It\ contains\ all}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ types\ that\ are\ used\ across\ several\ modules\ of\ the\ basic\ software\ and\ that\ are}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ platform\ and\ compiler\ independent.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ \ :Salama\ Mohamed}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00009\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ STD\_TYPES\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_H}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ STD\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 49}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ STD\_TYPES\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}Platform\_Types.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Symbol\ and\ Module\ Data\ Types}}
+\DoxyCodeLine{00033\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//This\ type\ can\ be\ used\ as\ standard\ API\ return\ type\ which\ is\ shared\ between\ the\ RTE\ and\ the\ BSW\ modules}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ uint8\ Std\_ReturnType\ ;}
+\DoxyCodeLine{00036\ \textcolor{comment}{//Because\ E\_OK\ is\ already\ defined\ within\ OSEK,\ the\ symbol\ E\_OK\ has\ to\ be\ shared.\ To\ avoid\ name\ clashes\ and\ redefinition\ problems,}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#ifndef\ STATUSTYPEDEFINED}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ STATUSTYPEDEFINED}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ E\_OK\ \ \ \ \ \ \ \ ((Std\_ReturnType)0x00U)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ E\_NOT\_OK\ \ \ \ ((Std\_ReturnType)0x01U)}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//This\ type\ shall\ be\ used\ to\ request\ the\ version\ of\ a\ BSW\ module\ using\ the\ <Module\ name>\_Get\ VersionInfo()\ function.}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ \ }}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ uint16\ vendorID\ ;}
+\DoxyCodeLine{00046\ \ \ \ \ uint16\ moduleID\ ;}
+\DoxyCodeLine{00047\ \ \ \ \ uint8\ sw\_major\_version\ ;}
+\DoxyCodeLine{00048\ \ \ \ \ uint8\ sw\_minor\_version\ ;}
+\DoxyCodeLine{00049\ \ \ \ \ uint8\ sw\_patch\_version\ ;}
+\DoxyCodeLine{00050\ \}\mbox{\hyperlink{struct_std___version_info_type}{Std\_VersionInfoType}};}
+\DoxyCodeLine{00051\ \textcolor{comment}{//The\ type\ of\ the\ Std\_TransformerError}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ uint8\ Std\_TransformerErrorCode\ ;}
+\DoxyCodeLine{00053\ \textcolor{comment}{//Std\_TransformerClass\ is\ an\ enumeration\ where\ each\ element\ represents\ a\ transformer\ class}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ uint8\ Std\_TransformerClass\ ;}
+\DoxyCodeLine{00055\ \textcolor{comment}{//Std\_TransformerError\ represents\ a\ transformer\ error\ in\ the\ context\ of\ a\ certain\ transformer\ chain}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ Std\_TransformerErrorCode\ errorCode\ ;}
+\DoxyCodeLine{00059\ \ \ \ \ Std\_TransformerClass\ transformerClass\ ;}
+\DoxyCodeLine{00060\ \}\mbox{\hyperlink{struct_std___transformer_error}{Std\_TransformerError}};}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ Physical\ state\ 5V\ or\ 3.3V\ }}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ STD\_HIGH\ 0x01U}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ Physical\ state\ 0V}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ STD\_LOW\ 0x00U}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Logical\ state\ active\ }}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ STD\_ACTIVE\ 0x01U}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ Logical\ state\ idle}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ STD\_IDLE\ 0x00U}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ STD\_ON\ 0x01U}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ STD\_OFF\ 0x00U}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//The\ implementation\ shall\ provide\ the\ NULL\_PTR\ define\ with\ a\ void\ pointer\ to\ zero\ definition.}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ NULL\_PTR\ ((void\ *)0)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STD\_TYPES\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,372 @@
+\doxysection{stm32f103x6.\+h}
+\hypertarget{stm32f103x6_8h_source}{}\label{stm32f103x6_8h_source}\index{Common/stm32f103x6.h@{Common/stm32f103x6.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ Can\_Module}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ stm32f103x6.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ Addresses\ of\ the\ can\ controller}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ CAN\ Module}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ stm32f103c8}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ INC\_STM32F103X6\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ INC\_STM32F103X6\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//Base\ addresses\ for\ Memories}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PERIPHERALS\_BAES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40000000UL}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ NVIC\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E100UL}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ NVIC\_ISER0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(NVIC\_BASE+0X00)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ NVIC\_ISER1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(NVIC\_BASE+0X04)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ NVIC\_ICER0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(NVIC\_BASE+0X80)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ NVIC\_ICER1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(NVIC\_BASE+0X84)}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//================================================================================}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//Base\ addresses\ for\ BUS\ AHB\ Peripherals}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//RCC}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ RCC\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40021000UL}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//Base\ addresses\ for\ BUS\ APB1\ Peripherals}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//CAN}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ CAN\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40006400UL}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ CAN\_MCR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X00)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ CAN\_MSR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X04)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ CAN\_TSR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X08)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ CAN\_RF0R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X0C)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ CAN\_RF1R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X10)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ CAN\_IER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X14)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ CAN\_ESR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X18)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ CAN\_BTR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X1C)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox0\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X180)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox1\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X190)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox2\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X1A0)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox0\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X180)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox1\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X190)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ CAN\_RX\_FIFO0\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X1B0)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ CAN\_RX\_FIFO1\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X1C0)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ CAN\_FMR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X200)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ CAN\_FM1R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X204)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ CAN\_FS1R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X20C)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ CAN\_FFA1R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X214)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ CAN\_FA1R\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *(volatile\ uint32*)(CAN\_BASE+0X21C)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_0\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X240)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_1\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X248)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_2\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X250)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_3\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X258)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_4\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X260)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_5\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X268)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_6\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X270)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_7\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X278)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_8\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X280)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_9\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X288)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_10\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X290)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_11\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X298)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_12\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X2A0)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_13\_Base\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (CAN\_BASE+0X2A8)}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//Base\ addresses\ for\ BUS\ APB2\ Peripherals}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//GPIO}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//A,B\ Fully\ included\ in\ LQFP48\ package}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ GPIOA\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40010800UL}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ GPIOB\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40010C00UL}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//C,D\ Partial\ included\ in\ LQFP48\ package}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ GPIOC\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40011000UL}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ GPIOD\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40011400UL}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\ E\ Not\ included\ in\ LQFP48\ package}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ GPIOE\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40011800UL}}
+\DoxyCodeLine{00082\ \textcolor{comment}{//TIMER2}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ TIM2\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x40000000UL}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ TIM3\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x40000400UL}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ TIM4\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x40000800UL}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ USART1}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ USART1\_BAES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40013800UL}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//\ USART2}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ USART2\_BAES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40004400UL}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ USART3}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ USART3\_BAES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0X40004800UL}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//NVIC}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ NVIC\_ISER\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E100UL}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ NVIC\_ICER\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E180UL}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ NVIC\_ISPR\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E200UL}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ NVIC\_ICPR\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E280UL}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ NVIC\_IABR\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E300UL}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ NVIC\_IPR\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xE000E400UL}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//=========================================================================================}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//Peripheral\ register:}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//Peripheral\ register:GPIO}}
+\DoxyCodeLine{00105\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CRL\ \ \ \ \ ;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CRH\ \ \ \ \ ;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IDR\ \ \ \ \ ;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ODR\ \ \ \ \ ;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ BSRR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ BRR\ \ \ \ \ ;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ LCKR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00114\ \}\mbox{\hyperlink{struct_g_p_i_o___type_def}{GPIO\_TypeDef}};}
+\DoxyCodeLine{00115\ \textcolor{comment}{//Peripheral\ register:RCC}}
+\DoxyCodeLine{00116\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CR\ \ \ \ \ \ ;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CFGR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CIR\ \ \ \ \ ;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ APB2RSTR\ \ \ \ ;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ APB1RSTR\ \ \ \ ;}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ AHBENR\ \ ;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ APB2ENR\ ;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ APB1ENR\ ;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ BDCR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CSR\ \ \ \ \ ;}
+\DoxyCodeLine{00128\ \}\mbox{\hyperlink{struct_r_c_c___type_def}{RCC\_TypeDef}};}
+\DoxyCodeLine{00129\ \textcolor{comment}{//Peripheral\ register:TIMER}}
+\DoxyCodeLine{00130\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CR1\ \ \ \ \ ;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CR2\ \ \ \ \ ;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ SMCR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ DIER\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ SR\ \ \ \ \ \ ;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ EGR\ \ \ \ \ ;}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCMR1\ \ \ \ \ \ \ ;\textcolor{comment}{//Output\ Compare\ mode\ and\ input\ Compare\ mode}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCMR2\ \ \ \ \ \ \ ;\textcolor{comment}{//input\ Compare\ mode\ and\ Output\ Compare\ mode}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCER\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CNT\ \ \ \ \ ;}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ PSC\ \ \ \ \ ;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ARR\ \ \ \ \ ;}
+\DoxyCodeLine{00144\ \ \ \ \ uint32\ RESERVED0\ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCR1\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCR2\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCR3\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CCR4\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00149\ \ \ \ \ uint32\ RESERVED1\ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ DCR\ \ \ \ \ ;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ DMAR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00152\ \}\mbox{\hyperlink{struct_t_i_mx___type_def}{TIMx\_TypeDef}};}
+\DoxyCodeLine{00153\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00154\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_TIxR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_TDTxR\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_TDLxR\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_TDHxR\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00159\ \}\mbox{\hyperlink{struct_c_a_n___t_x__mailbox___type_def}{CAN\_TX\_mailbox\_TypeDef}};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00162\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_RIxR\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_RDTxR\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_RDLxR\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_RDHxR\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00167\ \}\mbox{\hyperlink{struct_c_a_n___r_x___f_i_f_o___type_def}{CAN\_RX\_FIFO\_TypeDef}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00170\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_FiR1\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CAN\_FiR2\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00173\ \}\mbox{\hyperlink{struct_c_a_n___filter___bank___type_def}{CAN\_Filter\_Bank\_TypeDef}};}
+\DoxyCodeLine{00174\ \textcolor{comment}{//NVIC}}
+\DoxyCodeLine{00175\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00176\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER0\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER1\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER2\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER3\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER4\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER5\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER6\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISER7\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00185\ \}\mbox{\hyperlink{struct_set___enable___register___type_def}{Set\_Enable\_Register\_TypeDef}};}
+\DoxyCodeLine{00186\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00187\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER0\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER1\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER2\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER3\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER4\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER5\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER6\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICER7\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00196\ \}\mbox{\hyperlink{struct_clear___enable___register___type_def}{Clear\_Enable\_Register\_TypeDef}};}
+\DoxyCodeLine{00197\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00198\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR0\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR1\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR2\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR3\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR4\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR5\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR6\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ISPR7\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00207\ \}\mbox{\hyperlink{struct_set___pending___register___type_def}{Set\_Pending\_Register\_TypeDef}};}
+\DoxyCodeLine{00208\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00209\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR0\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR1\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR2\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR3\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR4\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR5\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR6\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ ICPR7\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00218\ \}\mbox{\hyperlink{struct_clear___pending___register___type_def}{Clear\_Pending\_Register\_TypeDef}};}
+\DoxyCodeLine{00219\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR0\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR1\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR2\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR3\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR4\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR5\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR6\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IABR7\ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00229\ \}\mbox{\hyperlink{struct_active___bit___register___type_def}{Active\_Bit\_Register\_TypeDef}};}
+\DoxyCodeLine{00230\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00231\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR0\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR1\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR2\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR3\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR4\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR5\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR6\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ IPR7\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00240\ \}\mbox{\hyperlink{struct_priority___register___type_def}{Priority\_Register\_TypeDef}};}
+\DoxyCodeLine{00241\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00242\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ SR;}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ DR;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ BRR;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CR1;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CR2;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ CR3;}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\ GTPR;}
+\DoxyCodeLine{00250\ \}\mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}};}
+\DoxyCodeLine{00251\ \textcolor{comment}{//=========================================================================================}}
+\DoxyCodeLine{00252\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/}}
+\DoxyCodeLine{00253\ \textcolor{comment}{//Peripheral\ Instants:}}
+\DoxyCodeLine{00254\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ GPIOA\ \ \ \ \ \ \ ((GPIO\_TypeDef*)GPIOA\_BASE)}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ GPIOB\ \ \ \ \ \ \ ((GPIO\_TypeDef*)GPIOB\_BASE)}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ GPIOC\ \ \ \ \ \ \ ((GPIO\_TypeDef*)GPIOC\_BASE)}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ GPIOD\ \ \ \ \ \ \ ((GPIO\_TypeDef*)GPIOD\_BASE)}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ GPIOE\ \ \ \ \ \ \ ((GPIO\_TypeDef*)GPIOE\_BASE)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ RCC\ \ \ \ \ \ \ \ \ ((RCC\_TypeDef*)RCC\_BASE)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ TIM2\ \ \ \ \ \ \ \ ((TIMx\_TypeDef*)TIM2\_BASE)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ TIM3\ \ \ \ \ \ \ \ ((TIMx\_TypeDef*)TIM3\_BASE)}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ TIM4\ \ \ \ \ \ \ \ ((TIMx\_TypeDef*)TIM4\_BASE)}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ USART1\ \ \ \ \ \ ((USART\_TypeDef*)USART1\_BAES)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ USART2\ \ \ \ \ \ ((USART\_TypeDef*)USART2\_BAES)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ USART3\ \ \ \ \ \ ((USART\_TypeDef*)USART3\_BAES)}}
+\DoxyCodeLine{00267\ \textcolor{comment}{//CAN\_TX\_mailbox}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox\_0\ \ \ \ \ \ \ \ ((CAN\_TX\_mailbox\_TypeDef*)CAN\_TX\_mailbox0\_Base)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox\_1\ \ \ \ \ \ \ \ ((CAN\_TX\_mailbox\_TypeDef*)CAN\_TX\_mailbox1\_Base)}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ CAN\_TX\_mailbox\_2\ \ \ \ \ \ \ \ ((CAN\_TX\_mailbox\_TypeDef*)CAN\_TX\_mailbox2\_Base)}}
+\DoxyCodeLine{00271\ \textcolor{comment}{//CAN\_RX\_FIFO}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#define\ CAN\_RX\_FIFO\_0\ \ \ \ \ \ \ \ \ \ \ ((CAN\_RX\_FIFO\_TypeDef*)CAN\_RX\_FIFO0\_Base)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#define\ CAN\_RX\_FIFO\_1\ \ \ \ \ \ \ \ \ \ \ ((CAN\_RX\_FIFO\_TypeDef*)CAN\_RX\_FIFO1\_Base)}}
+\DoxyCodeLine{00274\ \textcolor{comment}{//Filter\ bank}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_0\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_0\_Base)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_1\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_1\_Base)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_2\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_2\_Base)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_3\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_3\_Base)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_4\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_4\_Base)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_5\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_5\_Base)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_6\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_6\_Base)}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_7\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_7\_Base)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_8\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_8\_Base)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_9\ \ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_9\_Base)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_10\ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_10\_Base)}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_11\ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_11\_Base)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_12\ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_12\_Base)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#define\ CAN\_FBank\_13\ \ \ \ \ \ \ \ \ \ \ \ ((CAN\_Filter\_Bank\_TypeDef*)CAN\_Filter\_Bank\_13\_Base)}}
+\DoxyCodeLine{00289\ \textcolor{comment}{//NVIC}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ Set\_Enable\_Registe\ \ \ \ \ \ ((Set\_Enable\_Register\_TypeDef*)NVIC\_ISER\_BASE)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ Clear\_Enable\_Register\ \ \ ((Clear\_Enable\_Register\_TypeDef*)NVIC\_ICER\_BASE)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#define\ Set\_Pending\_Register\ \ \ \ ((Set\_Pending\_Register\_TypeDef*)NVIC\_ISPR\_BASE)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#define\ Clear\_Pending\_Register\ \ ((Clear\_Pending\_Register\_TypeDef*)NVIC\_ICPR\_BASE)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#define\ Active\_Bit\_Register\ \ \ \ \ ((Active\_Bit\_Register\_TypeDef*)NVIC\_IABR\_BASE)}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#define\ Set\_Priority\_Register\ \ \ ((Priority\_Register\_TypeDef*)NVIC\_IPR\_BASE)}}
+\DoxyCodeLine{00296\ \textcolor{comment}{//==========================================================================================}}
+\DoxyCodeLine{00297\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/}}
+\DoxyCodeLine{00298\ \textcolor{comment}{//clock\ enable\ Macros:}}
+\DoxyCodeLine{00299\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#define\ RCC\_GPIOA\_CLK\_Enable()\ \ (RCC-\/>APB2ENR\ |=1<<2)}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ RCC\_GPIOB\_CLK\_Enable()\ \ (RCC-\/>APB2ENR\ |=1<<3)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#define\ RCC\_GPIOC\_CLK\_Enable()\ \ (RCC-\/>APB2ENR\ |=1<<4)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#define\ RCC\_GPIOD\_CLK\_Enable()\ \ (RCC-\/>APB2ENR\ |=1<<5)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ RCC\_GPIOE\_CLK\_Enable()\ \ (RCC-\/>APB2ENR\ |=1<<6)}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ RCC\_GPIOA\_CLK\_Disable()\ (RCC-\/>APB2RSTR\ |=1<<2)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ RCC\_GPIOB\_CLK\_Disable()\ (RCC-\/>APB2RSTR\ |=1<<3)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ RCC\_GPIOC\_CLK\_Disable()\ (RCC-\/>APB2RSTR\ |=1<<4)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#define\ RCC\_GPIOD\_CLK\_Disable()\ (RCC-\/>APB2RSTR\ |=1<<5)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#define\ RCC\_GPIOE\_CLK\_Disable()\ (RCC-\/>APB2RSTR\ |=1<<6)}}
+\DoxyCodeLine{00311\ \textcolor{comment}{//TIMER2}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#define\ RCC\_TIM2\_CLK\_Enable()\ \ \ (RCC-\/>APB1ENR\ |=1<<0)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#define\ RCC\_TIM3\_CLK\_Enable()\ \ \ (RCC-\/>APB1ENR\ |=1<<1)}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#define\ RCC\_TIM2\_CLK\_Disable()\ \ (RCC-\/>APB1RSTR\ |=1<<0)}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#define\ RCC\_TIM3\_CLK\_Disable()\ \ (RCC-\/>APB1RSTR\ |=1<<1)}}
+\DoxyCodeLine{00316\ \textcolor{comment}{//CAN}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ RCC\_CAN\_CLK\_Enable()\ \ \ \ (RCC-\/>APB1ENR\ |=1<<25)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#define\ RCC\_CAN\_CLK\_Disable()\ \ \ (RCC-\/>APB1RSTR\ |=1<<25)}}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{comment}{//\ USART}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ RCC\_USART1\_CLK\_Enable()\ (RCC-\/>APB2ENR\ |=1<<14)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#define\ RCC\_USART2\_CLK\_Enable()\ (RCC-\/>APB1ENR\ |=1<<17)}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#define\ RCC\_USART3\_CLK\_Enable()\ (RCC-\/>APB1ENR\ |=1<<18)}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#define\ RCC\_TIM4\_CLK\_Enable()\ \ \ (RCC-\/>APB1ENR\ |=1<<2)}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#define\ RCC\_USART1\_CLK\_Disable()\ \ \ \ (RCC-\/>APB2RSTR\ |=1<<14)}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ RCC\_USART2\_CLK\_Disable()\ \ \ \ (RCC-\/>APB1RSTR\ |=1<<17)}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#define\ RCC\_USART3\_CLK\_Disable()\ \ \ \ (RCC-\/>APB1RSTR\ |=1<<18)}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{comment}{//=============================================================================================}}
+\DoxyCodeLine{00330\ \textcolor{comment}{\ /**************************************************************}}
+\DoxyCodeLine{00331\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IVT}}
+\DoxyCodeLine{00332\ \textcolor{comment}{\ **************************************************************/}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#define\ CAN\_TX\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)19}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#define\ CAN\_RX0\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)20}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#define\ CAN\_RX1\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)21}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#define\ CAN\_SCE\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)22}}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#define\ TIM2\_ER\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)28}\textcolor{comment}{//TIM2\ global\ interrupt}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#define\ TIM3\_ER\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)29}\textcolor{comment}{//TIM3\ global\ interrupt}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#define\ USART1\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)37}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#define\ USART2\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)38}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ USART3\_IRQ\ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)39}}
+\DoxyCodeLine{00342\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/}}
+\DoxyCodeLine{00343\ \textcolor{comment}{//NVIC\ Enable\ Macros:}}
+\DoxyCodeLine{00344\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ19\_CAN\_TX\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER0\ |=1<<CAN\_TX\_IRQ)}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ20\_CAN\_RX0\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER0\ |=1<<CAN\_RX0\_IRQ)}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ21\_CAN\_RX1\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER0\ |=1<<CAN\_RX1\_IRQ)}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ22\_CAN\_SCE\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER0\ |=1<<CAN\_SCE\_IRQ)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ28\_TIM2\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER0\ |=1<<TIM2\_ER\_IRQ)}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ29\_TIM3\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER0\ |=1<<TIM3\_ER\_IRQ)}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ37\_USART1\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER1\ |=1<<\ (\ USART1\_IRQ\ -\/\ 32)\ )}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ38\_USART2\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER1\ |=1<<\ (\ USART2\_IRQ\ -\/\ 32)\ )}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ39\_USART3\_Enable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ISER1\ |=1<<\ (\ USART3\_IRQ\ -\/\ 32)\ )}}
+\DoxyCodeLine{00354\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/}}
+\DoxyCodeLine{00355\ \textcolor{comment}{//NVIC\ Disable\ Macros:}}
+\DoxyCodeLine{00356\ \textcolor{comment}{//-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*-\/*}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ19\_CAN\_TX\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER0\ |=1<<CAN\_TX\_IRQ)}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ20\_CAN\_RX0\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER0\ |=1<<CAN\_RX0\_IRQ)}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ21\_CAN\_RX1\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER0\ |=1<<CAN\_RX1\_IRQ)}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ22\_CAN\_SCE\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER0\ |=1<<CAN\_SCE\_IRQ)}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ28\_TIM2\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER0\ |=1<<TIM2\_ER\_IRQ)}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ28\_TIM3\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER0\ |=1<<TIM3\_ER\_IRQ)}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ37\_USART1\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER1\ |=1<<\ (\ USART1\_IRQ\ -\/\ 32)\ )}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ38\_USART2\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER1\ |=1<<\ (\ USART2\_IRQ\ -\/\ 32)\ )}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#define\ NVIC\_IRQ39\_USART3\_Disable()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (NVIC\_ICER1\ |=1<<\ (\ USART3\_IRQ\ -\/\ 32)\ )}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_STM32F103X6\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

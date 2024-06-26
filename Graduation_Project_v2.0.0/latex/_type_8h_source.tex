@@ -1,0 +1,140 @@
+\doxysection{Type.\+h}
+\hypertarget{_type_8h_source}{}\label{_type_8h_source}\index{OSEK\_VDX/Inc/Type.h@{OSEK\_VDX/Inc/Type.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ File\ Name\ \ \ :\ Type.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Created\ on\ :\ 23/11/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Author\ \ \ \ \ :\ Salama\ mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ ************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_TYPE\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_TYPE\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ OSsuspend,}
+\DoxyCodeLine{00017\ \ \ \ \ OsRunning}
+\DoxyCodeLine{00018\ \}OSmode;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ no\ error}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//E\_OK,}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ the\ task\ has\ already\ been\ activated\ and\ multiple\ requests\ are\ not\ allowed}}
+\DoxyCodeLine{00025\ \ \ \ \ E\_STATE,}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//the\ task\ identifier\ TaskName\ is\ invalid}}
+\DoxyCodeLine{00027\ \ \ \ \ E\_ID,}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//a\ call\ at\ the\ interrupt\ level}}
+\DoxyCodeLine{00029\ \ \ \ \ E\_CALLEVEL,}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ the\ task\ still\ occupies\ resources}}
+\DoxyCodeLine{00031\ \ \ \ \ E\_RESOURCE,}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ the\ referenced\ task\ is\ not\ an\ Extended\ Task}}
+\DoxyCodeLine{00033\ \ \ \ \ E\_ACCESS}
+\DoxyCodeLine{00034\ \}StatusType;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ SVC\_Activatetask,}
+\DoxyCodeLine{00038\ \ \ \ \ SVC\_terminateTask,}
+\DoxyCodeLine{00039\ \ \ \ \ SVC\_TaskWaitingTime,}
+\DoxyCodeLine{00040\ \ \ \ \ SVC\_AquireMutex,}
+\DoxyCodeLine{00041\ \ \ \ \ SVC\_ReleaseMutex}
+\DoxyCodeLine{00042\ \}SVC\_ID;}
+\DoxyCodeLine{00043\ \textcolor{comment}{//Each\ ET\ has\ a\ definite\ number\ of\ events\ -\/\ 8\ or\ less}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ uint8\_t\ EventMaskType;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ NO\_ERROR,}
+\DoxyCodeLine{00049\ \ \ \ \ Ready\_Queue\_Init\_Error,}
+\DoxyCodeLine{00050\ \ \ \ \ Task\_exceeded\_StackSize,}
+\DoxyCodeLine{00051\ \ \ \ \ SO\_Table\_Sort\_Error,}
+\DoxyCodeLine{00052\ \ \ \ \ MutexisReacedToMaxNumberOfUsers}
+\DoxyCodeLine{00053\ \}MY\_RTOS\_ErrorID;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00056\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ Suspend,}
+\DoxyCodeLine{00058\ \ \ \ \ Running,}
+\DoxyCodeLine{00059\ \ \ \ \ Waiting,}
+\DoxyCodeLine{00060\ \ \ \ \ Ready}
+\DoxyCodeLine{00061\ \}TaskStateType;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ Basic\_Task,}
+\DoxyCodeLine{00066\ \ \ \ \ Extended\_Task}
+\DoxyCodeLine{00067\ \}Task\_Type;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ NONE\_PREEMPTIVE,}
+\DoxyCodeLine{00072\ \ \ FULL\_PREEMPTIVE}
+\DoxyCodeLine{00073\ \}Tasks\_Scheduler\_Type;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ Task\_Suspend,}
+\DoxyCodeLine{00078\ \ \ \ \ Task\_Start}
+\DoxyCodeLine{00079\ \}Auto\_Start\ ;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ uint32\_t\ Stack\_Size\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00084\ \ \ \ \ uint8\_t\ priority\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00085\ \ \ \ \ void\ (*P\_TaskEntry)(void)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;\ \textcolor{comment}{//pointer\ to\ Tack\ C\ Function}}
+\DoxyCodeLine{00086\ \ \ \ \ uint32\_t\ \_S\_PSP\_Task\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;\textcolor{comment}{//Not\ Entered\ by\ the\ user}}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ \_E\_PSP\_Task\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;\textcolor{comment}{//Not\ Entered\ by\ the\ user}}
+\DoxyCodeLine{00088\ \ \ \ \ uint32\_t*\ Current\_PSP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;\textcolor{comment}{//Not\ Entered\ by\ the\ user}}
+\DoxyCodeLine{00089\ \ \ \ \ int8\_t\ Task\_Name[30]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00090\ \ \ \ \ TaskStateType\ TaskState\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;\textcolor{comment}{//Not\ Entered\ by\ the\ user}}
+\DoxyCodeLine{00091\ \ \ \ \ Task\_Type\ \ \ TaskType\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00092\ \ \ \ \ Auto\_Start\ AutoStart\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00093\ \ \ \ \ Tasks\_Scheduler\_Type\ \ TaskSchedlerType\ \ \ \ \ \ ;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ disable,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ enable}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}Blocking;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ uint32\_t\ Ticks\_Count\ ;}
+\DoxyCodeLine{00102\ \ \ \ \ \}Timing\_Waiting;}
+\DoxyCodeLine{00103\ \ \ \ \ uint8\_t\ MultipleActivation;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ EventMaskType\ Public\_Mask;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ EventMaskType\ Private\_Mask;}
+\DoxyCodeLine{00108\ \ \ \ \ \}Events;}
+\DoxyCodeLine{00109\ \}\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00112\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ TASK\_LEVEL,}
+\DoxyCodeLine{00114\ \ \ \ \ ISR\_CAT1,}
+\DoxyCodeLine{00115\ \ \ \ \ ISR\_CAT2,}
+\DoxyCodeLine{00116\ \ \ \ \ HOOK}
+\DoxyCodeLine{00117\ \}OS\_level;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_system___conctrol}{System\_Conctrol}}}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ OSTasks[100]\ \ \ \ \ \ \ \ ;\ \textcolor{comment}{//Scheduler\ Table}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \_S\_MSP\_Task\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \_E\_MSP\_Task\ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ PSP\_Task\_Locator\ \ \ ;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ NoOfActiveTasks\ \ \ \ ;}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ CurrentTask\ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ NextTask\ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00128\ \ \ \ \ OSmode\ OSmodeID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00129\ \ \ \ \ OS\_level\ Call\_Leve\ \ \ \ \ \ \ \ \ \ \ \ \ \ ;}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ OSEK\_SVC(SVC\_ID\ ID);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_TYPE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

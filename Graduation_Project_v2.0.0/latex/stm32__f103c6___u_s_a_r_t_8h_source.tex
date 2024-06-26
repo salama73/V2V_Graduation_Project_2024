@@ -1,0 +1,184 @@
+\doxysection{stm32\+\_\+f103c6\+\_\+\+USART.\+h}
+\hypertarget{stm32__f103c6___u_s_a_r_t_8h_source}{}\label{stm32__f103c6___u_s_a_r_t_8h_source}\index{Complex\_Drivers/Inc/stm32\_f103c6\_USART.h@{Complex\_Drivers/Inc/stm32\_f103c6\_USART.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ stm32\_f103c6\_USART.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ ٠٤‏/٠٩‏/٢٠٢٢}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Author:\ Salama\ mohamed}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INC\_STM32\_F103C6\_USART\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INC\_STM32\_F103C6\_USART\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//Include}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}stm32f103x6.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32\_f103c6\_RCC.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//User\ type\ definitions\ (structures)}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ uint8\ MODE\ \ \ \ \ \ \ \ \ \ \ ;\ \ \ \ \ \ \textcolor{comment}{//specified\ the\ USART\ (TX/RX)\ to\ be\ configured\ .}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ \ USART\_MODE\_Define}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ uint8\ NUM\_DATA\_BIT\ \ ;\ \ \ \textcolor{comment}{//specified\ the\ number\ of\ data\ bit\ (8or\ 9\ )\ .}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ USART\_NUM\_DATA\_BIT\_Define}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ uint8\ NUM\_STOP\_BIT\ \ ;\ \ \ \textcolor{comment}{//specified\ the\ number\ of\ stop\ bit\ (\ 0.5\ or\ 1\ or\ 1.5\ or\ 2\ )\ .}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ \ USART\_NUM\_STOP\_BIT\_Define}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ uint32\ BAUDRATE\ \ \ \ \ ;\ \ \ \textcolor{comment}{//specified\ the\ baudrate\ \ .}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ \ USART\_BAUDRATE\_Define}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ uint8\ PARITY\ \ \ \ \ \ \ \ \ \ \ \ ;\ \ \ \textcolor{comment}{//specified\ the\ parity\ disable\ or\ enable\ (odd\ or\ even\ )\ .}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ \ USART\_PARITY\_Define}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ uint8\ HWFLOWCTL\ \ \ \ \ ;\ \ \ \textcolor{comment}{//specified\ the\ hardware\ flow\ control\ mode\ (disable\ or\ enable\ )\ \ .}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ \ USART\_HWFLOWCTL\_Define}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ uint8\ IRQ\_EN\ \ \ \ \ \ \ \ ;\ \ \ \textcolor{comment}{//specified\ the\ interrupt\ (disable\ or\ enable\ )\ \ .}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ \ USART\_IRQ\_ENABLE\_Define}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ void\ (*P\_IRQ\_CALL)(void);\ \ \ \ \ \textcolor{comment}{//\ set\ the\ function\ which\ will\ be\ call\ at\ IRQ\ happen}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \}\mbox{\hyperlink{struct_u_s_a_r_t__config__t}{USART\_config\_t}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{enum}\ polling\_mechanism}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ Enable\ ,}
+\DoxyCodeLine{00052\ \ \ \ \ Disable}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//Macros\ Configuration\ References}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ @\ ref\ \ USART\_MODE\_Define}}
+\DoxyCodeLine{00062\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00063\ \textcolor{comment}{Bit\ 2\ RE:\ Receiver\ enable}}
+\DoxyCodeLine{00064\ \textcolor{comment}{This\ bit\ enables\ the\ receiver.\ It\ is\ set\ and\ cleared\ by\ software.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{0:\ Receiver\ is\ disabled}}
+\DoxyCodeLine{00066\ \textcolor{comment}{1:\ Receiver\ is\ enabled\ and\ begins\ searching\ for\ a\ start\ bit}}
+\DoxyCodeLine{00067\ \textcolor{comment}{}}
+\DoxyCodeLine{00068\ \textcolor{comment}{Bit\ 3\ TE:\ Transmitter\ enable}}
+\DoxyCodeLine{00069\ \textcolor{comment}{This\ bit\ enables\ the\ transmitter.\ It\ is\ set\ and\ cleared\ by\ software.}}
+\DoxyCodeLine{00070\ \textcolor{comment}{0:\ Transmitter\ is\ disabled}}
+\DoxyCodeLine{00071\ \textcolor{comment}{1:\ Transmitter\ is\ enabled}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ USART\_MODE\_TX\ \ \ \ \ \ \ \ \ \ \ (uint32)(1<<2)}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ USART\_MODE\_RX\ \ \ \ \ \ \ \ \ \ \ (uint32)(1<<3)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ USART\_MODE\_TX\_RX\ \ \ \ \ \ \ \ (uint32)(1<<2\ |\ 1<<3\ )}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ @\ ref\ USART\_NUM\_DATA\_BIT\_Define}}
+\DoxyCodeLine{00079\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ Bit\ 12\ M:\ Word\ length}}
+\DoxyCodeLine{00081\ \textcolor{comment}{This\ bit\ determines\ the\ word\ length.\ It\ is\ set\ or\ cleared\ by\ software.}}
+\DoxyCodeLine{00082\ \textcolor{comment}{0:\ 1\ Start\ bit,\ 8\ Data\ bits,\ n\ Stop\ bit}}
+\DoxyCodeLine{00083\ \textcolor{comment}{1:\ 1\ Start\ bit,\ 9\ Data\ bits,\ n\ Stop\ bit}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ USART\_NUM\_DATA\_BIT\_8\ \ \ \ \ \ \ \ (uint32)(0)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ USART\_NUM\_DATA\_BIT\_9\ \ \ \ \ \ \ \ (uint32)(1<<12)}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{//@\ ref\ \ USART\_NUM\_STOP\_BIT\_Define}}
+\DoxyCodeLine{00089\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ Bits\ 13:12\ STOP:\ STOP\ bits}}
+\DoxyCodeLine{00091\ \textcolor{comment}{These\ bits\ are\ used\ for\ programming\ the\ stop\ bits.}}
+\DoxyCodeLine{00092\ \textcolor{comment}{00:\ 1\ Stop\ bit}}
+\DoxyCodeLine{00093\ \textcolor{comment}{01:\ 0.5\ Stop\ bit}}
+\DoxyCodeLine{00094\ \textcolor{comment}{10:\ 2\ Stop\ bits}}
+\DoxyCodeLine{00095\ \textcolor{comment}{11:\ 1.5\ Stop\ bit}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ USART\_NUM\_STOP\_BIT\_0\_5\ \ \ \ \ \ (uint32)(1<<12)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ USART\_NUM\_STOP\_BIT\_1\ \ \ \ \ \ \ \ (uint32)(0)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ USART\_NUM\_STOP\_BIT\_1\_5\ \ \ \ \ \ (uint32)(3<<12)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ USART\_NUM\_STOP\_BIT\_2\ \ \ \ \ \ \ \ (uint32)(2<<12)}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ \ @\ ref\ \ USART\_BAUDRATE\_Define}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_2400\ \ \ \ \ \ \ \ \ \ \ \ \ 2400}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_9600\ \ \ \ \ \ \ \ \ \ \ \ \ 9600}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_19200\ \ \ \ \ \ \ \ \ \ \ \ 19200}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_57600\ \ \ \ \ \ \ \ \ \ \ \ 57600}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_115200\ \ \ \ \ \ \ \ \ \ \ 115200}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_230400\ \ \ \ \ \ \ \ \ \ \ 230400}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_460800\ \ \ \ \ \ \ \ \ \ \ 460800}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_921600\ \ \ \ \ \ \ \ \ \ \ 921600}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_2250000\ \ \ \ \ \ \ \ \ \ 2250000}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ USART\_BAUDRATE\_4500000\ \ \ \ \ \ \ \ \ \ 4500000}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ \ @\ ref\ \ USART\_PARITY\_Define}}
+\DoxyCodeLine{00117\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ Bit\ 10\ PCE:\ Parity\ control\ enable}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ 0:\ Parity\ control\ disabled}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ 1:\ Parity\ control\ enabled}}
+\DoxyCodeLine{00121\ \textcolor{comment}{}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ Bit\ 9\ PS:\ Parity\ selection}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ 0:\ Even\ parity}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ 1:\ Odd\ parity}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ USART\_PARITY\_Disable\ \ \ \ \ \ \ \ \ \ \ \ (uint32)(0)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ USART\_PARITY\_ODD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<10\ |\ 1<<9\ )}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ USART\_PARITY\_EVEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<10\ )}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ @\ ref\ \ USART\_HWFLOWCTL\_Define}}
+\DoxyCodeLine{00132\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ Bit\ 9\ CTSE:\ CTS\ enable}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ 0:\ CTS\ hardware\ flow\ control\ disabled}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ 1:\ CTS\ mode\ enabled}}
+\DoxyCodeLine{00136\ \textcolor{comment}{}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ Bit\ 8\ RTSE:\ RTS\ enable}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ 0:\ RTS\ hardware\ flow\ control\ disabled}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ 1:\ RTS\ interrupt\ enabled}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ USART\_HWFLOWCTL\_Disable\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(0)}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ USART\_HWFLOWCTL\_RTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<8\ )}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ USART\_HWFLOWCTL\_CTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<9\ )}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ USART\_HWFLOWCTL\_RTS\_CTS\ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<8\ |\ 1<<9\ )}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ @\ ref\ \ USART\_IRQ\_ENABLE\_Define}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ USART\_IRQ\_ENABLE\_Disable\ \ \ \ \ \ \ \ \ \ \ \ (uint32)(0)}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ USART\_IRQ\_ENABLE\_TXE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<7\ )}\textcolor{comment}{//Transmit\ data\ register\ empty}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ USART\_IRQ\_ENABLE\_TC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<6\ )}\textcolor{comment}{//Transmission\ complete}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ USART\_IRQ\_ENABLE\_RXNE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<5\ )}\textcolor{comment}{//Received\ data\ ready\ to\ be\ read}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ USART\_IRQ\_ENABLE\_PE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint32)(\ 1<<8\ )}\textcolor{comment}{//Parity\ error}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ Baudrate\ calculation}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ USARTDIV(\ PCLK\ ,\ BAUD)\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ uint32\ )(\ PCLK\ /\ (\ 16\ *\ BAUD\ )\ )}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ USARTDIV\_MUL100(\ PCLK\ ,\ BAUD)\ \ \ \ \ \ \ (\ uint32\ )(\ (\ 25\ *\ PCLK\ )\ /\ (\ 4\ *\ BAUD\ )\ )}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ Mantissa\_MUL100(\ PCLK\ ,\ BAUD)\ \ \ \ \ \ \ (\ uint32\ )(\ USARTDIV(\ PCLK\ ,\ BAUD)\ *\ 100\ )}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ Mantissa(\ PCLK\ ,\ BAUD)\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ uint32\ )(\ USARTDIV(\ PCLK\ ,\ BAUD)\ )}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ DIV\_Fraction(\ PCLK\ ,\ BAUD)\ \ \ \ \ \ \ \ \ \ (\ uint32\ )((\ USARTDIV\_MUL100(\ PCLK\ ,\ BAUD)\ -\/\ Mantissa\_MUL100(\ PCLK\ ,\ BAUD)\ )\ *\ 100\ )}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ USART\_BRR\_Reg(\ PCLK\ ,\ BAUD)\ \ \ \ \ \ \ \ \ (\ (Mantissa(\ PCLK\ ,\ BAUD))\ <<\ 4\ )\ |\ (\ (\ DIV\_Fraction(\ PCLK\ ,\ BAUD)\ )\ \&0XF\ )}}
+\DoxyCodeLine{00161\ \textcolor{comment}{//=============================================================================}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00164\ \textcolor{comment}{*\ ===============================================}}
+\DoxyCodeLine{00165\ \textcolor{comment}{*\ APIs\ Supported\ by\ "{}MCAL\ GPIO\ DRIVER"{}}}
+\DoxyCodeLine{00166\ \textcolor{comment}{*\ ===============================================}}
+\DoxyCodeLine{00167\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ MCAL\_USART\_Init(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ ,\ \mbox{\hyperlink{struct_u_s_a_r_t__config__t}{USART\_config\_t}}*\ USART\_Config\ );}
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ MCAL\_USART\_DeInit(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ );}
+\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ MCAL\_USART\_Set\_Pin(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ );}
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ MCAL\_USART\_ReceiveData(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ ,\ uint16*\ PRXBuffer\ ,\ \textcolor{keyword}{enum}\ polling\_mechanism\ polling\_EN);}
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ MCAL\_USART\_SendData(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ ,\ uint16*\ PTXBuffer\ ,\ \textcolor{keyword}{enum}\ polling\_mechanism\ polling\_EN);}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ MCAL\_USART\_WAIT\_TC(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ );}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ MCAL\_USART\_Send\_String(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ ,\ uint8*\ PTXBuffer\ ,\ \textcolor{keyword}{enum}\ polling\_mechanism\ polling\_EN);}
+\DoxyCodeLine{00175\ \textcolor{keywordtype}{void}\ MCAL\_USART\_Receive\_String(\ \mbox{\hyperlink{struct_u_s_a_r_t___type_def}{USART\_TypeDef}}*\ USARTx\ ,\ uint8*\ PRXBuffer\ ,\ \textcolor{keyword}{enum}\ polling\_mechanism\ polling\_EN);}
+\DoxyCodeLine{00176\ \textcolor{comment}{//===============================================================================}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_STM32\_F103C6\_USART\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,6 @@
+RTE_Task.c:27:1:Task1_Led_ON_Entry	8	static
+RTE_Task.c:37:1:Task2_Led_OFF_Entry	8	static
+RTE_Task.c:47:1:Task1_Entry	8	static
+RTE_Task.c:58:1:Task3_Entry	8	static
+RTE_Task.c:68:1:Task4_Entry	8	static
+RTE_Task.c:78:1:Task2_Entry	16	static

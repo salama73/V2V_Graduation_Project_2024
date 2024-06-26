@@ -1,0 +1,172 @@
+\doxysection{Dio.\+h}
+\hypertarget{_dio_8h_source}{}\label{_dio_8h_source}\index{DIO\_Module/Dio.h@{DIO\_Module/Dio.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ Dio}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Dio.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ \ This\ specification\ specifies\ the\ functionality,\ API\ and\ the\ configuration\ of\ the\ AUTOSAR}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Basic\ Software\ module\ Dio\ Driver.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ DIO\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ DIO\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ DIO\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 20}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DIO\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ DIO\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ DIO\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ DIO\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ DIO\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ DIO\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ VENDOR\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}Dio\_Cfg.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}Det.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ AUTOSAR\ checking\ Std\_Version}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ ((STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ DIO\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ DIO\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ DIO\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ DIO\ version"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ API\ Service\ Id\ Macros}}
+\DoxyCodeLine{00041\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//Service\ ID\ for\ Dio\_ReadChannel}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ Dio\_ReadChannel\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x00}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//Service\ ID\ for\ Dio\_WriteChannel}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ Dio\_WriteChannel\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x01}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//Service\ ID\ for\ Dio\_ReadPort}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ Dio\_ReadPort\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x02}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//Service\ ID\ for\ Dio\_WritePort}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ Dio\_WritePort\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x03}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//Service\ ID\ for\ Dio\_ReadChannelGroup}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ Dio\_ReadChannelGroup\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x04}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//Service\ ID\ for\ Dio\_WriteChannelGroup}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ Dio\_WriteChannelGroup\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x05}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//Service\ ID\ for\ Dio\_FlipChannel}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ Dio\_FlipChannel\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x11}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//Service\ ID\ for\ Dio\_GetVersionInfo}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ Dio\_GetVersionInfo\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x12}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//Service\ ID\ for\ Dio\_MaskedWritePort}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ Dio\_MaskedWritePort\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x13}}
+\DoxyCodeLine{00060\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DET\ Error\ Codes}}
+\DoxyCodeLine{00062\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//Invalid\ channel\ requested}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ DIO\_E\_PARAM\_INVALID\_CHANNEL\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0A}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//Invalid\ port\ requested}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ DIO\_E\_PARAM\_INVALID\_PORT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x14}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//Invalid\ channel\ group\ requested}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ DIO\_E\_PARAM\_INVALID\_GROUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x1F}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//API\ service\ called\ with\ a\ NULL\ pointer}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ DIO\_E\_PARAM\_POINTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x20}}
+\DoxyCodeLine{00071\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00073\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ Numeric\ ID\ of\ a\ DIO\ channel.}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ uint16\ Dio\_ChannelType;}
+\DoxyCodeLine{00076\ \textcolor{comment}{//Numeric\ ID\ of\ a\ DIO\ port.}}
+\DoxyCodeLine{00077\ \textcolor{keyword}{typedef}\ uint8\ Dio\_PortType;}
+\DoxyCodeLine{00078\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ Type\ for\ the\ definition\ of\ a\ channel\ group,\ which\ consists\ of\ several\ adjoining}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ channels\ within\ a\ port.}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ This\ element\ mask\ which\ defines\ the\ positions\ of\ the\ channel\ group.}}
+\DoxyCodeLine{00085\ \ \ \ \ uint8\ mask;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ This\ element\ shall\ be\ the\ position\ of\ the\ Channel\ Group\ on\ the\ port,\ counted\ from\ the\ LSB.}}
+\DoxyCodeLine{00087\ \ \ \ \ uint8\ offset;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ This\ shall\ be\ the\ port\ on\ which\ the\ Channel\ group\ is\ defined.}}
+\DoxyCodeLine{00089\ \ \ \ \ Dio\_PortType\ port;}
+\DoxyCodeLine{00090\ \}\mbox{\hyperlink{struct_dio___channel_group_type}{Dio\_ChannelGroupType}};}
+\DoxyCodeLine{00091\ \textcolor{comment}{//These\ are\ the\ possible\ levels\ a\ DIO\ channel\ can\ have\ (input\ or\ output).Range(STD\_LOW\ or\ STD\_HIGH)}}
+\DoxyCodeLine{00092\ \textcolor{keyword}{typedef}\ uint8\ Dio\_LevelType;}
+\DoxyCodeLine{00093\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ If\ the\ µC\ owns\ ports\ of\ different\ port\ widths\ (e.g.\ 4,\ 8,16...Bit)\ Dio\_Port}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ LevelType\ inherits\ the\ size\ of\ the\ largest\ port}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{typedef}\ uint16\ Dio\_PortLevelType;}
+\DoxyCodeLine{00098\ \textcolor{comment}{/*************************************************************************}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS}}
+\DoxyCodeLine{00100\ \textcolor{comment}{*************************************************************************/}}
+\DoxyCodeLine{00101\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00102\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x00}}
+\DoxyCodeLine{00103\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Dio\_ReadChannel}}
+\DoxyCodeLine{00104\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00105\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00106\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ ChannelId\ (ID\ of\ DIO\ channel).}}
+\DoxyCodeLine{00107\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00108\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00109\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ Dio\_Level Type}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STD\_HIGH\ (\ The\ physical\ level\ of\ the\ corresponding\ Pin\ is\ STD\_HIGH)}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STD\_LOW\ (The\ physical\ level\ of\ the\ corresponding\ Pin\ is\ STD\_LOW)}}
+\DoxyCodeLine{00112\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Returns\ the\ value\ of\ the\ specified\ DIO\ channel.}}
+\DoxyCodeLine{00113\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00114\ Dio\_LevelType\ Dio\_ReadChannel\ (Dio\_ChannelType\ ChannelId);}
+\DoxyCodeLine{00115\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00116\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x01}}
+\DoxyCodeLine{00117\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Dio\_WriteChannel}}
+\DoxyCodeLine{00118\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00119\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00120\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ ChannelId\ (ID\ of\ DIO\ channel).}}
+\DoxyCodeLine{00121\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Level\ (Value\ to\ be\ written).}}
+\DoxyCodeLine{00122\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00123\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00124\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00125\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Service\ to\ set\ a\ level\ of\ a\ channel.}}
+\DoxyCodeLine{00126\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ Dio\_WriteChannel\ (Dio\_ChannelType\ ChannelId,Dio\_LevelType\ Level);}
+\DoxyCodeLine{00128\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00129\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x02}}
+\DoxyCodeLine{00130\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Dio\_ReadPort}}
+\DoxyCodeLine{00131\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00132\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00133\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ PortId\ (ID\ of\ DIO\ Port).}}
+\DoxyCodeLine{00134\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00135\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00136\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ Dio\_PortLevelType\ (Level\ of\ all\ channels\ of\ that\ port)}}
+\DoxyCodeLine{00137\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Returns\ the\ level\ of\ all\ channels\ of\ that\ port.}}
+\DoxyCodeLine{00138\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00139\ Dio\_PortLevelType\ Dio\_ReadPort\ (Dio\_PortType\ PortId);}
+\DoxyCodeLine{00140\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00141\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x03}}
+\DoxyCodeLine{00142\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Dio\_WritePort}}
+\DoxyCodeLine{00143\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00144\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00145\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ PortId\ (ID\ of\ DIO\ Port).}}
+\DoxyCodeLine{00146\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Level\ (Value\ to\ be\ written).}}
+\DoxyCodeLine{00147\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00148\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00149\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00150\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Service\ to\ set\ a\ value\ of\ the\ port.}}
+\DoxyCodeLine{00151\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ Dio\_WritePort\ (Dio\_PortType\ PortId,Dio\_PortLevelType\ Level);}
+\DoxyCodeLine{00153\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00154\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x12}}
+\DoxyCodeLine{00155\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Dio\_GetVersionInfo}}
+\DoxyCodeLine{00156\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00157\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00158\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ None}}
+\DoxyCodeLine{00159\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00160\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ VersionInfo}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ where\ to\ store\ the\ version\ information\ of\ this\ module.}}
+\DoxyCodeLine{00162\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00163\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Service\ to\ get\ the\ version\ information\ of\ this\ module.}}
+\DoxyCodeLine{00164\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ Dio\_GetVersionInfo\ (\mbox{\hyperlink{struct_std___version_info_type}{Std\_VersionInfoType}}*\ VersionInfo);}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DIO\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,42 @@
+\doxysection{Src/\+Ecum.c File Reference}
+\hypertarget{_ecum_8c}{}\label{_ecum_8c}\index{Src/Ecum.c@{Src/Ecum.c}}
+
+
+Initializes and de-\/initializes the OS, the SchM and the BswM as well as some basic software driver modules.  
+
+
+{\ttfamily \#include "{}Ecum.\+h"{}}\newline
+Include dependency graph for Ecum.\+c\+:
+% FIG 0
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_ecum_8c_ad5e66a94df0765d4f7cd6df6bed8e9bb}\label{_ecum_8c_ad5e66a94df0765d4f7cd6df6bed8e9bb} 
+\mbox{\hyperlink{struct_pwm___config_type}{Pwm\+\_\+\+Config\+Type}} {\bfseries PWM\+\_\+\+Config}
+\item 
+\Hypertarget{_ecum_8c_a7a83465bb964e9c6ef9c5e08611e21f6}\label{_ecum_8c_a7a83465bb964e9c6ef9c5e08611e21f6} 
+\mbox{\hyperlink{struct_can___config_type}{Can\+\_\+\+Config\+Type}} {\bfseries Can}
+\item 
+\Hypertarget{_ecum_8c_abbc92bbe854fda54852167384a462a61}\label{_ecum_8c_abbc92bbe854fda54852167384a462a61} 
+const \mbox{\hyperlink{struct_port___config_type}{Port\+\_\+\+Config\+Type}} {\bfseries Port}
+\item 
+\Hypertarget{_ecum_8c_aed8aad0ab4aefdcd5675bef33a5e12f8}\label{_ecum_8c_aed8aad0ab4aefdcd5675bef33a5e12f8} 
+\mbox{\hyperlink{struct_icu___config_type}{Icu\+\_\+\+Config\+Type}} {\bfseries ICU\+\_\+\+Config}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Initializes and de-\/initializes the OS, the SchM and the BswM as well as some basic software driver modules. 
+
+\begin{DoxyAuthor}{Author}
+Salama Mohamed \href{mailto:salamamohamedabdelaal@gmail.com}{\texttt{ salamamohamedabdelaal@gmail.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+v1.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/04-\/30 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}

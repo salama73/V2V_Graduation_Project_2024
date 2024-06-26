@@ -1,0 +1,558 @@
+\doxysection{Can.\+h}
+\hypertarget{_can_8h_source}{}\label{_can_8h_source}\index{Can\_Module/Can.h@{Can\_Module/Can.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ CAN}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Can.h}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ @Description\ :\ \ \ \ This\ specification\ specifies\ the\ functionality,\ API\ and\ the\ configuration\ of\ the\ AUTOSAR}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Basic\ Software\ module\ CAN\ Driver.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00009\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ CAN\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CAN\_H\_}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CAN\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 11}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ CAN\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ CAN\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ CAN\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ CAN\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CAN\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ CAN\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ VENDOR\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100}}
+\DoxyCodeLine{00028\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}Det.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}Can\_Cfg.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ AUTOSAR\ checking\ Std\_Version}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#if\ ((STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ CAN\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ CAN\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ CAN\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ CAN\ version"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}ComStack\_Types.h"{}}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ AUTOSAR\ checking\ ComStack\_Types.h}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ ((COMSTACK\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ CAN\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{||\ \ (COMSTACK\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ CAN\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{||\ \ (COMSTACK\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ CAN\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ CAN\ version"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}Can\_GeneralTypes.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ AUTOSAR\ checking\ Can\_GeneralTypes.h}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#if\ ((CAN\_GENERALTYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ CAN\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{||\ \ (CAN\_GENERALTYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ CAN\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{||\ \ (CAN\_GENERALTYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ CAN\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ CAN\ version"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Development\ Errors}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ ****************************************************************************/}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//API\ Service\ called\ with\ wrong\ parameter}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CAN\_E\_PARAM\_POINTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x01}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//API\ Service\ called\ with\ wrong\ parameter}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ CAN\_E\_PARAM\_HANDLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x02}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//API\ Service\ called\ with\ wrong\ parameter}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ CAN\_E\_PARAM\_DATA\_LENGTH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x03}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//API\ Service\ called\ with\ wrong\ parameter}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ CAN\_E\_PARAM\_CONTROLLER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x04}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//API\ Service\ used\ without\ initialization}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ CAN\_E\_UNINIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x05}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//Invalid\ transition\ for\ the\ current\ mode}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ CAN\_E\_TRANSITION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x06}}
+\DoxyCodeLine{00069\ \textcolor{comment}{//Parameter\ Baudrate\ has\ an\ invalid\ value}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ CAN\_E\_PARAM\_BAUDRATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x07}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//Invalid\ configuration\ set\ selection}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ CAN\_E\_INIT\_FAILED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x08}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//API\ service\ called\ with\ invalid\ PDU\ ID}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ CAN\_E\_PARAM\_LPDU\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x09}}
+\DoxyCodeLine{00075\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS\ ID}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ ****************************************************************************/}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ Can\_Init\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x00}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ Can\_GetVersionInfo\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x07}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ Can\_DeInit\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x10}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ Can\_SetBaudrate\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0f}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ Can\_SetControllerMode\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x03}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ Can\_DisableControllerInterrupts\_ID\ \ \ \ \ \ (uint8)0x04}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ Can\_EnableControllerInterrupts\_ID\ \ \ \ \ \ \ (uint8)0x05}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ Can\_CheckWakeup\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0b}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ Can\_GetControllerErrorState\_ID\ \ \ \ \ \ \ \ \ \ (uint8)0x0b}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ Can\_GetControllerMode\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x12}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ Can\_Write\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x06}}
+\DoxyCodeLine{00089\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ ****************************************************************************/}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//one\ CAN\ controller\ in\ HW}}
+\DoxyCodeLine{00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00094\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//All\ the\ CANIDs\ are\ of\ type\ extended\ only\ (29\ bit).}}
+\DoxyCodeLine{00096\ \ \ \ \ EXTENDED,}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//The\ type\ of\ CANIDs\ can\ be\ both\ Standard\ or\ Extended.}}
+\DoxyCodeLine{00098\ \ \ \ \ MIXED,}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//All\ the\ CANIDs\ are\ of\ type\ standard\ only\ (11bit).}}
+\DoxyCodeLine{00100\ \ \ \ \ STANDARD}
+\DoxyCodeLine{00101\ \}CanIdType;}
+\DoxyCodeLine{00102\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ BASIC,}
+\DoxyCodeLine{00104\ \ \ \ \ FULL}
+\DoxyCodeLine{00105\ \}CanHandleType;}
+\DoxyCodeLine{00106\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00107\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//Receive\ HOH}}
+\DoxyCodeLine{00109\ \ \ \ \ RECEIVE,}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//Transmit\ HOH}}
+\DoxyCodeLine{00111\ \ \ \ \ TRANSMIT}
+\DoxyCodeLine{00112\ \}CanObjectType;}
+\DoxyCodeLine{00113\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ The\ Can\ module\ has\ a\ very\ simple\ state\ machine,\ with\ the\ two\ states\ CAN\_UNINIT}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ and\ CAN\_READY.\ Figure\ 7.1\ shows\ the\ state\ machine.}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00117\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ CAN\_UNINIT,}
+\DoxyCodeLine{00119\ \ \ \ \ CAN\_READY}
+\DoxyCodeLine{00120\ \}CanDriverStateType;}
+\DoxyCodeLine{00121\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00122\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanControllerBaudrateConfig}}
+\DoxyCodeLine{00123\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanController}}
+\DoxyCodeLine{00124\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ bit\ timing\ related\ configuration\ parameters\ of}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ CAN\ controller(s).}}
+\DoxyCodeLine{00126\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00127\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00128\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00129\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ Specifies\ the\ baudrate\ of\ the\ controller\ in\ kbps.}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00133\ \ \ \ \ float32\ CanControllerBaudRate;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ This\ ID\ is\ used\ by\ SetBaudrate\ API\ and\ uniquely\ identifies\ a\ specific\ baud}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ \ rate\ configuration\ within\ a\ controller\ configuration.}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00138\ \ \ \ \ uint16\ CanControllerBaudRateConfigID;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ \ \ Specifies\ propagation\ delay\ in\ time\ quantas}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00142\ \ \ \ \ uint16\ CanControllerPropSeg;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ Specifies\ phase\ segment\ 1\ in\ time\ quantas.}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00146\ \ \ \ \ uint8\ CanControllerSeg1;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ \ Specifies\ phase\ segment\ 2\ in\ time\ quantas.}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00150\ \ \ \ \ uint8\ CanControllerSeg2;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ Specifies\ the\ synchronization\ jump\ width\ for\ the\ controller\ in\ time\ quantas.}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00154\ \ \ \ \ uint8\ CanControllerSyncJumpWidth;}
+\DoxyCodeLine{00155\ \}\mbox{\hyperlink{struct_can_controller_baudrate_config}{CanControllerBaudrateConfig}};}
+\DoxyCodeLine{00156\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00157\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanHwFilter}}
+\DoxyCodeLine{00158\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanHardwareObject}}
+\DoxyCodeLine{00159\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ is\ only\ valid\ for\ HRHs\ and\ contains\ the\ configuration\ (parameters)}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ of\ one\ hardware\ filter.}}
+\DoxyCodeLine{00161\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00162\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00163\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00164\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ \ \ Specifies\ (together\ with\ the\ filter\ mask)\ the\ identifiers\ range\ that\ passes}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ \ \ \ \ the\ hardware\ filter.}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00169\ \ \ \ \ uint32\ CanHwFilterCode;}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ \ Describes\ a\ mask\ for\ hardware-\/based\ filtering\ of\ CAN\ identifiers.}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ \ \ \ \ The\ mask\ shall\ be\ build\ by\ filling\ with\ leading\ 0.\ In\ case\ of\ CanIdType}}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ \ \ \ \ EXTENDED\ or\ MIXED\ a\ 29\ bit\ mask\ shall\ be\ build.\ In\ case\ of\ CanIdType}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ \ \ STANDARD\ a\ 11\ bit\ mask\ shall\ be\ build}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00176\ \ \ \ \ uint32\ CanHwFilterMask;}
+\DoxyCodeLine{00177\ \}\mbox{\hyperlink{struct_can_hw_filter}{CanHwFilter}};}
+\DoxyCodeLine{00178\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00179\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanController}}
+\DoxyCodeLine{00180\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanConfigSet}}
+\DoxyCodeLine{00181\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ parameters\ of\ the\ CAN}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ controller(s).}}
+\DoxyCodeLine{00183\ \textcolor{comment}{Type:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00184\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00185\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00186\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ \ \ \ \ Enables\ /\ disables\ API\ Can\_MainFunction\_BusOff()\ for\ handling\ busoff}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ \ \ \ \ events\ in\ polling\ mode.}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00191\ \ \ \ \ uint8\ CanBusoffProcessing;}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ \ \ \ \ Defines\ if\ a\ CAN\ controller\ is\ used\ in\ the\ configuration.}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{boolean}\ CanControllerActivation;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ \ Specifies\ the\ CAN\ controller\ base\ address.}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00199\ \ \ \ \ uint32\ CanControllerBaseAddress;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ \ \ \ \ This\ parameter\ provides\ the\ controller\ ID\ which\ is\ unique\ in\ a\ given\ CAN}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ \ \ \ \ Driver.\ The\ value\ for\ this\ parameter\ starts\ with\ 0\ and\ continue\ without\ any\ gaps.}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00204\ \ \ \ \ uint8\ CanControllerId;}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ \ \ \ \ Enables\ /\ disables\ API\ Can\_MainFunction\_Read()\ for\ handling\ PDU}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ \ \ \ \ reception\ events\ in\ polling\ mode.}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00209\ \ \ \ \ uint8\ CanRxProcessing;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ \ \ \ \ Enables\ /\ disables\ API\ Can\_MainFunction\_Write()\ for\ handling\ PDU}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ \ \ \ \ transmission\ events\ in\ polling\ mode.}}
+\DoxyCodeLine{00213\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00214\ \ \ \ \ uint8\ CanTxProcessing;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ \ \ \ \ Enables\ /\ disables\ API\ Can\_MainFunction\_Wakeup()\ for\ handling\ wakeup}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ \ \ \ \ events\ in\ polling\ mode.}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00219\ \ \ \ \ uint8\ CanWakeupProcessing;}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ \ \ \ \ CAN\ driver\ support\ for\ wakeup\ over\ CAN\ Bus}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{boolean}\ CanWakeupSupport;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ \ \ \ \ This\ container\ contains\ bit\ timing\ related\ configuration\ parameters\ of}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ \ \ \ the\ CAN\ controller(s).}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{struct_can_controller_baudrate_config}{CanControllerBaudrateConfig}}\ \mbox{\hyperlink{struct_can_controller_baudrate_config}{CanControllerBaudrateConfig}}[Max\_Num\_Baud\_Rate];}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ \ \ \ \ Reference\ to\ baudrate\ configuration\ container\ configured\ for\ the\ Can}}
+\DoxyCodeLine{00231\ \textcolor{comment}{\ \ \ \ \ Controller}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{struct_can_controller_baudrate_config}{CanControllerBaudrateConfig}}*\ CanControllerDefaultBaudrate;}
+\DoxyCodeLine{00234\ \}\mbox{\hyperlink{struct_can_controller}{CanController}};}
+\DoxyCodeLine{00235\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00236\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanHardwareObject}}
+\DoxyCodeLine{00237\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanConfigSet}}
+\DoxyCodeLine{00238\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ (parameters)\ of\ CAN}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Hardware\ Objects.}}
+\DoxyCodeLine{00240\ \textcolor{comment}{Type:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00241\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00242\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00243\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ \ \ \ \ Specifies\ the\ type\ (Full-\/CAN\ or\ Basic-\/CAN)\ of\ a\ hardware\ object.}}
+\DoxyCodeLine{00246\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00247\ \ \ \ \ CanHandleType\ CanHandleType;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ \ \ \ \ Number\ of\ hardware\ objects\ used\ to\ implement\ one\ HOH.\ In\ case\ of\ a\ HRH\ this}}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ \ \ \ \ parameter\ defines\ the\ number\ of\ elements\ in\ the\ hardware\ FIFO\ or\ the\ number}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ \ \ \ \ of\ shadow\ buffers,\ in\ case\ of\ a\ HTH\ it\ defines\ the\ number\ of\ hardware\ objects}}
+\DoxyCodeLine{00252\ \textcolor{comment}{\ \ \ \ \ used\ for\ multiplexed\ transmission\ or\ for\ a\ hardware\ FIFO\ used\ by\ a\ FullCAN\ HTH.}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00254\ \ \ \ \ uint16\ CanHwObjectCount;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ \ \ \ \ Specifies\ whether\ the\ IdValue\ is\ of\ type\ standard\ identifier,\ extended}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ \ \ \ \ identifier\ or\ mixed\ mode.}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00259\ \ \ \ \ CanIdType\ CanIdType;}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ \ \ \ \ Holds\ the\ handle\ ID\ of\ HRH\ or\ HTH.\ The\ value\ of\ this\ parameter\ is\ unique\ in\ a}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ \ \ \ \ given\ CAN\ Driver,\ and\ it\ should\ start\ with\ 0\ and\ continue\ without\ any\ gaps.}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ \ \ \ \ The\ HRH\ and\ HTH\ Ids\ share\ a\ common\ ID\ range.Example:\ HRH0-\/0,\ HRH1-\/1,\ HTH0-\/2,\ HTH1-\/3}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00265\ \ \ \ \ uint8\ CanObjectId;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ \ Specifies\ if\ the\ HardwareObject\ is\ used\ as\ Transmit\ or\ as\ Receive\ object}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00269\ \ \ \ \ CanObjectType\ CanObjectType;}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00271\ \textcolor{comment}{\ \ \ \ \ This\ parameter\ defines\ if\ or\ if\ not\ Can\ supports\ the\ trigger-\/transmit\ API\ for\ this\ handle.}}
+\DoxyCodeLine{00272\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{boolean}\ CanTriggerTransmitEnable;}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ \ \ \ \ Reference\ to\ CAN\ Controller\ to\ which\ the\ HOH\ is\ associated\ to.}}
+\DoxyCodeLine{00276\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00277\ \ \ \ \ \mbox{\hyperlink{struct_can_controller}{CanController}}*\ CanControllerRef;}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ \ \ \ \ This\ container\ is\ only\ valid\ for\ HRHs\ and\ contains\ the\ configuration}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ \ (parameters)\ of\ one\ hardware\ filter.}}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00282\ \ \ \ \ \mbox{\hyperlink{struct_can_hw_filter}{CanHwFilter}}\ \ \mbox{\hyperlink{struct_can_hw_filter}{CanHwFilter}}\ ;}
+\DoxyCodeLine{00283\ \}\mbox{\hyperlink{struct_can_hardware_object}{CanHardwareObject}};}
+\DoxyCodeLine{00284\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00285\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanConfigSet}}
+\DoxyCodeLine{00286\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Can}}
+\DoxyCodeLine{00287\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ parameters\ and\ sub\ containers\ of\ the}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AUTOSAR\ Can\ module.}}
+\DoxyCodeLine{00289\ \textcolor{comment}{Type:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00290\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00291\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00292\ \{}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ \ \ \ \ This\ container\ contains\ the\ configuration\ parameters\ of\ the\ CAN}}
+\DoxyCodeLine{00295\ \textcolor{comment}{\ \ \ \ \ controller(s).}}
+\DoxyCodeLine{00296\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00297\ \ \ \ \ \mbox{\hyperlink{struct_can_controller}{CanController}}\ \mbox{\hyperlink{struct_can_controller}{CanController}};}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00299\ \textcolor{comment}{\ \ \ \ \ This\ container\ contains\ the\ configuration\ (parameters)\ of\ CAN}}
+\DoxyCodeLine{00300\ \textcolor{comment}{\ \ \ \ \ Hardware\ Objects.}}
+\DoxyCodeLine{00301\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00302\ \ \ \ \ \mbox{\hyperlink{struct_can_hardware_object}{CanHardwareObject}}\ \mbox{\hyperlink{struct_can_hardware_object}{CanHardwareObject}}[Max\_Num\_HOH];}
+\DoxyCodeLine{00303\ \}\mbox{\hyperlink{struct_can_config_set}{CanConfigSet}};}
+\DoxyCodeLine{00304\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00305\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CanGeneral}}
+\DoxyCodeLine{00306\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Can}}
+\DoxyCodeLine{00307\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ parameters\ related\ each\ CAN\ Driver\ Unit.}}
+\DoxyCodeLine{00308\ \textcolor{comment}{Type:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00309\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00310\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00311\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordtype}{boolean}\ Active;}
+\DoxyCodeLine{00313\ \}\mbox{\hyperlink{struct_can_general}{CanGeneral}};}
+\DoxyCodeLine{00314\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00315\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Can}}
+\DoxyCodeLine{00316\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN}}
+\DoxyCodeLine{00317\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ holds\ the\ configuration\ of\ a\ single\ CAN\ Driver}}
+\DoxyCodeLine{00318\ \textcolor{comment}{Type:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Structure}}
+\DoxyCodeLine{00319\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00320\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00321\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{comment}{//CanGeneral\ CanGeneral;}}
+\DoxyCodeLine{00323\ \ \ \ \ \mbox{\hyperlink{struct_can_config_set}{CanConfigSet}}\ \mbox{\hyperlink{struct_can_config_set}{CanConfigSet}};}
+\DoxyCodeLine{00324\ \}\mbox{\hyperlink{struct_can___config_type}{Can\_ConfigType}};}
+\DoxyCodeLine{00325\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_can___config_type}{Can\_ConfigType}}\ Can;}
+\DoxyCodeLine{00326\ \textcolor{comment}{/*************************************************************************************}}
+\DoxyCodeLine{00327\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS}}
+\DoxyCodeLine{00328\ \textcolor{comment}{************************************************************************************/}}
+\DoxyCodeLine{00329\ \textcolor{comment}{/***********************************************************************************}}
+\DoxyCodeLine{00330\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_Init}}
+\DoxyCodeLine{00331\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x00}}
+\DoxyCodeLine{00332\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00333\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00334\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Config}}
+\DoxyCodeLine{00335\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ driver\ configuration.}}
+\DoxyCodeLine{00336\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00337\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00338\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00339\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ function\ initializes\ the\ module.}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ ********************************************************************************/}}
+\DoxyCodeLine{00341\ \textcolor{keywordtype}{void}\ Can\_Init\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_can___config_type}{Can\_ConfigType}}*\ Config);}
+\DoxyCodeLine{00342\ \textcolor{comment}{/*********************************************************************************}}
+\DoxyCodeLine{00343\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x07}}
+\DoxyCodeLine{00344\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_GetVersionInfo}}
+\DoxyCodeLine{00345\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00346\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant}}
+\DoxyCodeLine{00347\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00348\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00349\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ versioninfo}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ where\ to\ store\ the\ version\ information\ of\ this}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ module.}}
+\DoxyCodeLine{00352\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00353\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ function\ returns\ the\ version\ information\ of\ this}}
+\DoxyCodeLine{00354\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ module}}
+\DoxyCodeLine{00355\ \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{00356\ \textcolor{keywordtype}{void}\ Can\_GetVersionInfo\ (\mbox{\hyperlink{struct_std___version_info_type}{Std\_VersionInfoType}}*\ versioninfo);}
+\DoxyCodeLine{00357\ \textcolor{comment}{/********************************************************************************}}
+\DoxyCodeLine{00358\ \textcolor{comment}{\ *\ Service\ ID\ [hex]\ \ \ \ \ :\ 0x10}}
+\DoxyCodeLine{00359\ \textcolor{comment}{\ *\ \ Service\ name\ \ \ \ \ \ \ \ :\ Can\_DeInit}}
+\DoxyCodeLine{00360\ \textcolor{comment}{\ *\ \ Sync/Async\ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00361\ \textcolor{comment}{\ *\ \ Reentrancy\ \ \ \ \ \ \ \ \ \ :\ Non-\/Reentrant}}
+\DoxyCodeLine{00362\ \textcolor{comment}{\ *\ \ Parameters\ (in)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00363\ \textcolor{comment}{\ *\ \ Parameters\ (inout)\ \ :\ None}}
+\DoxyCodeLine{00364\ \textcolor{comment}{\ *\ \ Parameters\ (out)\ \ \ \ :\ None}}
+\DoxyCodeLine{00365\ \textcolor{comment}{\ *\ \ Return\ value\ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00366\ \textcolor{comment}{\ *\ \ Description\ \ \ \ \ \ \ \ \ :\ This\ function\ de-\/initializes\ the\ module.}}
+\DoxyCodeLine{00367\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00368\ \textcolor{keywordtype}{void}\ Can\_DeInit\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00369\ \textcolor{comment}{/********************************************************************************}}
+\DoxyCodeLine{00370\ \textcolor{comment}{\ *\ \ Service\ ID[hex]\ \ \ \ \ :\ 0x0f}}
+\DoxyCodeLine{00371\ \textcolor{comment}{\ *\ \ Function\ name\ \ \ \ \ \ \ :\ Can\_SetBaudrate}}
+\DoxyCodeLine{00372\ \textcolor{comment}{\ *\ \ Sync/Async\ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ *\ \ Reentrancy\ \ \ \ \ \ \ \ \ \ :\ Reentrant\ for\ different\ Controllers.}}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Non\ reentrant\ for\ the\ same\ Controller.}}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ *\ \ Parameters\ (in)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00376\ \textcolor{comment}{\ *\ \ Parameters\ (inout)\ \ :\ None}}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ *\ \ Parameters\ (out)\ \ \ \ :\ None}}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ *\ \ Return\ value\ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ *\ \ Description\ \ \ \ \ \ \ \ \ :\ This\ service\ shall\ set\ the\ baud\ rate\ configuration}}
+\DoxyCodeLine{00380\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ of\ the\ CAN\ controller.\ Depending\ on\ necessary\ baud\ rate}}
+\DoxyCodeLine{00381\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ modifications\ the\ controller\ might\ have\ to\ reset.}}
+\DoxyCodeLine{00382\ \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{00383\ Std\_ReturnType\ Can\_SetBaudrate\ (uint8\ Controller,uint16\ BaudRateConfigID);}
+\DoxyCodeLine{00384\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00385\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x12}}
+\DoxyCodeLine{00386\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_GetControllerMode}}
+\DoxyCodeLine{00387\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00388\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00389\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00390\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller\ for\ which\ the\ status\ shall\ be\ changed}}
+\DoxyCodeLine{00391\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ ControllerModePtr}}
+\DoxyCodeLine{00392\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ memory\ location,}}
+\DoxyCodeLine{00393\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ where\ the\ current\ mode\ of\ the\ CAN\ controller\ will\ be\ stored.}}
+\DoxyCodeLine{00394\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ \ None}}
+\DoxyCodeLine{00395\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00396\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (request\ accepted)}}
+\DoxyCodeLine{00397\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (request\ not\ accepted)}}
+\DoxyCodeLine{00398\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ service\ reports\ about\ the\ current\ status\ of\ the\ requested\ CAN\ controller.}}
+\DoxyCodeLine{00399\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00400\ Std\_ReturnType\ Can\_SetControllerMode\ (uint8\ Controller,Can\_ControllerStateType\ Transition);}
+\DoxyCodeLine{00401\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00402\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x04}}
+\DoxyCodeLine{00403\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_DisableControllerInterrupts}}
+\DoxyCodeLine{00404\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00405\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant}}
+\DoxyCodeLine{00406\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00407\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller\ for\ which\ interrupts\ shall\ be\ disabled.}}
+\DoxyCodeLine{00408\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00409\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00410\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00411\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ function\ disables\ all\ interrupts\ for\ this\ CAN\ controller}}
+\DoxyCodeLine{00412\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00413\ \textcolor{keywordtype}{void}\ Can\_DisableControllerInterrupts\ (uint8\ Controller);}
+\DoxyCodeLine{00414\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00415\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x05}}
+\DoxyCodeLine{00416\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_EnableControllerInterrupts}}
+\DoxyCodeLine{00417\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00418\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant}}
+\DoxyCodeLine{00419\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00420\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller\ for\ which\ interrupts\ shall\ be\ re-\/enabled.}}
+\DoxyCodeLine{00421\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00422\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00423\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ None}}
+\DoxyCodeLine{00424\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ function\ enables\ all\ allowed\ interrupts}}
+\DoxyCodeLine{00425\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00426\ \textcolor{keywordtype}{void}\ Can\_EnableControllerInterrupts\ (uint8\ Controller);}
+\DoxyCodeLine{00427\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00428\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x0b}}
+\DoxyCodeLine{00429\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_CheckWakeup}}
+\DoxyCodeLine{00430\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00431\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00432\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00433\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Controller\ to\ be\ checked\ for\ a\ wakeup.}}
+\DoxyCodeLine{00434\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00435\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00436\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00437\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (API\ call\ has\ been\ accepted)}}
+\DoxyCodeLine{00438\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (API\ call\ has\ not\ been\ accepted)}}
+\DoxyCodeLine{00439\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ function\ checks\ if\ a\ wakeup\ has\ occurred\ for\ the\ given\ controller.}}
+\DoxyCodeLine{00440\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00441\ Std\_ReturnType\ Can\_CheckWakeup\ (uint8\ Controller);}
+\DoxyCodeLine{00442\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00443\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x11}}
+\DoxyCodeLine{00444\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_GetControllerErrorState}}
+\DoxyCodeLine{00445\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00446\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00447\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00448\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller\ for\ which\ the\ status\ shall\ be\ changed}}
+\DoxyCodeLine{00449\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ ErrorStatePtr}}
+\DoxyCodeLine{00450\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ memory\ location,}}
+\DoxyCodeLine{00451\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ where\ the\ error\ state\ of\ the\ CAN\ controller\ will\ be\ stored.}}
+\DoxyCodeLine{00452\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ \ None}}
+\DoxyCodeLine{00453\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00454\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (request\ accepted)}}
+\DoxyCodeLine{00455\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (request\ not\ accepted)}}
+\DoxyCodeLine{00456\ \textcolor{comment}{\ *\ Description:\ \ This\ service\ obtains\ the\ error\ state\ of\ the\ CAN\ controller}}
+\DoxyCodeLine{00457\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00458\ Std\_ReturnType\ Can\_GetControllerErrorState\ (uint8\ ControllerId,Can\_ErrorStateType*\ ErrorStatePtr);}
+\DoxyCodeLine{00459\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00460\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x12}}
+\DoxyCodeLine{00461\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_GetControllerMode}}
+\DoxyCodeLine{00462\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00463\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant}}
+\DoxyCodeLine{00464\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00465\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller\ for\ which\ the\ status\ shall\ be\ changed}}
+\DoxyCodeLine{00466\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ ControllerModePtr}}
+\DoxyCodeLine{00467\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ memory\ location,}}
+\DoxyCodeLine{00468\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ where\ the\ current\ mode\ of\ the\ CAN\ controller\ will\ be\ stored.}}
+\DoxyCodeLine{00469\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00470\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00471\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (request\ accepted)}}
+\DoxyCodeLine{00472\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (request\ not\ accepted)}}
+\DoxyCodeLine{00473\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ service\ reports\ about\ the\ current\ status\ of\ the\ requested\ CAN\ controller.}}
+\DoxyCodeLine{00474\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00475\ Std\_ReturnType\ Can\_GetControllerMode\ (uint8\ Controller,Can\_ControllerStateType*\ ControllerModePtr);}
+\DoxyCodeLine{00476\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00477\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x30}}
+\DoxyCodeLine{00478\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_GetControllerRxErrorCounter}}
+\DoxyCodeLine{00479\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00480\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant\ for\ the\ same\ ControllerId}}
+\DoxyCodeLine{00481\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00482\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller,\ whose\ current\ Rx\ error\ counter\ shall\ be\ acquired.}}
+\DoxyCodeLine{00483\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00484\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ RxErrorCounterPtr}}
+\DoxyCodeLine{00485\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ memory\ location,\ where\ the\ current\ Rx\ error}}
+\DoxyCodeLine{00486\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counter\ of\ the\ CAN\ controller\ will\ be\ stored.}}
+\DoxyCodeLine{00487\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00488\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (Rx\ error\ counter\ available)}}
+\DoxyCodeLine{00489\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (Wrong\ ControllerId,\ or\ Rx\ error\ counter\ not\ available)}}
+\DoxyCodeLine{00490\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Returns\ the\ Rx\ error\ counter\ for\ a\ CAN\ controller.\ This\ value\ might\ not\ be\ available}}
+\DoxyCodeLine{00491\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ for\ all\ CAN\ controllers,\ in\ which\ case\ E\_NOT\_OK\ would\ be\ returned.}}
+\DoxyCodeLine{00492\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00493\ Std\_ReturnType\ Can\_GetControllerRxErrorCounter\ (uint8\ ControllerId,uint8*\ RxErrorCounterPtr);}
+\DoxyCodeLine{00494\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00495\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x31}}
+\DoxyCodeLine{00496\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_GetControllerTxErrorCounter}}
+\DoxyCodeLine{00497\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00498\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Non\ Reentrant\ for\ the\ same\ ControllerId}}
+\DoxyCodeLine{00499\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Controller}}
+\DoxyCodeLine{00500\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\ controller,\ whose\ current\ Tx\ error\ counter\ shall\ be\ acquired.}}
+\DoxyCodeLine{00501\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00502\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ TxErrorCounterPtr}}
+\DoxyCodeLine{00503\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ memory\ location,\ where\ the\ current\ Tx\ error}}
+\DoxyCodeLine{00504\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counter\ of\ the\ CAN\ controller\ will\ be\ stored.}}
+\DoxyCodeLine{00505\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00506\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (Tx\ error\ counter\ available)}}
+\DoxyCodeLine{00507\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (Wrong\ ControllerId,\ or\ Tx\ error\ counter\ not\ available)}}
+\DoxyCodeLine{00508\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ Returns\ the\ Tx\ error\ counter\ for\ a\ CAN\ controller.\ This\ value\ might\ not\ be\ available}}
+\DoxyCodeLine{00509\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ for\ all\ CAN\ controllers,\ in\ which\ case\ E\_NOT\_OK\ would\ be\ returned.}}
+\DoxyCodeLine{00510\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00511\ Std\_ReturnType\ Can\_GetControllerTxErrorCounter\ (uint8\ ControllerId,uint8*\ TxErrorCounterPtr);}
+\DoxyCodeLine{00512\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00513\ \textcolor{comment}{\ *\ Service\ ID[hex]\ \ \ \ \ \ :\ 0x06}}
+\DoxyCodeLine{00514\ \textcolor{comment}{\ *\ Service\ name\ \ \ \ \ \ \ \ \ :\ Can\_Write}}
+\DoxyCodeLine{00515\ \textcolor{comment}{\ *\ Sync/Async\ \ \ \ \ \ \ \ \ \ \ :\ Synchronous}}
+\DoxyCodeLine{00516\ \textcolor{comment}{\ *\ Reentrancy\ \ \ \ \ \ \ \ \ \ \ :\ Reentrant\ (thread-\/safe)}}
+\DoxyCodeLine{00517\ \textcolor{comment}{\ *\ Parameters\ (in)\ \ \ \ \ \ :\ Hth}}
+\DoxyCodeLine{00518\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Information\ which\ HW-\/transmit\ handle\ shall\ be\ used\ for}}
+\DoxyCodeLine{00519\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ transmit.\ Implicitly\ this\ is\ also\ the\ information\ about}}
+\DoxyCodeLine{00520\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ controller\ to\ use\ because\ the\ Hth\ numbers\ are\ unique\ inside\ one\ hardware\ unit.}}
+\DoxyCodeLine{00521\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ PduInfo}}
+\DoxyCodeLine{00522\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ SDU\ user\ memory,\ DLC\ and\ Identifier.}}
+\DoxyCodeLine{00523\ \textcolor{comment}{\ *\ Parameters\ (inout)\ \ \ :\ None}}
+\DoxyCodeLine{00524\ \textcolor{comment}{\ *\ Parameters\ (out)\ \ \ \ \ :\ None}}
+\DoxyCodeLine{00525\ \textcolor{comment}{\ *\ Return\ value\ \ \ \ \ \ \ \ \ :\ Std\_ReturnType}}
+\DoxyCodeLine{00526\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_OK\ (Write\ command\ has\ been\ accepted)}}
+\DoxyCodeLine{00527\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ E\_NOT\_OK\ (development\ error\ occurred)}}
+\DoxyCodeLine{00528\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\_BUSY\ (No\ TX\ hardware\ buffer\ available\ or\ pre-\/emptive\ call}}
+\DoxyCodeLine{00529\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ of\ Can\_Write\ that\ can't\ be\ implemented\ re-\/entrant)}}
+\DoxyCodeLine{00530\ \textcolor{comment}{\ *\ Description\ \ \ \ \ \ \ \ \ \ :\ This\ function\ is\ called\ by\ CanIf\ to\ pass\ a\ CAN\ message\ to\ CanDrv\ for\ transmission.}}
+\DoxyCodeLine{00531\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00532\ Std\_ReturnType\ Can\_Write\ (Can\_HwHandleType\ Hth,\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_can___pdu_type}{Can\_PduType}}*\ PduInfo);}
+\DoxyCodeLine{00533\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00534\ \textcolor{comment}{\ *\ Service\ ID[hex]:\ 0x08}}
+\DoxyCodeLine{00535\ \textcolor{comment}{\ *\ Service\ name\ \ \ :\ Can\_MainFunction\_Read}}
+\DoxyCodeLine{00536\ \textcolor{comment}{\ *\ Mode\ \ \ \ \ \ \ \ \ \ \ :\ Supervisor\ Mode\ (Privileged\ Mode)}}
+\DoxyCodeLine{00537\ \textcolor{comment}{\ *\ Description\ \ \ \ :\ This\ function\ performs\ the\ polling\ of\ RX\ indications\ when}}
+\DoxyCodeLine{00538\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CAN\_RX\_PROCESSING\ is\ set\ to\ POLLING.}}
+\DoxyCodeLine{00539\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00540\ \textcolor{keywordtype}{void}\ Can\_MainFunction\_Read\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00541\ \textcolor{comment}{/*************************************************************************}}
+\DoxyCodeLine{00542\ \textcolor{comment}{\ *************************************CallBack****************************}}
+\DoxyCodeLine{00543\ \textcolor{comment}{\ ************************************************************************/}}
+\DoxyCodeLine{00544\ \textcolor{keywordtype}{void}\ MCAL\_CAN\_Mailbox\_0\_Empty\_Callback(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00545\ \textcolor{keywordtype}{void}\ MCAL\_CAN\_Mailbox\_1\_Empty\_Callback(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00546\ \textcolor{keywordtype}{void}\ MCAL\_CAN\_Mailbox\_2\_Empty\_Callback(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00547\ \textcolor{keywordtype}{void}\ CanIf\_TxConfirmation(PduIdType\ CanTxPduId);}
+\DoxyCodeLine{00548\ \textcolor{keywordtype}{void}\ CanIf\_RxIndication\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_can___hw_type}{Can\_HwType}}*\ Mailbox,\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_pdu_info_type}{PduInfoType}}*\ PduInfoPtr);}
+\DoxyCodeLine{00549\ \textcolor{comment}{//void\ CanIf\_RxIndication(Can\_HwHandleType\ Hrh,\ Can\_IdType\ CanId,\ uint8\ CanDlc,\ const\ uint8*\ CanSduPtr);}}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#define\ CanIf\_ControllerModeType\ \ \ \ Can\_ControllerStateType}}
+\DoxyCodeLine{00551\ \textcolor{keywordtype}{void}\ CanIf\_ControllerModeIndication(uint8\ Controller,\ CanIf\_ControllerModeType\ ControllerMode);}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CAN\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

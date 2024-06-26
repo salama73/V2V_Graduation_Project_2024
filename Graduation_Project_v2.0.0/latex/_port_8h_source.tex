@@ -1,0 +1,246 @@
+\doxysection{Port.\+h}
+\hypertarget{_port_8h_source}{}\label{_port_8h_source}\index{PORT\_Module/Port.h@{PORT\_Module/Port.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ Port}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Port.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ This\ specification\ specifies\ the\ functionality,\ API\ and\ the\ configuration\ of\ the\ AUTOSAR}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Basic\ Software\ module\ PORT\ Driver.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ PORT\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PORT\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PORT\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ PORT\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PORT\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PORT\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PORT\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PORT\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ PORT\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ VENDOR\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}Port\_Cfg.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}Det.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ AUTOSAR\ checking\ Std\_Version}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ ((STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ PORT\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ PORT\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ PORT\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ Port\ version"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ API\ Service\ Id\ Macros}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Service\ ID\ for\ Port\_Init}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ PORT\_INIT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x00}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Service\ ID\ for\ Port\_SetPinDirection}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ PORT\_SET\_PIN\_DIR\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x01}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ Service\ ID\ for\ Port\_RefreshPortDirection}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ PORT\_REFRESH\_PORT\_DIR\_ID\ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x02}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ Service\ ID\ for\ Port\_GetVersionInfo}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ PORT\_GET\_VERSION\_INFO\_ID\ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x03}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ Service\ ID\ for\ Port\_SetPinMode}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ PORT\_SET\_PIN\_MODE\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x04}}
+\DoxyCodeLine{00052\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DET\ Error\ Codes}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *******************************************************************************/}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ Invalid\ Port\ Pin\ ID\ requested}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ PORT\_E\_PARAM\_PIN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0A}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ Port\ Pin\ not\ configured\ as\ changeable}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ PORT\_E\_DIRECTION\_UNCHANGEABLE\ \ \ \ \ \ \ (uint8)0x0B}}
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ API\ Port\_Init\ service\ called\ with\ wrong\ parameter}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ PORT\_E\_PARAM\_CONFIG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0C}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ API\ Port\_SetPinMode\ service\ called\ when\ Port\ Pin\ Mode\ passed\ not\ valid}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ PORT\_E\_PARAM\_INVALID\_MODE\ \ \ \ \ \ \ \ \ \ \ (uint8)0x0D}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ API\ Port\_SetPinMode\ service\ called\ when\ mode\ is\ unchangeable}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ PORT\_E\_MODE\_UNCHANGEABLE\ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0E}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ API\ service\ called\ without\ module\ initialization}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ PORT\_E\_UNINIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0F}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ APIs\ called\ with\ a\ Null\ Pointer}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ PORT\_E\_PARAM\_POINTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x10}}
+\DoxyCodeLine{00069\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00071\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ PORT\_NOT\_INITIALIZED\ \ \ \ 0U}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ PORT\_INITIALIZED\ \ \ \ \ \ \ \ 1U}}
+\DoxyCodeLine{00074\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ Shall\ cover\ all\ available\ port\ pins.}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ The\ type\ should\ be\ chosen\ for\ the}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ specific\ MCU\ platform\ (best\ performance).}}
+\DoxyCodeLine{00078\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \ uint8\ \ Port\_PinType\ \ \ ;}
+\DoxyCodeLine{00080\ \textcolor{comment}{//Possible\ directions\ of\ a\ port\ pin.}}
+\DoxyCodeLine{00081\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00082\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//Sets\ port\ pin\ as\ input.}}
+\DoxyCodeLine{00084\ \ \ \ \ PORT\_PIN\_IN,}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//Sets\ port\ pin\ as\ output.}}
+\DoxyCodeLine{00086\ \ \ \ \ PORT\_PIN\_OUT}
+\DoxyCodeLine{00087\ \}\ Port\_PinDirectionType\ ;}
+\DoxyCodeLine{00088\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ As\ several\ port\ pin\ modes\ shall}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ be\ configurable\ on\ one\ pin,\ the}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ range\ shall\ be\ determined\ by\ the}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ implementation.}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00094\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ PORT\_PIN\_MODE\_ADC,}
+\DoxyCodeLine{00097\ \ \ \ \ PORT\_PIN\_MODE\_CAN,}
+\DoxyCodeLine{00098\ \ \ \ \ PORT\_PIN\_MODE\_DIO,}
+\DoxyCodeLine{00099\ \ \ \ \ PORT\_PIN\_MODE\_PWM}
+\DoxyCodeLine{00100\ \}Port\_PinModeType;}
+\DoxyCodeLine{00101\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00102\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PortPin}}
+\DoxyCodeLine{00103\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PortContainer}}
+\DoxyCodeLine{00104\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Configuration\ of\ the\ individual\ port\ pins.}}
+\DoxyCodeLine{00105\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00106\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00107\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{/*The\ initial\ direction\ of\ the\ pin\ (IN\ or\ OUT).\ If\ the\ direction\ is\ not\ changeable,}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ \ \ \ \ the\ value\ configured\ here\ is\ fixed.}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ \ The\ direction\ must\ match\ the\ pin\ mode.\ E.g.\ a\ pin\ used\ for\ an\ ADC\ must\ be\ configured}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ \ \ \ to\ be\ an\ in\ port.}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00114\ \ \ \ \ Port\_PinDirectionType\ PortPinDirection\ ;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ \ Parameter\ to\ indicate\ if\ the\ direction\ is\ changeable\ on\ a\ port\ pin\ during\ runtime.\ true:}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ \ Port\ Pin\ direction\ changeable\ enabled.\ false:\ Port\ Pin\ direction\ changeable\ disabled.}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{boolean}\ PortPinDirectionChangeable;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ \ Pin\ Id\ of\ the\ port\ pin.\ This\ value\ will\ be\ assigned\ to\ the\ symbolic\ name}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ \ derived\ from\ the\ port\ pin\ container\ short\ name.}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00124\ \ \ \ \ Port\_PinType\ PortPinId;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ Port\ pin\ mode\ from\ mode\ list\ for\ use\ with\ Port\_Init()\ function}}
+\DoxyCodeLine{00126\ \ \ \ \ Port\_PinModeType\ PortPinInitialMode;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ Port\ Pin\ Level\ value\ from\ Port\ pin\ list.}}
+\DoxyCodeLine{00128\ \ \ \ \ uint8\ PortPinLevelValue;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Port\ pin\ mode\ from\ mode\ list.\ Note\ that\ more\ than\ one\ mode\ is\ allowed\ by\ default.}}
+\DoxyCodeLine{00130\ \ \ \ \ Port\_PinModeType\ PortPinMode\ ;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \ Parameter\ to\ indicate\ if\ the\ mode\ is\ changeable\ on\ a\ port\ pin\ during\ runtime.\ True:}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \ Port\ Pin\ mode\ changeable\ allowed.\ False:\ Port\ Pin\ mode\ changeable\ not\ permitted.}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{boolean}\ PortPinModeChangeable;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ Activation\ of\ internal\ pull-\/ups}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{boolean}\ Pull\_UP;}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ Slew\ rate\ contro}}
+\DoxyCodeLine{00139\ \ \ \ \ uint8\ Slew\_Rate;}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ Pin\ driven\ mode\ (push-\/pull\ /\ open\ drain).}}
+\DoxyCodeLine{00141\ \ \ \ \ uint8\ Pin\_Driven\_Mode;}
+\DoxyCodeLine{00142\ \}\ \mbox{\hyperlink{struct_port_pin}{PortPin}};}
+\DoxyCodeLine{00143\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00144\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PortContainer}}
+\DoxyCodeLine{00145\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PortConfigSet}}
+\DoxyCodeLine{00146\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container\ collecting\ the\ PortPins.}}
+\DoxyCodeLine{00147\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00148\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00149\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00150\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{struct_port_pin}{PortPin}}\ \mbox{\hyperlink{struct_port_pin}{PortPin}}[PortNumberOfPortPins];}
+\DoxyCodeLine{00152\ \}\ \mbox{\hyperlink{struct_port_container}{PortContainer}};}
+\DoxyCodeLine{00153\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00154\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PortConfigSet}}
+\DoxyCodeLine{00155\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Port}}
+\DoxyCodeLine{00156\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ parameters\ and\ sub}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ containers\ of\ the\ AUTOSAR\ Port\ module}}
+\DoxyCodeLine{00158\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00159\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{struct_port_container}{PortContainer}}\ \mbox{\hyperlink{struct_port_container}{PortContainer}};}
+\DoxyCodeLine{00163\ \}\mbox{\hyperlink{struct_port_config_set}{PortConfigSet}};}
+\DoxyCodeLine{00164\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00165\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Port}}
+\DoxyCodeLine{00166\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PORT}}
+\DoxyCodeLine{00167\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Configuration\ of\ the\ Port\ module.}}
+\DoxyCodeLine{00168\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Structure}}
+\DoxyCodeLine{00169\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00170\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00171\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{struct_port_pin}{PortPin}}\ \mbox{\hyperlink{struct_port_pin}{PortPin}}[PortNumberOfPortPins];}
+\DoxyCodeLine{00173\ \}\mbox{\hyperlink{struct_port___config_type}{Port\_ConfigType}};}
+\DoxyCodeLine{00174\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_port___config_type}{Port\_ConfigType}}\ Port;}
+\DoxyCodeLine{00175\ \textcolor{comment}{/*************************************************************************}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS}}
+\DoxyCodeLine{00177\ \textcolor{comment}{*************************************************************************/}}
+\DoxyCodeLine{00178\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00179\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x00}}
+\DoxyCodeLine{00180\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Port\_Init}}
+\DoxyCodeLine{00181\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00182\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Non\ reentrant}}
+\DoxyCodeLine{00183\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ ConfigPtr\ (Pointer\ to\ configuration\ set).}}
+\DoxyCodeLine{00184\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00185\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00186\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00187\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Initializes\ the\ Port\ Driver\ module.}}
+\DoxyCodeLine{00188\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ Port\_Init(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_port___config_type}{Port\_ConfigType}}*\ ConfigPtr\ )\ ;}
+\DoxyCodeLine{00190\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00191\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x01}}
+\DoxyCodeLine{00192\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Port\_SetPinDirection}}
+\DoxyCodeLine{00193\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00194\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00195\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Pin\ (Port\ Pin\ ID\ number)}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Direction\ (Port\ Pin\ Direction)}}
+\DoxyCodeLine{00197\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00198\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00199\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00200\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Sets\ the\ port\ pin\ direction}}
+\DoxyCodeLine{00201\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ Port\_SetPinDirection\ (\ Port\_PinType\ Pin\ ,\ Port\_PinDirectionType\ Direction\ )\ ;}
+\DoxyCodeLine{00203\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00204\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x02}}
+\DoxyCodeLine{00205\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Port\_RefreshPortDirection}}
+\DoxyCodeLine{00206\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00207\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Non\ Reentrant}}
+\DoxyCodeLine{00208\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ None}}
+\DoxyCodeLine{00209\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00210\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00211\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00212\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Refreshes\ port\ direction}}
+\DoxyCodeLine{00213\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00214\ \textcolor{keywordtype}{void}\ Port\_RefreshPortDirection\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00215\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00216\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x03}}
+\DoxyCodeLine{00217\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Port\_GetVersionInfo}}
+\DoxyCodeLine{00218\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00219\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00220\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ None}}
+\DoxyCodeLine{00221\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00222\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ versioninfo\ (Pointer\ to\ where\ to\ store\ the\ version\ information\ of\ this\ module).}}
+\DoxyCodeLine{00223\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00224\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Returns\ the\ version\ information\ of\ this\ module.}}
+\DoxyCodeLine{00225\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00226\ \textcolor{keywordtype}{void}\ Port\_GetVersionInfo\ (\ \mbox{\hyperlink{struct_std___version_info_type}{Std\_VersionInfoType}}*\ versioninfo\ )\ ;}
+\DoxyCodeLine{00227\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00228\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x04}}
+\DoxyCodeLine{00229\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Port\_SetPinMode}}
+\DoxyCodeLine{00230\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00231\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00232\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Pin\ (Port\ Pin\ ID\ number)}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Mode\ (New\ Port\ Pin\ mode\ to\ be\ set\ on\ port\ pin).}}
+\DoxyCodeLine{00234\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00235\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00236\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00237\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Mode\ New\ Port\ Pin\ mode\ to\ be\ set\ on\ port\ pin.}}
+\DoxyCodeLine{00238\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{void}\ Port\_SetPinMode\ (\ Port\_PinType\ Pin\ ,\ Port\_PinModeType\ Mode\ )\ ;}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PORT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

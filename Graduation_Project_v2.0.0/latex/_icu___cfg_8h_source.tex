@@ -1,0 +1,63 @@
+\doxysection{Icu\+\_\+\+Cfg.\+h}
+\hypertarget{_icu___cfg_8h_source}{}\label{_icu___cfg_8h_source}\index{ICU\_Module/Icu\_Cfg.h@{ICU\_Module/Icu\_Cfg.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ ICU}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Icu.\_Cfgh}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ the\ Pre-\/compile\ configuration\ of\ the\ AUTOSAR\ Basic\ Software\ module\ PWM\ Driver.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ ICU\_CFG\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ ICU\_CFG\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Pre-\/compile\ configuration\ parameters\ of\ the\ Icu\ driver.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ IcuMax\_Channel\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)4}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ Icu\_Channel\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ Icu\_Channel\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ Icu\_Channel\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)2}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ Icu\_Channel\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)3}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//Switches\ the\ development\ error\ detection\ and\ notification\ on\ or\ off.}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ IcuDevErrorDetect\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//Switch\ for\ enabling\ Wakeup\ source\ reporting.}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ IcuReportWakeupSource\ \ \ \ \ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_DeInit()\ from\ the\ code.}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ IcuDeInitApi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_DisableWakeup()\ from\ the\ code.}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ IcuDisableWakeupApi\ \ \ \ \ \ \ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//Adds\ /\ removes\ all\ services\ related\ to\ the\ edge\ counting\ functionality\ from\ the\ code.}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ IcuEdgeCountApi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//Adds\ /\ removes\ the\ services\ related\ to\ the\ edge\ detection\ functionality,\ from\ the\ code:}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ IcuEdgeDetectApi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_EnableWakeup()\ from\ the\ code.}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ IcuEnableWakeupApi\ \ \ \ \ \ \ \ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_GetDutyCycleValues()\ from\ the\ code.}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ IcuGetDutyCycleValuesApi\ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_GetInputState()\ from\ the\ code.}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ IcuGetInputStateApi\ \ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_GetTimeElapsed()\ from\ the\ code.}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ IcuGetTimeElapsedApi\ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00047\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_GetVersionInfo()\ from\ the\ code}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ IcuGetVersionInfoApi\ \ \ \ \ \ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_SetMode()\ from\ the\ code.}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ IcuSetModeApi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00051\ \textcolor{comment}{//Adds\ /\ removes\ the\ services\ Icu\_StartSignalMeasurement()\ and\ Icu\_StopSignal\ Measurement()\ from\ the\ code.}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ IcuSignalMeasurementApi\ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//Adds\ /\ removes\ all\ services\ related\ to\ the\ timestamping\ functionality\ from\ the\ code.}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ IcuTimestampApi\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Icu\_CheckWakeup()\ from\ the\ code.}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ IcuWakeupFunctionalityApi\ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ICU\_CFG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

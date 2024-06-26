@@ -1,0 +1,21 @@
+\doxysection{Event.\+h}
+\hypertarget{_event_8h_source}{}\label{_event_8h_source}\index{OSEK\_VDX/Inc/Event.h@{OSEK\_VDX/Inc/Event.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ File\ Name\ \ \ :\ Event.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Created\ on\ \ :\ 28/11/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author\ \ \ \ \ :\ Salama\ mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *****************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_EVENT\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_EVENT\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Type.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ StatusType\ SetEvent(\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ TaskName,EventMaskType\ Mask);}
+\DoxyCodeLine{00012\ StatusType\ ClearEvent(EventMaskType\ Mask);}
+\DoxyCodeLine{00013\ StatusType\ GetEvent(\mbox{\hyperlink{struct_task_ref_type}{TaskRefType}}*\ TaskName,EventMaskType*\ Event);}
+\DoxyCodeLine{00014\ StatusType\ WaitEvent(EventMaskType\ Mask);}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_EVENT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,374 @@
+\doxysection{Icu.\+h}
+\hypertarget{_icu_8h_source}{}\label{_icu_8h_source}\index{ICU\_Module/Icu.h@{ICU\_Module/Icu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ ICU}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Icu.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ This\ specification\ specifies\ the\ functionality,\ API\ and\ the\ configuration\ of\ the}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AUTOSAR\ Basic\ Software\ module\ ICU\ driver.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ ICU\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ ICU\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}Det.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}Icu\_Cfg.h"{}}}
+\DoxyCodeLine{00022\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ API\ Service\ Id\ Macros}}
+\DoxyCodeLine{00024\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ Icu\_Init\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x00}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ Icu\_DeInit\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x01}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ Icu\_SetMode\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x02}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ Icu\_SetActivationCondition\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x05}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ Icu\_DisableNotification\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x06}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ Icu\_EnableNotification\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x07}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ Icu\_GetInputState\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x08}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ Icu\_StartTimestamp\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x09}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ Icu\_StopTimestamp\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0a}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ Icu\_GetTimestampIndex\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0b}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ Icu\_StartSignalMeasurement\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x13}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ Icu\_StopSignalMeasurement\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x14}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ Icu\_GetTimeElapsed\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x10}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ Icu\_GetDutyCycleValues\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x11}}
+\DoxyCodeLine{00039\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DET\ Error\ Codes}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//API\ IS\ called\ with\ invalid\ pointer.}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_POINTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0a}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//API\ service\ used\ with\ an\ invalid\ channel\ identifier\ or\ channel\ was\ not\ configured\ for\ the\ functionality\ of\ the\ calling\ API.}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_CHANNEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0b}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//API\ service\ used\ with\ an\ invalid\ or\ not\ feasible\ activation.}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_ACTIVATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0c}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//Init\ function\ failed.}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ ICU\_E\_INIT\_FAILED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0d}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//API\ service\ used\ with\ an\ invalid\ buffer\ size.}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_BUFFER\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0e}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//API\ service\ Icu\_SetMode\ used\ with\ an\ invalid\ mode.}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x0f}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//API\ service\ used\ without\ module\ initialization}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ ICU\_E\_UNINIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x14}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//API\ service\ Icu\_SetMode\ is\ called\ while\ a\ running\ operation.}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ ICU\_E\_BUSY\_OPERATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x16}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//API\ Icu\_Init\ service\ is\ called\ and\ when\ the\ ICU\ driver\ and\ the\ Hardware\ are\ already\ initialized.}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ ICU\_E\_ALREADY\_INITIALIZED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x17}}
+\DoxyCodeLine{00060\ \textcolor{comment}{//API\ Icu\_StartTimeStamp\ is\ called\ and\ the\ parameter\ Notify\ Interval\ is\ invalid}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_NOTIFY\_INTERVAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x18}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//API\ Icu\_GetVersionInfo\ is\ called\ and\ the\ parameter\ version\ info\ is\ is\ invalid}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ ICU\_E\_PARAM\_VINFO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x19}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//API\ service\ Icu\_StopTimestamp\ called\ on\ a\ channel\ which\ was\ not\ started\ or\ already\ stopped}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ ICU\_E\_NOT\_STARTED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8)0x15}}
+\DoxyCodeLine{00066\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00068\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ Icu\_NOT\_INITIALIZED\ 0U}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ Icu\_INITIALIZED\ \ \ \ \ 1U}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ Allow\ enabling\ /\ disabling\ of\ all\ interrupts\ which\ are\ not\ required\ for\ the\ ECU\ wakeup.}}
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00073\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//\ Normal\ operation,\ all\ used\ interrupts\ are\ enabled\ according\ to\ the\ notification\ requests.}}
+\DoxyCodeLine{00075\ \ \ \ \ ICU\_MODE\_NORMAL,}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ Reduced\ power\ operation.\ In\ sleep\ mode\ only\ those}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ notifications\ are\ available\ which\ are\ configured\ as\ wakeup\ capable.}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00080\ \ \ \ \ ICU\_MODE\_SLEEP}
+\DoxyCodeLine{00081\ \}Icu\_ModeType;}
+\DoxyCodeLine{00082\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ Numeric\ identifier\ of\ an\ ICU\ channel.}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ Comment:}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ This\ is\ implementation\ specific\ but\ not\ all\ values\ may\ be\ valid\ within\ the\ type.}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ This\ type\ shall\ be\ chosen\ in\ order\ to\ have\ the\ most\ efficient\ implementation\ on}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ a\ specific\ microcontroller\ platform.}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ uint8\ Icu\_ChannelType;}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ Input\ state\ of\ an\ ICU\ channel}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ An\ activation\ edge\ has\ been\ detected}}
+\DoxyCodeLine{00094\ \ \ \ \ ICU\_ACTIVE,}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ No\ activation\ edge\ has\ been\ detected\ since\ the\ last\ call\ of\ Icu\_}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ \ GetInputState()\ or\ Icu\_Init().}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00099\ \ \ \ \ ICU\_IDLE}
+\DoxyCodeLine{00100\ \}Icu\_InputStateType;}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ Definition\ of\ the\ type\ of\ activation\ of\ an\ ICU\ channel.}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//An\ appropriate\ action\ shall\ be\ executed\ when\ a\ rising\ edge\ occurs\ on\ the\ ICU\ input\ signal.}}
+\DoxyCodeLine{00105\ \ \ \ \ ICU\_RISING\_EDGE,}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ An\ appropriate\ action\ shall\ be\ executed\ when\ a\ falling\ edge\ occurs\ on\ the\ ICU\ input\ signal.}}
+\DoxyCodeLine{00107\ \ \ \ \ ICU\_FALLING\_EDGE,}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ An\ appropriate\ action\ shall\ be\ executed\ when\ either\ a\ rising\ or\ falling\ edge\ occur\ on\ the\ ICU\ input\ signal.}}
+\DoxyCodeLine{00109\ \ \ \ \ ICU\_BOTH\_EDGES}
+\DoxyCodeLine{00110\ \}Icu\_ActivationType;}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ Width\ of\ the\ buffer\ for\ timestamp\ ticks\ and\ measured\ elapsed\ timeticks.(0\ ...\ <width\ of\ the\ timer\ register>)}}
+\DoxyCodeLine{00112\ \textcolor{keyword}{typedef}\ uint16\ Icu\_ValueType;}
+\DoxyCodeLine{00113\ \textcolor{comment}{//Type\ which\ shall\ contain\ the\ values,\ needed\ for\ calculating\ duty\ cycles.}}
+\DoxyCodeLine{00114\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ This\ shall\ be\ the\ coherent\ active-\/time\ measured\ on\ a\ channel}}
+\DoxyCodeLine{00117\ \ \ \ \ Icu\_ValueType\ ActiveTime;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//\ This\ shall\ be\ the\ coherent\ period-\/time\ measured\ on\ a\ channel}}
+\DoxyCodeLine{00119\ \ \ \ \ Icu\_ValueType\ PeriodTime;}
+\DoxyCodeLine{00120\ \}\mbox{\hyperlink{struct_icu___duty_cycle_type}{Icu\_DutyCycleType}};}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ Definition\ of\ the\ measurement\ mode\ type}}
+\DoxyCodeLine{00122\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00123\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ Mode\ for\ detecting\ edges}}
+\DoxyCodeLine{00125\ \ \ \ \ ICU\_MODE\_SIGNAL\_EDGE\_DETECT,}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Mode\ for\ measuring\ different\ times\ between\ various\ configurable\ edges}}
+\DoxyCodeLine{00127\ \ \ \ \ ICU\_MODE\_SIGNAL\_MEASUREMENT,}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//\ Mode\ for\ capturing\ timer\ values\ on\ configurable\ edges}}
+\DoxyCodeLine{00129\ \ \ \ \ ICU\_MODE\_TIMESTAMP,}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ Mode\ for\ counting\ edges\ on\ configurable\ edges}}
+\DoxyCodeLine{00131\ \ \ \ \ ICU\_MODE\_EDGE\_COUNTER}
+\DoxyCodeLine{00132\ \}Icu\_MeasurementModeType;}
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ Definition\ of\ the\ measurement\ property\ type}}
+\DoxyCodeLine{00134\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00135\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ The\ channel\ is\ configured\ for\ reading\ the\ elapsed\ Signal\ Low\ Time}}
+\DoxyCodeLine{00137\ \ \ \ \ ICU\_LOW\_TIME,}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{//\ The\ channel\ is\ configured\ for\ reading\ the\ elapsed\ Signal\ High\ Time}}
+\DoxyCodeLine{00139\ \ \ \ \ ICU\_HIGH\_TIME,}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ The\ channel\ is\ configured\ for\ reading\ the\ elapsed\ Signal\ Period\ Time}}
+\DoxyCodeLine{00141\ \ \ \ \ ICU\_PERIOD\_TIME,}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//The\ channel\ is\ configured\ to\ read\ values\ which\ are\ needed\ for\ calculating\ the\ duty\ cycle\ (coherent\ Active\ and\ Period\ Time}}
+\DoxyCodeLine{00143\ \ \ \ \ ICU\_DUTY\_CYCLE}
+\DoxyCodeLine{00144\ \}Icu\_SignalMeasurementPropertyType;}
+\DoxyCodeLine{00145\ \textcolor{comment}{//\ Definition\ of\ the\ timestamp\ measurement\ property\ type}}
+\DoxyCodeLine{00146\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//\ The\ buffer\ will\ just\ be\ filled\ once}}
+\DoxyCodeLine{00149\ \ \ \ \ ICU\_LINEAR\_BUFFER,}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ After\ reaching\ the\ end\ of\ the\ buffer,\ the\ driver\ restarts\ at\ the\ beginning\ of\ the\ buffer}}
+\DoxyCodeLine{00151\ \ \ \ \ ICU\_CIRCULAR\_BUFFER}
+\DoxyCodeLine{00152\ \}Icu\_TimestampBufferType;}
+\DoxyCodeLine{00153\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00154\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IcuSignalMeasurement}}
+\DoxyCodeLine{00155\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IcuChannel}}
+\DoxyCodeLine{00156\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ (parameters)\ in\ case}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ measurement\ mode\ is\ "{}IcuSignalMeasurement"{}}}
+\DoxyCodeLine{00158\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00159\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ \ \ \ \ Configures\ the\ property\ that\ could\ be\ measured\ in\ case\ the\ mode\ is\ "{}IcuSignal}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ \ \ \ \ Measurement"{}.\ This\ property\ can\ not\ be\ changed\ during\ runtime.}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00166\ \ \ \ \ Icu\_SignalMeasurementPropertyType\ IcuSignalMeasurementProperty;}
+\DoxyCodeLine{00167\ \}\mbox{\hyperlink{struct_icu_signal_measurement}{IcuSignalMeasurement}};}
+\DoxyCodeLine{00168\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00169\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IcuChannel}}
+\DoxyCodeLine{00170\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IcuConfigSet}}
+\DoxyCodeLine{00171\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Configuration\ of\ an\ individual\ ICU\ channel.}}
+\DoxyCodeLine{00172\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00173\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00174\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00175\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{comment}{//Channel\ Id\ of\ the\ ICU\ channel.}}
+\DoxyCodeLine{00177\ \ \ \ \ Icu\_ChannelType\ IcuChannelId;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00179\ \textcolor{comment}{\ \ \ \ \ Configures\ the\ default-\/activation-\/edge\ which\ shall\ be\ used\ for\ this\ channel\ if}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ \ \ there\ was\ no\ activation-\/edge\ configured\ by\ the\ call\ of\ service\ Icu\_SetActivation\ Condition().}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00182\ \ \ \ \ Icu\_ActivationType\ IcuDefaultStartEdge;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{comment}{//Configures\ the\ measurement\ mode\ of\ this\ channel.}}
+\DoxyCodeLine{00184\ \ \ \ \ Icu\_MeasurementModeType\ IcuMeasurementMode;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//Information\ about\ the\ wakeup-\/capability\ of\ this\ channel.}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{boolean}\ IcuWakeupCapability;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//Information\ about\ Signal\ Measurement}}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{struct_icu_signal_measurement}{IcuSignalMeasurement}}\ IcuSignal\_Measurement;}
+\DoxyCodeLine{00189\ \}\mbox{\hyperlink{struct_icu_channel}{IcuChannel}};}
+\DoxyCodeLine{00190\ \textcolor{comment}{/************************************************************************************}}
+\DoxyCodeLine{00191\ \textcolor{comment}{Name\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IcuConfigSet}}
+\DoxyCodeLine{00192\ \textcolor{comment}{Parent\ Container:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ICU}}
+\DoxyCodeLine{00193\ \textcolor{comment}{Description\ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ This\ container\ contains\ the\ configuration\ parameters\ and}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\ containers\ of\ the\ AUTOSAR\ ICU\ module.}}
+\DoxyCodeLine{00195\ \textcolor{comment}{Type\ \ \ \ \ \ \ \ \ \ \ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Container}}
+\DoxyCodeLine{00196\ \textcolor{comment}{*************************************************************************************/}}
+\DoxyCodeLine{00197\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00198\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{//This\ parameter\ contains\ the\ number\ of\ Channels\ configured}}
+\DoxyCodeLine{00200\ \ \ \ \ Icu\_ChannelType\ IcuMaxChannel;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{comment}{//Configuration\ of\ an\ individual\ ICU\ channel.}}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{struct_icu_channel}{IcuChannel}}\ \mbox{\hyperlink{struct_icu_channel}{IcuChannel}}[IcuMax\_Channel];}
+\DoxyCodeLine{00203\ \}\mbox{\hyperlink{struct_icu_config_set}{IcuConfigSet}};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ \ This\ type\ contains\ initialization\ data.}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ \ Comment:}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ \ Hardware\ and\ implementation\ dependent\ structure.\ The\ contents\ of\ the}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ \ initialization\ data\ structure\ are\ microcontroller\ specific.}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00211\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00212\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{struct_icu_config_set}{IcuConfigSet}}\ \mbox{\hyperlink{struct_icu_config_set}{IcuConfigSet}};}
+\DoxyCodeLine{00214\ \}\mbox{\hyperlink{struct_icu___config_type}{Icu\_ConfigType}};}
+\DoxyCodeLine{00215\ \textcolor{comment}{/*************************************************************************}}
+\DoxyCodeLine{00216\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS}}
+\DoxyCodeLine{00217\ \textcolor{comment}{*************************************************************************/}}
+\DoxyCodeLine{00218\ \textcolor{comment}{//callback\ notification}}
+\DoxyCodeLine{00219\ \textcolor{keywordtype}{void}\ Icu\_SignalNotification\_Channel\_0(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00220\ \textcolor{keywordtype}{void}\ Icu\_SignalNotification\_Channel\_1(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ Icu\_SignalNotification\_Channel\_2(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ Icu\_SignalNotification\_Channel\_3(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00223\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00224\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x00}}
+\DoxyCodeLine{00225\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_Init}}
+\DoxyCodeLine{00226\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00227\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Non\ Reentrant}}
+\DoxyCodeLine{00228\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ ConfigPtr}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ selected\ configuration\ structure}}
+\DoxyCodeLine{00230\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00231\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00232\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00233\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ initializes\ the\ driver.}}
+\DoxyCodeLine{00234\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00235\ \textcolor{keywordtype}{void}\ Icu\_Init\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_icu___config_type}{Icu\_ConfigType}}*\ ConfigPtr);}
+\DoxyCodeLine{00236\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00237\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x01}}
+\DoxyCodeLine{00238\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_DeInit}}
+\DoxyCodeLine{00239\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00240\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Non\ Reentrant}}
+\DoxyCodeLine{00241\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ None}}
+\DoxyCodeLine{00242\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00243\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00244\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00245\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ de-\/initializes\ the\ ICU\ module.}}
+\DoxyCodeLine{00246\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00247\ \textcolor{keywordtype}{void}\ Icu\_DeInit\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00248\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00249\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x02}}
+\DoxyCodeLine{00250\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_SetMode}}
+\DoxyCodeLine{00251\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00252\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Non\ Reentrant}}
+\DoxyCodeLine{00253\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Mode}}
+\DoxyCodeLine{00254\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ICU\_MODE\_NORMAL\ or\ ICU\_MODE\_SLEEP}}
+\DoxyCodeLine{00255\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00256\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00257\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00258\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ sets\ the\ ICU\ mode.}}
+\DoxyCodeLine{00259\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00260\ \textcolor{keywordtype}{void}\ Icu\_SetMode\ (Icu\_ModeType\ Mode);}
+\DoxyCodeLine{00261\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00262\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x05}}
+\DoxyCodeLine{00263\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_SetActivationCondition}}
+\DoxyCodeLine{00264\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00265\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00266\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel-\/-\/>Numeric\ identifier\ of\ the\ ICU\ channel}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Activation-\/-\/>Type\ of\ activation}}
+\DoxyCodeLine{00268\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00269\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00270\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00271\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ sets\ the\ activation-\/edge\ for\ the\ given\ channel.}}
+\DoxyCodeLine{00272\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00273\ \textcolor{keywordtype}{void}\ Icu\_SetActivationCondition\ (Icu\_ChannelType\ Channel,Icu\_ActivationType\ Activation);}
+\DoxyCodeLine{00274\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00275\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x06}}
+\DoxyCodeLine{00276\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_DisableNotification}}
+\DoxyCodeLine{00277\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00278\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00279\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channe}}
+\DoxyCodeLine{00281\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00282\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00283\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00284\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ disables\ the\ notification\ of\ a\ channel.}}
+\DoxyCodeLine{00285\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00286\ \textcolor{keywordtype}{void}\ Icu\_DisableNotification\ (Icu\_ChannelType\ Channel);}
+\DoxyCodeLine{00287\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00288\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x07}}
+\DoxyCodeLine{00289\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_EnableNotification}}
+\DoxyCodeLine{00290\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00291\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00292\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channe}}
+\DoxyCodeLine{00294\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00295\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00296\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00297\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ enables\ the\ notification\ on\ the\ given\ channel.}}
+\DoxyCodeLine{00298\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{void}\ Icu\_EnableNotification\ (Icu\_ChannelType\ Channel);}
+\DoxyCodeLine{00300\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00301\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x02}}
+\DoxyCodeLine{00302\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_GetInputState}}
+\DoxyCodeLine{00303\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00304\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00305\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00306\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channel}}
+\DoxyCodeLine{00307\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00308\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00309\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ Icu\_Input StateType}}
+\DoxyCodeLine{00310\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ICU\_ACTIVE\ or\ ICU\_IDLE}}
+\DoxyCodeLine{00311\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ \ This\ function\ returns\ the\ status\ of\ the\ ICU\ input.}}
+\DoxyCodeLine{00312\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00313\ Icu\_InputStateType\ Icu\_GetInputState\ (Icu\_ChannelType\ Channel);}
+\DoxyCodeLine{00314\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00315\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x13}}
+\DoxyCodeLine{00316\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_StartSignalMeasurement}}
+\DoxyCodeLine{00317\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00318\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00319\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00320\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channel}}
+\DoxyCodeLine{00321\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00322\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00323\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00324\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ starts\ the\ measurement\ of\ signals.}}
+\DoxyCodeLine{00325\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00326\ \textcolor{keywordtype}{void}\ Icu\_StartSignalMeasurement\ (Icu\_ChannelType\ Channel);}
+\DoxyCodeLine{00327\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00328\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x14}}
+\DoxyCodeLine{00329\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_StopSignalMeasurement}}
+\DoxyCodeLine{00330\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00331\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00332\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00333\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channel}}
+\DoxyCodeLine{00334\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00335\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00336\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00337\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ stops\ the\ measurement\ of\ signals\ of\ the\ given\ channel.}}
+\DoxyCodeLine{00338\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00339\ \textcolor{keywordtype}{void}\ Icu\_StopSignalMeasurement\ (Icu\_ChannelType\ Channel);}
+\DoxyCodeLine{00340\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00341\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x10}}
+\DoxyCodeLine{00342\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_GetTimeElapsed}}
+\DoxyCodeLine{00343\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00344\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00345\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00346\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channel}}
+\DoxyCodeLine{00347\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00348\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00349\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ see\ Description}}
+\DoxyCodeLine{00350\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ reads\ the\ elapsed\ Signal\ Low\ Time\ for\ the\ given\ channel.}}
+\DoxyCodeLine{00351\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00352\ Icu\_ValueType\ Icu\_GetTimeElapsed\ (Icu\_ChannelType\ Channel);}
+\DoxyCodeLine{00353\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00354\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x11}}
+\DoxyCodeLine{00355\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Icu\_GetDutyCycleValues}}
+\DoxyCodeLine{00356\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00357\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ Reentrant}}
+\DoxyCodeLine{00358\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ Channel}}
+\DoxyCodeLine{00359\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Numeric\ identifier\ of\ the\ ICU\ channel}}
+\DoxyCodeLine{00360\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00361\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ DutyCycleValues}}
+\DoxyCodeLine{00362\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pointer\ to\ a\ buffer\ where\ the\ results}}
+\DoxyCodeLine{00363\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ None}}
+\DoxyCodeLine{00364\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ This\ function\ stops\ the\ measurement\ of\ signals\ of\ the\ given\ channel.}}
+\DoxyCodeLine{00365\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00366\ \textcolor{keywordtype}{void}\ Icu\_GetDutyCycleValues\ (Icu\_ChannelType\ Channel,\mbox{\hyperlink{struct_icu___duty_cycle_type}{Icu\_DutyCycleType}}*\ DutyCycleValues);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ICU\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

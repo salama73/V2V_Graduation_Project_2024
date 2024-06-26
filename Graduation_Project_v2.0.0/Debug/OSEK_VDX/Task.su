@@ -1,0 +1,5 @@
+Task.c:37:12:ActivateTask	24	static
+Task.c:120:12:TerminateTask	16	static,ignoring_inline_asm
+Task.c:159:12:ChainTask	24	static,ignoring_inline_asm
+Task.c:294:12:Schedule	32	static,ignoring_inline_asm
+Task.c:360:12:GetTaskId	24	static,ignoring_inline_asm

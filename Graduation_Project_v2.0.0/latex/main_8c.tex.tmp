@@ -1,0 +1,74 @@
+\doxysection{Src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{Src/main.c@{Src/main.c}}
+
+
+This main file initializes an AUTOSAR project, performing initialization for all stacks, including CAN stack and other necessary modules like OS kernel. It ensures that all components are properly initialized before starting the main application.  
+
+
+{\ttfamily \#include "{}stm32f103x6.\+h"{}}\newline
+{\ttfamily \#include "{}Can.\+h"{}}\newline
+{\ttfamily \#include "{}Port.\+h"{}}\newline
+{\ttfamily \#include "{}Pwm.\+h"{}}\newline
+{\ttfamily \#include "{}Dio.\+h"{}}\newline
+{\ttfamily \#include "{}stm32\+\_\+f103c6\+\_\+\+CAN.\+h"{}}\newline
+{\ttfamily \#include "{}Icu.\+h"{}}\newline
+{\ttfamily \#include "{}stm32\+\_\+f103c6\+\_\+\+USART.\+h"{}}\newline
+{\ttfamily \#include "{}Bluetooth\+\_\+\+SWC.\+h"{}}\newline
+{\ttfamily \#include "{}Rte\+\_\+\+Type.\+h"{}}\newline
+{\ttfamily \#include "{}delay.\+h"{}}\newline
+{\ttfamily \#include "{}Ecum.\+h"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a7ee9f5fc64bd2f9b7c46716077ef0028}{Can\+\_\+\+Filter}} (void)
+\begin{DoxyCompactList}\small\item\em This function configures a CAN filter to accept or reject incoming messages based on defined criteria. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The main function initializes the ECU Manager (EcuM) module, which is responsible for managing the startup and shutdown behavior of the electronic control unit (ECU). After initialization, the function enters an infinite loop, where it remains indefinitely, allowing the ECU to perform its designated tasks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This main file initializes an AUTOSAR project, performing initialization for all stacks, including CAN stack and other necessary modules like OS kernel. It ensures that all components are properly initialized before starting the main application. 
+
+\begin{DoxyAuthor}{Author}
+Salama Mohamed \href{mailto:salamamohamedabdelaal@gmail.com}{\texttt{ salamamohamedabdelaal@gmail.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/04-\/30
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a7ee9f5fc64bd2f9b7c46716077ef0028}\label{main_8c_a7ee9f5fc64bd2f9b7c46716077ef0028} 
+\index{main.c@{main.c}!Can\_Filter@{Can\_Filter}}
+\index{Can\_Filter@{Can\_Filter}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Can\_Filter()}{Can\_Filter()}}
+{\footnotesize\ttfamily void Can\+\_\+\+Filter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function configures a CAN filter to accept or reject incoming messages based on defined criteria. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The main function initializes the ECU Manager (EcuM) module, which is responsible for managing the startup and shutdown behavior of the electronic control unit (ECU). After initialization, the function enters an infinite loop, where it remains indefinitely, allowing the ECU to perform its designated tasks. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}

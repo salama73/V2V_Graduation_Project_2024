@@ -1,0 +1,11 @@
+Icu.c:86:6:Icu_Init	24	static
+Icu.c:160:6:Icu_DeInit	16	static
+Icu.c:200:6:Icu_SetMode	24	static
+Icu.c:251:6:Icu_SetActivationCondition	16	static
+Icu.c:282:6:Icu_DisableNotification	16	static
+Icu.c:323:6:Icu_EnableNotification	16	static
+Icu.c:365:20:Icu_GetInputState	24	static
+Icu.c:404:6:Icu_StartSignalMeasurement	16	static
+Icu.c:435:6:Icu_StopSignalMeasurement	16	static
+Icu.c:465:15:Icu_GetTimeElapsed	24	static
+Icu.c:517:6:TIM3_IRQHandler	8	static

@@ -1,0 +1,74 @@
+\doxysection{stm32\+\_\+f103c6\+\_\+\+CAN.\+h}
+\hypertarget{stm32__f103c6___c_a_n_8h_source}{}\label{stm32__f103c6___c_a_n_8h_source}\index{Can\_Module/stm32\_f103c6\_CAN.h@{Can\_Module/stm32\_f103c6\_CAN.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ File\ Name\ \ \ \ :\ stm32\_f103c6\_CAN.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Created\ on\ \ \ :\ 6/9/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Author\ \ \ \ \ \ \ :\ Salama\ mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *******************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_STM32\_F103C6\_CAN\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_STM32\_F103C6\_CAN\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ **************************************************************}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *************************Include\ File\ ************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ **************************************************************}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}stm32f103x6.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{comment}{/**************************************************************/}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ uint32\ Filter\_ID;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Specifies\ the\ filter\ identification\ number}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ parameter\ must\ be\ set\ from\ range\ 0X00000000\ to\ 0XFFFFFFFF\ in\ 32\ bit\ scale}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ 16\ bit\ scale\ must\ contain\ 2\ id\ from\ range\ 0X0000\ to\ 0XFFFF\ (0X073F085F)\ ID1=0X073F\ ID2=0X085F}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ uint32\ Filter\_Mask\_ID;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Specifies\ the\ filter\ mask\ number\ or\ identification\ number,}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ parameter\ must\ be\ set\ from\ range\ 0X00000000\ to\ 0XFFFFFFFF\ in\ 32\ bit\ scale}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ 16\ bit\ scale\ must\ contain\ 2\ Mask\ from\ range\ 0X0000\ to\ 0XFFFF\ (0X073F085F)\ mask1=0X073F\ mask2=0X085F}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ uint32\ Filter\_FIFO\_Assignment;\ \ \ \ \ \ \textcolor{comment}{//\ Specifies\ the\ FIFO\ which\ will\ be\ assigned\ to\ the\ filter.}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ CAN\_Filter\_FIFO\_Assignment\_Define}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ uint32\ Filter\_Bank;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Specifies\ the\ filter\ bank\ which\ will\ be\ initialized\ from\ 0\ to\ 13}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ CAN\_Filter\_Bank\_Define}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ uint32\ Filter\_Mode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Specifies\ the\ filter\ mode\ to\ be\ initialized.}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ CAN\_Filter\_Mode\_Define}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ uint32\ Filter\_Scale;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Specifies\ the\ filter\ scale.}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ parameter\ must\ be\ set\ based\ on\ \ @\ ref\ CAN\_Filter\_Scale\_Define}}
+\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{struct_c_a_n___filter___config__t}{CAN\_Filter\_Config\_t}};}
+\DoxyCodeLine{00037\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//Macros\ Configuration\ References}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//@\ ref\ CAN\_Filter\_FIFO\_Assignment\_Define}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_FIFO\_Assignment\_FIFO0\ \ \ \ \ \ \ \ \ \ \ \ ((uint8)0)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_FIFO\_Assignment\_FIFO1\ \ \ \ \ \ \ \ \ \ \ \ ((uint8)1)}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//@\ ref\ CAN\_Filter\_Bank\_Define}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)0)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)1)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)2)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)3)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)4)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)5)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)6)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)7)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)8)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)9)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)10)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_11\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)11)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_12\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)12)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Bank\_13\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)13)}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//@\ ref\ CAN\_Filter\_Mode\_Define}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Mode\_Mask\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)0)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Mode\_List\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)1)}}
+\DoxyCodeLine{00061\ \textcolor{comment}{//@\ ref\ CAN\_Filter\_Scale\_Define}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Scale\_16\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)0)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ CAN\_Filter\_Scale\_32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8)1)}}
+\DoxyCodeLine{00064\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00065\ \textcolor{comment}{*\ *******************************APIS***********************************}}
+\DoxyCodeLine{00066\ \textcolor{comment}{*\ *********************************************************************/}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ MCAL\_CAN\_Config\_Filter(\mbox{\hyperlink{struct_c_a_n___filter___config__t}{CAN\_Filter\_Config\_t}}*\ Filter\_Config);}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_STM32\_F103C6\_CAN\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,100 @@
+\doxysection{Port\+\_\+\+Cfg.\+h}
+\hypertarget{_port___cfg_8h_source}{}\label{_port___cfg_8h_source}\index{PORT\_Module/Port\_Cfg.h@{PORT\_Module/Port\_Cfg.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ Port}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Port\_Cfg.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ \ the\ Pre-\/compile\ configuration\ of\ the\ AUTOSAR\ Basic\ Software\ module\ PORT\ Driver.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ PORT\_CFG\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ PORT\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 40}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PORT\_CFG\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ VENDOR\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100}}
+\DoxyCodeLine{00026\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ Module\ wide\ configuration\ parameters\ of\ the\ PORT\ driver.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//The\ number\ of\ specified\ PortPins\ in\ this\ PortContainer.}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ PortNumberOfPortPins\ \ \ \ 32}}
+\DoxyCodeLine{00031\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ Switches\ the\ development\ error\ detection\ and\ notification\ on\ or\ off.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ true:\ detection\ and\ notification\ is\ enabled.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ false:\ detection\ and\ notification\ is\ disabled.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ PortDevErrorDetect\ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00037\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ Pre-\/processor\ switch\ to\ enable\ /\ disable\ the\ use\ of\ the\ function\ Port\_SetPinDirection().}}
+\DoxyCodeLine{00039\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ PortSetPinDirectionApi\ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ Pre-\/processor\ switch\ to\ enable\ /\ disable\ the\ use\ of\ the\ function\ Port\_SetPinMode().}}
+\DoxyCodeLine{00043\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ PortSetPinModeApi\ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ Pre-\/processor\ switch\ to\ enable\ /\ disable\ the\ API\ to\ read\ out\ the\ modules\ version\ information.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ PortVersionInfoApi\ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ GPIO\_Pin\_Driven\_Mode\_PP\ \ \ \ \ 0}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ GPIO\_Pin\_Driven\_Mode\_OD\ \ \ \ \ 1}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ GPIO\_Slew\_Rate\_10M\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ GPIO\_Slew\_Rate\_2M\ \ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ GPIO\_Slew\_Rate\_50M\ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ PORT\_INSTANCE\_ZERO\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00055\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ [SWS\_Port\_00207]\ dThese\ symbolic\ names\ for\ the\ individual\ port\ pins\ (e.g.\ PORT\_}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ A\_PIN\_0)\ shall\ be\ defined\ in\ the\ configuration\ tool}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_0\ \ \ \ \ \ \ ((Port\_PinType)1)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_1\ \ \ \ \ \ \ ((Port\_PinType)2)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_2\ \ \ \ \ \ \ ((Port\_PinType)3)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_3\ \ \ \ \ \ \ ((Port\_PinType)4)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_4\ \ \ \ \ \ \ ((Port\_PinType)5)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_5\ \ \ \ \ \ \ ((Port\_PinType)6)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_6\ \ \ \ \ \ \ ((Port\_PinType)7)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_7\ \ \ \ \ \ \ ((Port\_PinType)8)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_8\ \ \ \ \ \ \ ((Port\_PinType)9)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_9\ \ \ \ \ \ \ ((Port\_PinType)10)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_10\ \ \ \ \ \ ((Port\_PinType)11)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_11\ \ \ \ \ \ ((Port\_PinType)12)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_12\ \ \ \ \ \ ((Port\_PinType)13)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_13\ \ \ \ \ \ ((Port\_PinType)14)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_14\ \ \ \ \ \ ((Port\_PinType)15)}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ \ PORT\_A\_PIN\_15\ \ \ \ \ \ ((Port\_PinType)16)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_0\ \ \ \ \ \ \ ((Port\_PinType)17)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_1\ \ \ \ \ \ \ ((Port\_PinType)18)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_2\ \ \ \ \ \ \ ((Port\_PinType)19)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_3\ \ \ \ \ \ \ ((Port\_PinType)20)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_4\ \ \ \ \ \ \ ((Port\_PinType)21)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_5\ \ \ \ \ \ \ ((Port\_PinType)22)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_6\ \ \ \ \ \ \ ((Port\_PinType)23)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_7\ \ \ \ \ \ \ ((Port\_PinType)24)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_8\ \ \ \ \ \ \ ((Port\_PinType)25)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_9\ \ \ \ \ \ \ ((Port\_PinType)26)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_10\ \ \ \ \ \ ((Port\_PinType)27)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_11\ \ \ \ \ \ ((Port\_PinType)28)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_12\ \ \ \ \ \ ((Port\_PinType)29)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_13\ \ \ \ \ \ ((Port\_PinType)30)}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_14\ \ \ \ \ \ ((Port\_PinType)31)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ \ PORT\_B\_PIN\_15\ \ \ \ \ \ ((Port\_PinType)32)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ \ PORT\_C\_PIN\_13\ \ \ \ \ \ ((Port\_PinType)46)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ \ PORT\_C\_PIN\_14\ \ \ \ \ \ ((Port\_PinType)47)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ \ PORT\_C\_PIN\_15\ \ \ \ \ \ ((Port\_PinType)48)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PORT\_CFG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,5 @@
+RTE_Task.c:29:1:Task1_Entry	8	static
+RTE_Task.c:39:1:Task3_Entry	8	static
+RTE_Task.c:49:1:Task4_Entry	8	static
+RTE_Task.c:59:1:Task2_Entry	16	static
+RTE_Task.c:75:6:ECUM_Init	8	static

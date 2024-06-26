@@ -1,0 +1,62 @@
+\doxysection{Det.\+h}
+\hypertarget{_det_8h_source}{}\label{_det_8h_source}\index{Common/Det.h@{Common/Det.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ Default\ Error\ Tracer\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ Det.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ This\ specification\ describes\ the\ API\ of\ the\ Default\ Error\ Tracer.\ }}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ All\ detected\ development\ and\ runtime\ errors\ in\ the\ Basic\ Software\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ are\ reported\ to\ this\ module.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00009\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ DET\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ DET\_H\_}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ DET\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 17}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ DET\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ DET\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ DET\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ DET\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ DET\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ DET\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ AUTOSAR\ checking\ Std\_Version\ }}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#if\ ((STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ DET\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ DET\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ DET\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ DET\ version"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00037\ \textcolor{comment}{/*************************************************************************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ APIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00039\ \textcolor{comment}{*************************************************************************/}}
+\DoxyCodeLine{00040\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*\ Service\ ID\ [hex]\ \ :\ \ \ 0x01}}
+\DoxyCodeLine{00042\ \textcolor{comment}{*\ Service\ Name\ \ \ \ \ \ :\ \ \ Det\_ReportError}}
+\DoxyCodeLine{00043\ \textcolor{comment}{*\ Sync/Async\ \ \ \ \ \ \ \ :\ \ \ Synchronous}}
+\DoxyCodeLine{00044\ \textcolor{comment}{*\ Reentrancy\ \ \ \ \ \ \ \ :\ \ \ reentrant}}
+\DoxyCodeLine{00045\ \textcolor{comment}{*\ Parameters\ (in)\ \ \ :\ \ \ ModuleId\ (Module\ ID\ of\ calling\ module)}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InstanceId\ (The\ identifier\ of\ the\ index\ based\ instance\ of\ a\ module)}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ApiId\ (ID\ of\ API\ service\ in\ which\ error\ is\ detected)}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ErrorId\ (ID\ of\ detected\ development\ error)}}
+\DoxyCodeLine{00049\ \textcolor{comment}{*\ Parameters\ (inout):\ \ \ None}}
+\DoxyCodeLine{00050\ \textcolor{comment}{*\ Parameters\ (out)\ \ :\ \ \ None}}
+\DoxyCodeLine{00051\ \textcolor{comment}{*\ Return\ value\ \ \ \ \ \ :\ \ \ Std\_ReturnType\ (never\ returns\ a\ value,\ but\ has\ a\ return\ type\ for\ compatibility\ with\ services\ and\ hooks)}}
+\DoxyCodeLine{00052\ \textcolor{comment}{*\ Description\ \ \ \ \ \ \ :\ \ \ Service\ to\ report\ development\ errors.}}
+\DoxyCodeLine{00053\ \textcolor{comment}{***********************************************************************/}}
+\DoxyCodeLine{00054\ Std\_ReturnType\ Det\_ReportError\ (\ uint16\ ModuleId\ ,\ uint8\ InstanceId\ ,\ uint8\ ApiId\ ,\ uint8\ ErrorId\ )\ ;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DET\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

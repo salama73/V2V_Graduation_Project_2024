@@ -1,0 +1,78 @@
+\doxysection{Com\+Stack\+\_\+\+Types.\+h}
+\hypertarget{_com_stack___types_8h_source}{}\label{_com_stack___types_8h_source}\index{Can\_Module/ComStack\_Types.h@{Can\_Module/ComStack\_Types.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ COM\_Stack}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ \ \ \ \ \ \ \ \ \ :\ ComStack\_Types.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ \ \ \ \ \ \ \ \ \ :\ This\ document\ specifies\ the\ AUTOSAR\ communication\ stack\ type\ header\ file.\ It}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ contains\ all\ types\ that\ are\ used\ across\ several\ modules\ of\ the\ communication\ stack}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ of\ the\ basic\ software\ and\ all\ types\ of\ all\ basic\ software\ modules\ that\ are\ platform\ and}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ compiler\ independent.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Salama\ Mohamed}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00010\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00015\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifndef\ COMSTACK\_TYPES\_H\_}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_H\_}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 50}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ COMSTACK\_TYPES\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ CCOMSTACK\_TYPES\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00028\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Includes}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}Std\_Types.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ AUTOSAR\ checking\ Std\_Version}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ ((STD\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION\ !=\ COMSTACK\_TYPES\_AR\_RELEASE\_MAJOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_MINOR\_VERSION\ \ !=\ COMSTACK\_TYPES\_AR\_RELEASE\_MINOR\_VERSION)\(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{||\ \ (STD\_TYPES\_AR\_RELEASE\_PATCH\_VERSION\ \ !=\ COMSTACK\_TYPES\_AR\_RELEASE\_PATCH\_VERSION))}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#error\ "{}The\ Autosar\ version\ of\ Std\_Types.h\ does\ not\ match\ the\ COM\ version"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00038\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type\ definitions}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ ****************************************************************************/}}
+\DoxyCodeLine{00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ The\ size\ of\ this\ global\ type\ depends\ on\ the\ maximum\ number\ of\ PDUs}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ used\ within\ one\ software\ module.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00045\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ [SWS\_Comtype\_00006]\ Variables\ of\ this\ type\ serve\ as\ a\ unique\ identifier\ of\ a\ PDU}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ within\ a\ software\ module\ or\ a\ set\ thereof,\ and\ also\ for\ interaction\ of\ two\ software}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ modules\ where\ the\ PduId\ of\ the\ corresponding\ target\ module\ is\ being\ used\ for}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ referencing.}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ uint8\ \ \ PduIdType;}
+\DoxyCodeLine{00052\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ The\ size\ of\ this\ global\ type\ depends\ on\ the\ maximum\ length\ of\ PDUs}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ to\ be\ sent\ by\ an\ ECU.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ uint8\ \ PduLengthType;}
+\DoxyCodeLine{00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ Variables\ of\ this\ type\ shall\ be\ used\ to\ store\ the\ basic\ information\ about\ a\ PDU\ of\ any}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ type,\ namely\ a\ pointer\ variable\ pointing\ to\ its\ SDU\ (payload),\ a\ pointer\ to\ Meta\ Data\ of}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ the\ PDU,\ and\ the\ corresponding\ length\ of\ the\ SDU\ in\ bytes.}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00063\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ \ Pointer\ to\ the\ SDU\ (i.e.\ payload\ data)\ of\ the\ PDU.\ The\ type\ of\ this\ pointer}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ \ depends\ on\ the\ memory\ model\ being\ used\ at\ compile\ time.}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00068\ \ \ \ \ uint8*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SduDataPtr;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//Length\ of\ the\ SDU\ in\ bytes.}}
+\DoxyCodeLine{00070\ \ \ \ \ PduLengthType\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SduLength;}
+\DoxyCodeLine{00071\ \}\mbox{\hyperlink{struct_pdu_info_type}{PduInfoType}};}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMSTACK\_TYPES\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

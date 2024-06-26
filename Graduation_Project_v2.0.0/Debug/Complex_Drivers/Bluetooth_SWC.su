@@ -1,0 +1,4 @@
+Bluetooth_SWC.c:20:6:Bluetooth_Init	8	static
+Bluetooth_SWC.c:36:6:MCAL_GPIO_TogglePin	8	static
+Bluetooth_SWC.c:51:6:Bluetooth_RX_Byte	16	static
+Bluetooth_SWC.c:100:6:USART1_IRQ_Call	8	static

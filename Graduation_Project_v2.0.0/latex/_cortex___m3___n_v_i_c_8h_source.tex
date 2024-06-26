@@ -1,0 +1,29 @@
+\doxysection{Cortex\+\_\+\+M3\+\_\+\+NVIC.\+h}
+\hypertarget{_cortex___m3___n_v_i_c_8h_source}{}\label{_cortex___m3___n_v_i_c_8h_source}\index{Complex\_Drivers/Inc/Cortex\_M3\_NVIC.h@{Complex\_Drivers/Inc/Cortex\_M3\_NVIC.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SWC\ \ \ \ \ \ \ \ :\ Cortex\_M3\_NVIC.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Created\ on\ :\ 10/9/2023}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author\ \ \ \ \ :\ Salama\ Mohamed}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *****************************************************/}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ INC\_CORTEX\_M3\_NVIC\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ INC\_CORTEX\_M3\_NVIC\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}stm32f103x6.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ IRQ\_DISABLE,}
+\DoxyCodeLine{00014\ \ \ \ \ IRQ\_ENABLE}
+\DoxyCodeLine{00015\ \}IRQ\_STATE;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ MCAL\_NVIC\_Enable\_IRQ(uint8\ IRQ\_Position);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ MCAL\_NVIC\_Disable\_IRQ(uint8\ IRQ\_Position);}
+\DoxyCodeLine{00019\ IRQ\_STATE\ MCAL\_NVIC\_Get\_State\_IRQ(uint8\ IRQ\_Position);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ MCAL\_Set\_Pending\_IRQ(uint8\ IRQ\_Position);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ MCAL\_Clear\_Pending\_IRQ(uint8\ IRQ\_Position);}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ MCAL\_Set\_Priority\_IRQ(uint8\ IRQ\_Position,uint8\ Priority);}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_CORTEX\_M3\_NVIC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

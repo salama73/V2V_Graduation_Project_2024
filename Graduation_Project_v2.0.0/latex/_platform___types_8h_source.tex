@@ -1,0 +1,222 @@
+\doxysection{Platform\+\_\+\+Types.\+h}
+\hypertarget{_platform___types_8h_source}{}\label{_platform___types_8h_source}\index{Common/Platform\_Types.h@{Common/Platform\_Types.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Common}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ \ \ \ \ \ \ \ \ \ :\ Platform\_Types.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ \ \ \ \ \ \ \ \ \ :\ This\ document\ specifies\ the\ AUTOSAR\ platform\ types\ header\ file.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ It\ contains\ all\ plat form\ dependent\ types\ and\ symbols.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Those\ types\ must\ be\ abstracted\ in\ order\ to\ be come\ platform\ and\ compiler\ independent}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :Salama\ Mohamed}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00009\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00014\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ PLATFORM\_TYPES\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ PLATFORM\_TYPES\_H\_}}
+\DoxyCodeLine{00017\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Source\ File\ Version\ Informations}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ PLATFORM\_VERSION\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 48}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PLATFORM\_AR\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PLATFORM\_AR\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PLATFORM\_AR\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PLATFORM\_SW\_RELEASE\_MAJOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ PLATFORM\_SW\_RELEASE\_MINOR\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ PLATFORM\_SW\_RELEASE\_PATCH\_VERSION\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Symbol\ and\ Module\ Data\ Types}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//This\ standard\ AUTOSAR\ type\ shall\ only\ be\ used\ together\ with\ the\ definitions\ TRUE\ and\ FALSE.}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ boolean\ ;\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ FALSE}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ FALSE\ \ \ \ \ \ \ (0u)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ TRUE}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ TRUE\ \ \ \ \ \ \ \ (1u)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//Indicating\ a\ 8\ bit\ processor}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ CPU\_TYPE\_8\ \ \ \ \ \ 8U}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//Indicating\ a\ 16\ bit\ processor}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ CPU\_TYPE\_16\ \ \ \ \ 16U}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//Indicating\ a\ 32\ bit\ processor}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ CPU\_TYPE\_32\ \ \ \ \ 32U}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//Indicating\ a\ 64\ bit\ processor}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ CPU\_TYPE\_64\ \ \ \ \ 64U}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//The\ most\ significant\ bit\ is\ the\ first\ bit\ of\ the\ bit\ sequence\ (\ Big\ endian\ bit\ ordering)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ MSB\_FIRST\ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//The\ least\ significant\ bit\ is\ the\ first\ bit\ of\ the\ bit\ sequence.\ (Little\ endian\ bit\ ordering\ )}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ LSB\_FIRST\ \ \ \ \ \ \ 1U}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//Within\ uint16,\ the\ high\ byte\ is\ located\ before\ the\ low\ byte.\ (\ Big\ endian\ byte\ \ ordering)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ HIGH\_BYTE\_FIRST\ \ \ \ \ 0U}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//Within\ uint16,\ the\ low\ byte\ is\ located\ before\ the\ high\ byte.\ (Little\ endian\ byte\ \ ordering\ )}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LOW\_BYTE\_FIRST\ \ \ \ \ \ 1U}}
+\DoxyCodeLine{00054\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00055\ \textcolor{comment}{This\ symbol\ shall\ be\ defined\ as\ \#define\ having\ one\ of\ the\ values\ CPU\_TYPE\_8,\ CPU\_TYPE\_16,}}
+\DoxyCodeLine{00056\ \textcolor{comment}{CPU\_TYPE\_32\ or\ CPU\_TYPE\_64\ according\ to\ the\ platform.}}
+\DoxyCodeLine{00057\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CPU\_TYPE\ \ \ \ \ \ \ \ CPU\_TYPE\_32}}
+\DoxyCodeLine{00059\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00060\ \textcolor{comment}{This\ symbol\ shall\ be\ defined\ as\ \#define\ having\ one\ of\ the\ values\ MSB\_FIRST\ or\ LSB\_FIRST}}
+\DoxyCodeLine{00061\ \textcolor{comment}{according\ to\ the\ platform}}
+\DoxyCodeLine{00062\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ CPU\_BIT\_ORDER\ \ \ LSB\_FIRST}}
+\DoxyCodeLine{00064\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{This\ symbol\ shall\ be\ defined\ as\ \#define\ having\ one\ of\ the\ values\ HIGH\_BYTE\_FIRST\ or\ LOW\_}}
+\DoxyCodeLine{00066\ \textcolor{comment}{BYTE\_FIRST\ according\ to\ the\ platform.}}
+\DoxyCodeLine{00067\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ CPU\_BYTE\_ORDER\ \ LOW\_BYTE\_FIRST}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#if\ (CPU\_TYPE==CPU\_TYPE\_8)}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 8\ bit\ unsigned.}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ UINT8\_MAX\ 255}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ UINT8\_MIN\ 0}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ uint8;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 8\ bit\ signed.}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ SINT8\_MAX\ 127}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ SINT8\_MIN\ -\/128}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ sint8;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 16\ bit\ unsigned..}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ SINT16\_MAX\ 65535}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ SINT16\_MIN\ 0}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ uint16;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 16\ bit\ signed.}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ \ \ SINT16\_MAX\ 32767}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ \ \ \ SINT16\_MIN\ -\/32768}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ \ \ sint16;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 32\ bit\ unsigned.}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ SINT32\_MAX\ 4294967295}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ SINT32\_MIN\ 0}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ \ \ \ uint32;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 32\ bit\ signed.}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ SINT32\_MAX\ 2147483647}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ \ \ \ SINT32\_MIN\ -\/2147483648}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ \ \ \ \ \ sint32;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 64\ bit\ unsigned.}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ SINT64\_MAX\ 18446744073709551615}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \ \ SINT64\_MIN\ 0}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ uint64;}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 64\ bit\ signed.}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ \ SINT64\_MAX\ 9223372036854775807}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ \ SINT64\_MIN\ -\/9223372036854775808}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ sint64;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ follow\ the\ 32-\/bit\ binary\ interchange\ format\ according\ to\ IEEE}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ 754-\/2008\ with\ encoding\ parameters\ specified\ in\ chapter\ 3.6,\ table\ 3.5,\ column\ "{}binary32"{}.}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ FLOAT32\_MAX\ 3.40282347e+38}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ FLOAT32\_MIN\ 1.17549435e-\/38}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ float32;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 8\ bit\ signed.}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ FLOAT64\_MAX\ 2.2204460492503131e-\/16}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ FLOAT64\_MIN\ 2.2250738585072014e-\/308}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ float64;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ a\ void\ pointer}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ Note:\ This\ type\ shall\ be\ used\ for\ buffers\ that\ contain\ data\ returned\ to\ the\ caller.}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ VoidPtr\ void*}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ a\ void\ pointer\ to\ const.}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ \ \ \ Note:\ This\ type\ shall\ be\ used\ for\ buffers\ that\ are\ passed\ to\ the\ callee.}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ ConstVoidPtr\ const\ void*}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#if\ (CPU\_TYPE==CPU\_TYPE\_32)}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 8\ bit\ unsigned.}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ \ UINT8\_MAX\ 255}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ \ \ \ UINT8\_MIN\ 0}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ uint8;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 8\ bit\ signed.}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ \ SINT8\_MAX\ 127}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ SINT8\_MIN\ -\/128}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ sint8;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 16\ bit\ unsigned..}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ SINT16\_MAX\ 65535}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ \ \ \ SINT16\_MIN\ 0}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ uint16;}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 16\ bit\ signed.}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ \ \ \ SINT16\_MAX\ 32767}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ \ \ \ SINT16\_MIN\ -\/32768}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ \ \ sint16;}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 32\ bit\ unsigned.}}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ \ \ \ SINT32\_MAX\ 4294967295}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ \ \ SINT32\_MIN\ 0}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ \ \ \ uint32;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 32\ bit\ signed.}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ \ \ \ SINT32\_MAX\ 2147483647}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ \ \ \ SINT32\_MIN\ -\/2147483648}}
+\DoxyCodeLine{00177\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ \ \ \ \ \ sint32;}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 64\ bit\ unsigned.}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ \ SINT64\_MAX\ 18446744073709551615}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ \ SINT64\_MIN\ 0}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ uint64;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00186\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ 64\ bit\ signed.}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ \ \ SINT64\_MAX\ 9223372036854775807}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ \ \ \ SINT64\_MIN\ -\/9223372036854775808}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ sint64;}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ follow\ the\ 32-\/bit\ binary\ interchange\ format\ according\ to\ IEEE}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ \ \ \ 754-\/2008\ with\ encoding\ parameters\ specified\ in\ chapter\ 3.6,\ table\ 3.5,\ column\ "{}binary32"{}.}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ \ FLOAT32\_MAX\ 3.40282347e+38}}
+\DoxyCodeLine{00195\ \textcolor{comment}{\ \ \ \ FLOAT32\_MIN\ 1.17549435e-\/38}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ float32;}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ of\ 8\ bit\ signed.}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ \ \ \ FLOAT64\_MAX\ 2.2204460492503131e-\/16}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ \ \ \ FLOAT64\_MIN\ 2.2250738585072014e-\/308}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ float64;}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ a\ void\ pointer}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ \ \ \ Note:\ This\ type\ shall\ be\ used\ for\ buffers\ that\ contain\ data\ returned\ to\ the\ caller.}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ VoidPtr\ void*}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\ \ \ \ This\ standard\ AUTOSAR\ type\ shall\ be\ a\ void\ pointer\ to\ const.}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ \ \ \ Note:\ This\ type\ shall\ be\ used\ for\ buffers\ that\ are\ passed\ to\ the\ callee.}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \#define\ \ ConstVoidPtr\ const\ void*}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PLATFORM\_TYPES\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

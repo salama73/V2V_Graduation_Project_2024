@@ -1,0 +1,79 @@
+\doxysection{Dio\+\_\+\+Cfg.\+h}
+\hypertarget{_dio___cfg_8h_source}{}\label{_dio___cfg_8h_source}\index{DIO\_Module/Dio\_Cfg.h@{DIO\_Module/Dio\_Cfg.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*\ @Module\ \ \ \ \ \ :\ \ \ \ \ Dio}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ @File\ Name\ \ \ :\ \ \ \ \ Dio\_Cfg.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ @Description\ :\ \ \ \ \ the\ Pre-\/compile\ configuration\ of\ the\ AUTOSAR\ Basic\ Software\ module\ Dio\ Driver.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*\ Author\ \ \ \ \ \ \ :\ \ \ \ \ Salama\ Mohamed}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*******************************************************************************/}}
+\DoxyCodeLine{00007\ \textcolor{comment}{/******************************************************************************}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ Project\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Graduation\_Project\_2024}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ Platform\ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ STM32F103C8}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ Autosar\ Version\ \ \ \ \ \ \ :\ 4.8.0}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ SW\ Version\ \ \ \ \ \ \ \ \ \ \ \ :\ 1.0.0}}
+\DoxyCodeLine{00012\ \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ DIO\_CFG\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ DIO\_CFG\_H\_}}
+\DoxyCodeLine{00015\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ General\ DIO\ module\ configuration\ parameters.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//Switches\ the\ development\ error\ detection\ and\ notification\ on\ or\ off.}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ DioDevErrorDetect\ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Dio\_FlipChannel()\ from\ the\ code.}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ DioFlipChannelApi\ \ \ \ \ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Dio\_MaskedWritePort()\ from\ the\ code.}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ DioMaskedWritePortApi\ \ \ \ \ \ \ FALSE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//Adds\ /\ removes\ the\ service\ Dio\_\ GetVersionInfo()\ from\ the\ code.}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ DioVersionInfoApi\ \ \ \ \ \ \ \ \ \ \ TRUE}}
+\DoxyCodeLine{00026\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Configuration\ of\ individual\ DIO\ ports.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{****************************************************************************/}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//Numeric\ identifier\ of\ the\ DIO\ port.}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ DioPort\_A\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_PortType)0}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ DioPort\_B\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_PortType)1}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ DioPort\_C\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_PortType)2}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//Channel\ Id\ of\ the\ DIO\ channel.}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ channel\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)0}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ channel\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)1}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ channel\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)2}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ channel\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)3}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ channel\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)4}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ channel\_5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)5}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ channel\_6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)6}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ channel\_7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)7}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ channel\_8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)8}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ channel\_9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)9}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ channel\_10\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)10}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ channel\_11\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)11}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ channel\_12\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)12}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ channel\_13\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)13}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ channel\_14\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)14}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ channel\_15\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)15}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ channel\_16\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)16}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ channel\_17\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)17}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ channel\_18\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)18}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ channel\_19\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)19}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ channel\_20\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)20}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ channel\_21\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)21}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ channel\_22\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)22}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ channel\_23\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)23}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ channel\_24\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)24}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ channel\_25\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)25}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ channel\_26\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)26}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ channel\_27\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)27}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ channel\_28\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)28}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ channel\_29\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)29}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ channel\_30\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)30}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ channel\_31\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)31}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ channel\_32\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)32}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ channel\_45\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)45}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ channel\_46\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)46}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ channel\_47\ \ \ \ \ \ \ \ \ \ \ \ \ \ (Dio\_ChannelType)47}}
+\DoxyCodeLine{00070\ \textcolor{comment}{//Number\ of\ channel}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ MAX\_Number\_Channel\ \ \ \ \ \ (Dio\_ChannelType)47}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ DIO\_INSTANCE\_ZERO\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DIO\_CFG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
